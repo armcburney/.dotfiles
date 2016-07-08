@@ -1,0 +1,7 @@
+New log file opened at Fri Jul 08 17:01:22 EDT 2016 by 80558@v1020-wn-184-230.campus-dynamic.uwaterloo.ca
+Taking next connection to: 53281
+New client attempting to connect on port: 53282-53281
+  Address = /10.20.184.230:53281
+This client on port 53282 has uuid 6e166770-cafa-443f-bb4e-2ec1737ce3d8 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-6e166770-cafa-443f-bb4e-2ec1737ce3d8
+Taking next connection to: 53281
