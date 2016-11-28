@@ -1,4 +1,6 @@
 filetype plugin indent on
+
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -7,6 +9,10 @@ set shiftwidth=4
 set expandtab
 " set relative line numbering
 set relativenumber
+" Always show statusline
+set laststatus=2
+" Use 256 colours
+set t_Co=256
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -22,4 +28,3 @@ if (empty($TMUX))
 endif
 
 syntax on
-"colorscheme onedark
