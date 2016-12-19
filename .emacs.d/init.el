@@ -47,6 +47,10 @@
 (use-package ensime
   :ensure t
   :pin melpa-stable)
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-center-evil-theme))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -55,6 +59,9 @@
  ;; If there is more than one, they won't work right.
  '(display-battery-mode t)
  '(display-time-mode t)
+ '(package-selected-packages
+   (quote
+    (relative-line-numbers powerline use-package evil ensime)))
  '(scroll-bar-mode nil)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
