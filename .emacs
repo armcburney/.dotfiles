@@ -11,3 +11,8 @@
 (scroll-bar-mode -1)
 ;; disable tool bar
 (tool-bar-mode -1)
+
+;; Packages
+(push "~/.emacs.d/evil" 'load-path)
+(require 'evil)
+(evil-mode 1)
