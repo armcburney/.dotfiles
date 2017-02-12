@@ -2,6 +2,8 @@
 # My ~/.zshrc file
 #
 
+unsetopt nomatch
+
 # Exports
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH=/Users/andrewmcburney/.oh-my-zsh
@@ -85,6 +87,7 @@ function cd { builtin cd "$@" && ls }
 
 # Aliases
 alias a="clear"
+alias em="emacs -nw"
 alias sk="skeleton"
 alias sshuw='ssh -Y armcburn@linux.student.cs.uwaterloo.ca'
 alias ssham='ssh root@138.197.135.132'
