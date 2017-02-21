@@ -86,8 +86,16 @@ source $ZSH/oh-my-zsh.sh
 function cd { builtin cd "$@" && ls }
 
 # Aliases
-alias a="clear"
-alias em="emacs -nw"
-alias sk="skeleton"
+
+# emacs
+alias ed="emacs --daemon"
+alias ek="emacsclient -e \"(kill-emacs)\""
+alias em="emacsclient -t"
+
+# ssh
 alias sshuw='ssh -Y armcburn@linux.student.cs.uwaterloo.ca'
 alias ssham='ssh root@138.197.135.132'
+
+# other
+alias a="clear"
+alias sk="skeleton"

@@ -109,14 +109,21 @@
 (defun dotspacemacs/user-init ()
   "Initialization function for user code."
   ;; Change to transparent background after-init
-  (defun on-after-init ()
-    (unless (display-graphic-p (selected-frame))
-      (set-face-background 'default "unspecified-bg" (selected-frame))))
-  (add-hook 'window-setup-hook 'on-after-init)
+  ;;(defun on-after-init ()
+  ;;  (unless (display-graphic-p (selected-frame))
+  ;;    (set-face-background 'default "unspecified-bg" (selected-frame))))
+  ;;(add-hook 'window-setup-hook 'on-after-init)
   )
 
 (defun dotspacemacs/user-config ()
   "User config code"
+  (add-hook 'after-make-frame-functions
+            '(lambda (frame)
+               (select-frame frame)
+               (if window-system
+                   nil
+                 (unless (display-graphic-p (selected-frame))
+                   (set-face-background 'default "unspecified-bg" (selected-frame))))))
   ;; Chrome emacs
   (load "~/.emacs.d/private/edit-server.el")
   (require 'edit-server)
@@ -143,6 +150,11 @@
     (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
   ;; Adds space between line-number in terminal mode
   (unless (display-graphic-p)
+    ;; Load evil cursor changer mode
+    (load "~/.emacs.d/private/evil-terminal-cursor-changer.el")
+    (require 'evil-terminal-cursor-changer)
+    (evil-terminal-cursor-changer-activate) ; or (etcc-on)
+    ;; Add space for line number in terminal mode
     (setq linum-relative-format "%3s ")))
 
 (custom-set-variables

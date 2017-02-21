@@ -1,4 +1,6 @@
 require "hybrid"
+local weather = require("hs-weather")
+weather.start()
 
 -- Set up hotkey combinations
 local mash      = {"cmd", "alt", "ctrl"}
