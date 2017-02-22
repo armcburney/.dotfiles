@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
--- hybrid.lua
+-- hs-hybrid
 --
 -- System-wide Vim and Emacs keybindings for Mac
--- @author Andrew McBurney
+-- @author: Andrew McBurney
 --------------------------------------------------------------------------------
 
 -- History of vim commands, max size of 10
@@ -97,7 +97,10 @@ normal:bind({}, 'j', down, nil, down)
 normal:bind({}, 'w', forward_word, nil, forward_word)
 normal:bind({}, 'e', forward_word, nil, forward_word)
 normal:bind({}, 'b', backward_word, nil, backward_word)
+
+-- $
 normal:bind({"shift"}, '4', forward_line, nil, forward_line)
+-- ^
 normal:bind({"shift"}, '6', backward_line, nil, backward_line)
 
 -- Deletion related bindings
@@ -106,6 +109,7 @@ normal:bind({}, 'x', fndelete, nil, fndelete)
 
 -- Enter insert mode
 normal:bind({}, 'i', function()
+  print("i")
   normal:exit()
   emacs:enter()
   notify_user(
