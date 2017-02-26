@@ -15,7 +15,6 @@
      html
      java
      javascript
-     typescript
      lua
      markdown
      python
@@ -23,6 +22,7 @@
      scala
      shell
      swift
+     typescript
      yaml
      ;; Other
      dash
@@ -108,11 +108,6 @@
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code."
-  ;; Change to transparent background after-init
-  ;;(defun on-after-init ()
-  ;;  (unless (display-graphic-p (selected-frame))
-  ;;    (set-face-background 'default "unspecified-bg" (selected-frame))))
-  ;;(add-hook 'window-setup-hook 'on-after-init)
   )
 
 (defun dotspacemacs/user-config ()
@@ -124,37 +119,43 @@
                    nil
                  (unless (display-graphic-p (selected-frame))
                    (set-face-background 'default "unspecified-bg" (selected-frame))))))
+
   ;; Chrome emacs
   (load "~/.emacs.d/private/edit-server.el")
   (require 'edit-server)
   (edit-server-start)
+
   ;; For gmail integration.
   (load "~/.emacs.d/private/edit-server-htmlize.el")
   (autoload 'edit-server-maybe-dehtmlize-buffer "edit-server-htmlize" "edit-server-htmlize" t)
   (autoload 'edit-server-maybe-htmlize-buffer   "edit-server-htmlize" "edit-server-htmlize" t)
   (add-hook 'edit-server-start-hook 'edit-server-maybe-dehtmlize-buffer)
   (add-hook 'edit-server-done-hook  'edit-server-maybe-htmlize-buffer)
+
   ;; Emacs Lisp emerald mode
   (load "~/Coding/emerald/emerald-emacs/emerald-mode.el")
   (require 'emerald-mode)
+
   ;; Use zsh for multi-term
   (setq multi-term-program "/bin/zsh")
-  ;; Set startup notifications off
+
+  ;; Set ensime startup notifications off
   (setq ensime-startup-notification nil)
   (setq ensime-startup-snapshot-notification nil)
+
   ;; powerline separator
   (setq powerline-default-separator 'utf-8)
+
   ;; Enable mouse support
   (unless window-system
     (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
     (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
+
   ;; Adds space between line-number in terminal mode
   (unless (display-graphic-p)
-    ;; Load evil cursor changer mode
     (load "~/.emacs.d/private/evil-terminal-cursor-changer.el")
     (require 'evil-terminal-cursor-changer)
-    (evil-terminal-cursor-changer-activate) ; or (etcc-on)
-    ;; Add space for line number in terminal mode
+    (evil-terminal-cursor-changer-activate)
     (setq linum-relative-format "%3s ")))
 
 (custom-set-variables
@@ -167,6 +168,8 @@
  '(ansi-color-names-vector
    ["#424242" "#EF9A9A" "#C5E1A5" "#FFEE58" "#64B5F6" "#E1BEE7" "#80DEEA" "#E0E0E0"])
  '(beacon-color "#ec4780")
+ '(blink-cursor-mode nil)
+ '(column-number-mode t)
  '(evil-emacs-state-cursor (quote ("#E57373" hbar)) t)
  '(evil-insert-state-cursor (quote ("#E57373" bar)) t)
  '(evil-normal-state-cursor (quote ("#FFEE58" box)) t)
@@ -189,6 +192,7 @@
  '(pos-tip-background-color "#3a3a3a")
  '(pos-tip-foreground-color "#9E9E9E")
  '(tabbar-background-color "#353535")
+ '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
    (quote
@@ -216,4 +220,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil :family "SourceCodePro+Powerline+Awesome Regular" :foundry "nil" :slant normal :weight normal :height 60 :width normal)))))

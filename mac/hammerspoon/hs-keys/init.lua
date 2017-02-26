@@ -30,13 +30,22 @@ hs.hotkey.bind(mash,      '-', function() hs.grid.adjustWidth(-1)  end)
 hs.hotkey.bind(mashshift, '=', function() hs.grid.adjustHeight(1)  end)
 hs.hotkey.bind(mashshift, '-', function() hs.grid.adjustHeight(-1) end)
 
-hs.hotkey.bind(mashshift, 'left',  function() hs.window.focusedWindow():focusWindowWest()  end)
-hs.hotkey.bind(mashshift, 'right', function() hs.window.focusedWindow():focusWindowEast()  end)
+hs.hotkey.bind(mashshift, 'left',
+               function() hs.window.focusedWindow():focusWindowWest()
+end)
+hs.hotkey.bind(mashshift, 'right',
+               function() hs.window.focusedWindow():focusWindowEast()
+end)
 hs.hotkey.bind(mashshift, 'up',    function() hs.window.focusedWindow():focusWindowNorth() end)
 hs.hotkey.bind(mashshift, 'down',  function() hs.window.focusedWindow():focusWindowSouth() end)
 
 hs.hotkey.bind(mash, 'M', hs.grid.maximizeWindow)
-hs.hotkey.bind(mash, 'F', function() hs.window.focusedWindow():toggleFullScreen() end)
+
+-- Toggle full screen for focused window
+hs.hotkey.bind(mash, 'F', function()
+  hs.window.focusedWindow():toggleFullScreen()
+end)
+
 hs.hotkey.bind(mash, 'N', hs.grid.pushWindowNextScreen)
 hs.hotkey.bind(mash, 'P', hs.grid.pushWindowPrevScreen)
 hs.hotkey.bind(mash, 'J', hs.grid.pushWindowDown)
@@ -47,16 +56,3 @@ hs.hotkey.bind(mash, 'U', hs.grid.resizeWindowTaller)
 hs.hotkey.bind(mash, 'O', hs.grid.resizeWindowWider)
 hs.hotkey.bind(mash, 'I', hs.grid.resizeWindowThinner)
 hs.hotkey.bind(mash, 'Y', hs.grid.resizeWindowShorter)
-
-hs.hotkey.bind(mashshift, 'space', hs.spotify.displayCurrentTrack)
-hs.hotkey.bind(mashshift, 'P',     hs.spotify.play)
-hs.hotkey.bind(mashshift, 'O',     hs.spotify.pause)
-hs.hotkey.bind(mashshift, 'N',     hs.spotify.next)
-hs.hotkey.bind(mashshift, 'I',     hs.spotify.previous)
-
--- iTunes related bindings
-hs.hotkey.bind(funkymash, 'space', hs.itunes.displayCurrentTrack)
-hs.hotkey.bind(funkymash, 'P',     hs.itunes.play)
-hs.hotkey.bind(funkymash, 'O',     hs.itunes.pause)
-hs.hotkey.bind(funkymash, 'N',     hs.itunes.next)
-hs.hotkey.bind(funkymash, 'I',     hs.itunes.previous)
