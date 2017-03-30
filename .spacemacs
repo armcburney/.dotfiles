@@ -53,8 +53,8 @@
                                 (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(lush
-                         atom-one-dark)
+   dotspacemacs-themes '(atom-one-dark
+                         minimal-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10
@@ -111,6 +111,7 @@
 
 (defun dotspacemacs/user-config ()
   "User config code"
+  ;; sets the background to transparent if emacs is being run from the terminal
   (add-hook 'after-make-frame-functions
             '(lambda (frame)
                (select-frame frame)
@@ -118,6 +119,22 @@
                    nil
                  (unless (display-graphic-p (selected-frame))
                    (set-face-background 'default "unspecified-bg" (selected-frame))))))
+
+  ;; set window transparency
+  (set-frame-parameter (selected-frame) 'alpha '(85 85))
+  (add-to-list 'default-frame-alist '(alpha 85 85))
+
+
+  ;; Set the max line column to 120 characters per line
+  (add-hook 'org-mode-hook
+            '(lambda ()
+               (setq fill-column 120)))
+
+  ;; Run multi-term as a login shell
+  (setq multi-term-program-switches "--login")
+
+  ;; Java, C, C++ indentation
+  (setq c-basic-offset 2)
 
   ;; Chrome emacs
   (load "~/.emacs.d/private/edit-server.el")
@@ -130,10 +147,6 @@
   (autoload 'edit-server-maybe-htmlize-buffer   "edit-server-htmlize" "edit-server-htmlize" t)
   (add-hook 'edit-server-start-hook 'edit-server-maybe-dehtmlize-buffer)
   (add-hook 'edit-server-done-hook  'edit-server-maybe-htmlize-buffer)
-
-  ;; set transparency
-  (set-frame-parameter (selected-frame) 'alpha '(85 85))
-  (add-to-list 'default-frame-alist '(alpha 85 85))
 
   ;; Emacs Lisp emerald mode
   (load "~/Coding/emerald/emerald-emacs/emerald-mode.el")
@@ -222,4 +235,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil :family "Source Code Pro" :foundry "nil" :slant normal :weight normal :height 100 :width normal)))))
+ '(default ((t (:background nil :family "SourceCodePro+Powerline+Awesome Regular" :foundry "nil" :slant normal :weight normal :height 100 :width normal)))))
