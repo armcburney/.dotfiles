@@ -1,5 +1,10 @@
 ;; -*- mode: emacs-lisp -*-
 
+;; *****************************************************************************
+;; My .spacemacs configuration file
+;; Maintained by: Andrew McBurney
+;; *****************************************************************************
+
 (defun dotspacemacs/layers ()
   (setq-default
    dotspacemacs-distribution 'spacemacs
@@ -8,7 +13,9 @@
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
-     ;; Languages
+     ;; ************************************************************************
+     ;; Language Specific
+     ;; ************************************************************************
      c-c++
      emacs-lisp
      erlang
@@ -31,7 +38,10 @@
      swift
      typescript
      yaml
+
+     ;; ************************************************************************
      ;; Other
+     ;; ************************************************************************
      dash
      slack
      pdf-tools
@@ -122,6 +132,15 @@
 
 (defun dotspacemacs/user-config ()
   "User config code"
+
+  ;; ***************************************************************************
+  ;; Startup
+  ;; ***************************************************************************
+
+  ;; Set ensime startup notifications off
+  (setq ensime-startup-notification nil)
+  (setq ensime-startup-snapshot-notification nil)
+
   ;; sets the background to transparent if emacs is being run from the terminal
   (add-hook 'after-make-frame-functions
             '(lambda (frame)
@@ -135,53 +154,50 @@
   (set-frame-parameter (selected-frame) 'alpha '(85 85))
   (add-to-list 'default-frame-alist '(alpha 85 85))
 
+  ;; ***************************************************************************
+  ;; Language Specific
+  ;; ***************************************************************************
+
   ;; Use default version of rvm
   (rvm-use-default)
 
   ;; Use c++ 11
   (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
 
-  ;; Fix Identation in JS
+  ;; ***************************************************************************
+  ;; Indentation
+  ;; ***************************************************************************
+
+  ;; Java, C, C++ indentation
+  (setq c-basic-offset 2)
+
+  ;; Fix indentation in JavaScript
   (setq js-indent-level                 2
         js2-basic-offset                2
         js-switch-indent-offset         2
         js2-indent-switch-body          2
         js2-strict-missing-semi-warning t)
 
-  ;; Turn on visual line mode
-  (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
-
-  ;; Set the max line column to 120 characters per line
-  (setq line-move-visual 120)
-
-  ;; Run multi-term as a login shell
-  (setq multi-term-program-switches "--login")
-
-  ;; Java, C, C++ indentation
-  (setq c-basic-offset 2)
-
-  ;; Chrome emacs
-  (load "~/.emacs.d/private/edit-server.el")
-  (require 'edit-server)
-  (edit-server-start)
-
-  ;; For gmail integration.
-  (load "~/.emacs.d/private/edit-server-htmlize.el")
-  (autoload 'edit-server-maybe-dehtmlize-buffer "edit-server-htmlize" "edit-server-htmlize" t)
-  (autoload 'edit-server-maybe-htmlize-buffer   "edit-server-htmlize" "edit-server-htmlize" t)
-  (add-hook 'edit-server-start-hook 'edit-server-maybe-dehtmlize-buffer)
-  (add-hook 'edit-server-done-hook  'edit-server-maybe-htmlize-buffer)
+  ;; ***************************************************************************
+  ;; Emerald
+  ;; ***************************************************************************
 
   ;; Emacs Lisp emerald mode
   (load "~/Coding/emerald/emerald-emacs/emerald-mode.el")
   (require 'emerald-mode)
 
+  ;; ***************************************************************************
+  ;; Other
+  ;; ***************************************************************************
+
+  ;; Run multi-term as a login shell
+  ;;(setq multi-term-program-switches "--login")
+
+  ;; Turn on visual line mode
+  (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
   ;; Use zsh for multi-term
   (setq multi-term-program "/bin/zsh")
-
-  ;; Set ensime startup notifications off
-  (setq ensime-startup-notification nil)
-  (setq ensime-startup-snapshot-notification nil)
 
   ;; powerline separator (utf-8)
   (setq powerline-default-separator 'utf-8)
