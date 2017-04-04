@@ -19,7 +19,7 @@ export UPDATE_ZSH_DAYS=7
 # ******************************************************************************
 
 # Theme
-ZSH_THEME="pure"
+ZSH_THEME="refined"
 
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"

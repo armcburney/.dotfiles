@@ -47,7 +47,7 @@
      pdf-tools
      emoji
      chrome
-     helm
+     ivy
      search-engine
      auto-completion
      better-defaults
@@ -99,10 +99,6 @@
    dotspacemacs-large-file-size 1
    dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-max-rollback-slots 5
-   dotspacemacs-helm-resize nil
-   dotspacemacs-helm-no-header nil
-   dotspacemacs-helm-position 'bottom
-   dotspacemacs-helm-use-fuzzy 'always
    dotspacemacs-enable-paste-transient-state nil
    dotspacemacs-which-key-delay 0.4
    dotspacemacs-which-key-position 'bottom
@@ -191,7 +187,7 @@
   ;; ***************************************************************************
 
   ;; Run multi-term as a login shell
-  ;;(setq multi-term-program-switches "--login")
+  (setq multi-term-program-switches "--login")
 
   ;; Turn on visual line mode
   (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
