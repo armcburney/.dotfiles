@@ -14,8 +14,9 @@
    dotspacemacs-configuration-layers
    '(
      ;; ************************************************************************
-     ;; Language Specific
+     ;; Language Layers
      ;; ************************************************************************
+
      c-c++
      emacs-lisp
      erlang
@@ -31,8 +32,6 @@
      scala
      (shell :variables
             shell-default-shell 'ansi-term
-            shell-default-position  'bottom
-            shell-default-height 30
             shell-default-term-shell "/bin/zsh")
      sql
      swift
@@ -42,12 +41,13 @@
      ;; ************************************************************************
      ;; Other
      ;; ************************************************************************
+
      dash
      slack
      pdf-tools
      emoji
      chrome
-     ivy
+     helm
      search-engine
      auto-completion
      better-defaults
@@ -99,6 +99,10 @@
    dotspacemacs-large-file-size 1
    dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-max-rollback-slots 5
+   dotspacemacs-helm-resize nil
+   dotspacemacs-helm-no-header t
+   dotspacemacs-helm-position 'bottom
+   dotspacemacs-helm-use-fuzzy 'always
    dotspacemacs-enable-paste-transient-state nil
    dotspacemacs-which-key-delay 0.4
    dotspacemacs-which-key-position 'bottom
@@ -185,6 +189,9 @@
   ;; ***************************************************************************
   ;; Other
   ;; ***************************************************************************
+
+  ;; autocomplete in every buffer
+  (global-company-mode t)
 
   ;; Run multi-term as a login shell
   (setq multi-term-program-switches "--login")
