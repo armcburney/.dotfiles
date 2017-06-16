@@ -17,34 +17,90 @@
      ;; Language Layers
      ;; ************************************************************************
 
-     c-c++
+     ;; C/C++ layer
+     ;; Based on Google's C++ style guide
+     (c-c++ :variables
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-clang-support t
+            standard-indent 2
+            set-fill-column 80)
+
      emacs-lisp
-     erlang
      html
-     java
-     javascript
-     lua
+
+     ;; Java layer
+     ;; Based on Google's Java style guide
+     (java :variables
+           standard-indent 2
+           set-fill-column 100)
+
+     ;; JavaScript layer
+     ;; Based on AirBnb's JS style guide
+     (javascript :variables
+                 standard-indent 2
+                 set-fill-column 100)
+
+     ;; Lua layer
+     ;; Based on Olivine Labs style guide
+     (lua :variables
+          standard-indent 2
+          set-fill-column 80)
+
      markdown
-     python
+
+     ;; Python layer
+     ;; Based on PEP8 specification
+     (python :variables
+             set-fill-column 80)
+
+     ;; Ruby layer
+     ;; Based on Rubocop specification
      (ruby :variables
-           ruby-version-manager `rvm)
+           ruby-version-manager `rvm
+           set-fill-column 80)
+
      ruby-on-rails
-     scala
+
+     ;; Scala layer
+     ;; Based on Databricks Scala style guide
+     (scala :variables
+            scala-indent:use-javadoc-style t
+            scala-use-java-doc-style t
+            scala-auto-insert-asterisk-in-comments t
+            scala-use-unicode-arrows t
+            scala-auto-start-ensime t
+            set-fill-column 100)
+
+     ;; Shell layer
      (shell :variables
             shell-default-shell 'ansi-term
             shell-default-term-shell "/bin/zsh")
+
      sql
+
      swift
-     typescript
+
+     ;; TypeScript layer
+     ;; Based on Microsoft's TS style guide and AirBnb's JS style guide
+     (typescript :variables
+                 typescript-fmt-on-save t
+                 standard-indent 4
+                 set-fill-column 100)
+
      yaml
 
      ;; ************************************************************************
      ;; Other
      ;; ************************************************************************
 
+     (wakatime :variables
+               wakatime-api-key  "70253e4e-195a-4cc7-90d8-be6a94b4733c"
+               wakatime-cli-path "/usr/local/bin/wakatime")
+     osx
      dash
      slack
      pdf-tools
+     twitter
      emoji
      chrome
      helm
@@ -74,8 +130,7 @@
                                 (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(atom-one-dark
-                         minimal-light)
+   dotspacemacs-themes '(sanityinc-solarized-dark)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10
@@ -128,6 +183,9 @@
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code."
+
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+  (setq exec-path (append exec-path '("/usr/local/bin")))
   )
 
 (defun dotspacemacs/user-config ()
@@ -155,43 +213,53 @@
   (add-to-list 'default-frame-alist '(alpha 85 85))
 
   ;; ***************************************************************************
+  ;; Global Modes
+  ;; ***************************************************************************
+
+  (global-company-mode t)
+  (global-auto-complete-mode t)
+  (global-prettify-symbols-mode t)
+  (global-linum-mode t)
+  (spacemacs/toggle-camel-case-motion-globally)
+
+  ;; ***************************************************************************
   ;; Language Specific
   ;; ***************************************************************************
 
   ;; Use default version of rvm
-  (rvm-use-default)
+  (rvm-use-default t)
 
-  ;; Use c++ 11
+  ;; SCSS mode for flycheck
+  (add-hook 'scss-mode-hook 'flycheck-mode)
+
+  ;; Use C++ 11
   (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
 
-  ;; ***************************************************************************
-  ;; Indentation
-  ;; ***************************************************************************
+  ;; Bind clang-format-region to C-M-tab in all modes:
+  (global-set-key [C-M-tab] 'clang-format-region)
 
-  ;; Java, C, C++ indentation
-  (setq c-basic-offset 2)
-
-  ;; Fix indentation in JavaScript
-  (setq js-indent-level                 2
-        js2-basic-offset                2
-        js-switch-indent-offset         2
-        js2-indent-switch-body          2
-        js2-strict-missing-semi-warning t)
+  ;; Bind clang-format-buffer to tab on the c++-mode only:
+  (add-hook 'c++-mode-hook 'clang-format-bindings)
+  (defun clang-format-bindings ()
+    (define-key c++-mode-map [tab] 'clang-format-buffer))
 
   ;; ***************************************************************************
   ;; Emerald
   ;; ***************************************************************************
 
   ;; Emacs Lisp emerald mode
-  (load "~/Coding/emerald/emerald-emacs/emerald-mode.el")
+  (load "~/Coding/other/emerald/emerald-emacs/emerald-mode.el")
   (require 'emerald-mode)
 
   ;; ***************************************************************************
   ;; Other
   ;; ***************************************************************************
 
-  ;; autocomplete in every buffer
-  (global-company-mode t)
+  (load "~/.emacs.d/private/eshell-git-prompt/eshell-git-prompt.el")
+  (require 'eshell-git-prompt)
+
+  ;; Save on changing focus
+  (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
   ;; Run multi-term as a login shell
   (setq multi-term-program-switches "--login")
@@ -229,6 +297,28 @@
  '(beacon-color "#ec4780")
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(diary-entry-marker (quote font-lock-variable-name-face))
+ '(emms-mode-line-icon-image-cache
+   (quote
+    (image :type xpm :ascent center :data "/* XPM */
+static char *note[] = {
+/* width height num_colors chars_per_pixel */
+\"    10   11        2            1\",
+/* colors */
+\". c #1ba1a1\",
+\"# c None s None\",
+/* pixels */
+\"###...####\",
+\"###.#...##\",
+\"###.###...\",
+\"###.#####.\",
+\"###.#####.\",
+\"#...#####.\",
+\"....#####.\",
+\"#..######.\",
+\"#######...\",
+\"######....\",
+\"#######..#\" };")))
  '(evil-emacs-state-cursor (quote ("#E57373" hbar)) t)
  '(evil-insert-state-cursor (quote ("#E57373" bar)) t)
  '(evil-normal-state-cursor (quote ("#FFEE58" box)) t)
@@ -236,6 +326,30 @@
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#" t)
  '(frame-brackground-mode (quote dark))
+ '(gnus-logo-colors (quote ("#1ec1c4" "#bababa")) t)
+ '(gnus-mode-line-image-cache
+   (quote
+    (image :type xpm :ascent center :data "/* XPM */
+static char *gnus-pointer[] = {
+/* width height num_colors chars_per_pixel */
+\"    18    13        2            1\",
+/* colors */
+\". c #1ba1a1\",
+\"# c None s None\",
+/* pixels */
+\"##################\",
+\"######..##..######\",
+\"#####........#####\",
+\"#.##.##..##...####\",
+\"#...####.###...##.\",
+\"#..###.######.....\",
+\"#####.########...#\",
+\"###########.######\",
+\"####.###.#..######\",
+\"######..###.######\",
+\"###....####.######\",
+\"###..######.######\",
+\"###########.######\" };")) t)
  '(highlight-symbol-colors
    (quote
     ("#FFEE58" "#C5E1A5" "#80DEEA" "#64B5F6" "#E1BEE7" "#FFCC80")))
@@ -246,7 +360,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (sql-indent slack emojify circe oauth2 websocket ht projectile-rails inflections pdf-tools tablist gmail-message-mode ham-mode html-to-markdown feature-mode emoji-cheat-sheet-plus edit-server company-emoji alert log4e gntp wgrep smex ivy-hydra flyspell-correct-ivy counsel-projectile counsel-dash counsel swiper ivy visual-fill-column solarized-theme evil-terminal-cursor-changer helm-dash dash-at-point erlang yaml-mode color-theme-sanityinc-solarized minimal-theme swift-mode disaster company-c-headers cmake-mode clang-format lua-mode tide typescript-mode gruber-darker-theme zenburn-theme apropospriate-theme ample-theme tao-theme yapfify xterm-color web-mode web-beautify tagedit smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements orgit org noflet mwim multi-term mmm-mode minitest markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd live-py-mode less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help ensime sbt-mode scala-mode engine-mode emmet-mode diff-hl cython-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-emacs-eclim eclim company-anaconda company coffee-mode chruby bundler inf-ruby auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic ac-ispell auto-complete atom-one-dark-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (grandshell-theme alect-themes ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode wakatime-mode diffscuss-mode launchctl twittering-mode sql-indent slack emojify circe oauth2 websocket ht projectile-rails inflections pdf-tools tablist gmail-message-mode ham-mode html-to-markdown feature-mode emoji-cheat-sheet-plus edit-server company-emoji alert log4e gntp wgrep smex ivy-hydra flyspell-correct-ivy counsel-projectile counsel-dash counsel swiper ivy visual-fill-column solarized-theme evil-terminal-cursor-changer helm-dash dash-at-point erlang yaml-mode color-theme-sanityinc-solarized minimal-theme swift-mode disaster company-c-headers cmake-mode clang-format lua-mode tide typescript-mode gruber-darker-theme zenburn-theme apropospriate-theme ample-theme tao-theme yapfify xterm-color web-mode web-beautify tagedit smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements orgit org noflet mwim multi-term mmm-mode minitest markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd live-py-mode less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help ensime sbt-mode scala-mode engine-mode emmet-mode diff-hl cython-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-emacs-eclim eclim company-anaconda company coffee-mode chruby bundler inf-ruby auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic ac-ispell auto-complete atom-one-dark-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-foreground-color "#9E9E9E")
  '(tabbar-background-color "#353535")
@@ -272,10 +386,11 @@
      (320 . "#8CD0D3")
      (340 . "#94BFF3")
      (360 . "#DC8CC3"))))
- '(vc-annotate-very-old-color "#DC8CC3"))
+ '(vc-annotate-very-old-color "#DC8CC3")
+ '(wakatime-python-bin nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil :family "SourceCodePro+Powerline+Awesome Regular" :foundry "nil" :slant normal :weight normal :height 100 :width normal)))))
+ )
