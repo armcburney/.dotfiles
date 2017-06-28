@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#
+# ~/.dotfiles/bin/install
+# Installation script for new machines (Mac OS)
+#
+
+# Install command line tools for Xcode
+xcode-select --install
+
+# Install Spacemacs
+brew tap d12frosted/emacs-plus
+brew install emacs-plus --HEAD --with-natural-title-bars
+brew linkapps emacs-plus
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+# Install Spacemacs dependencies
+git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
+
+# Copy dotfiles to their appropriate paths
+cp ~/.dotfiles/emacs/.spacemacs/ ~/.spacemacs
+cp ~/.dotfiles/vim/.vimrc ~/.vimrc
+cp ~/.dotfiles/zsh/.zshrc ~/.zshrc
+
+# Install CLI tools
+git clone https://github.com/skeleton-cli/skeleton.git ~/.skeleton

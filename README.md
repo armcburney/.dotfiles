@@ -2,6 +2,18 @@
 
 My dotfiles, hammerspoon, emacs, and vim configurations.
 
+## Install
+
+1. Clone the repository
+```
+git clone https://github.com/AndrewMcBurney/dotfiles.git ~/.dotfiles
+```
+
+2. Install
+```
+~/.dotfiles/bin/install
+```
+
 ## Hammerspoon config
 I use [Hammerspoon](http://www.hammerspoon.org/) for Mac automation and system wide vim/emacs keybindings.
 
