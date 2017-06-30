@@ -8,6 +8,63 @@
 # Install command line tools for Xcode
 xcode-select --install
 
+# ***************************
+# Homebrew
+# ***************************
+
+# Install homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Update homebrew
+brew update
+
+brew install cask
+brew install git
+brew install yarn
+
+# ***************************
+# Scala
+# ***************************
+
+brew install scala
+brew install sbt
+
+# ***************************
+# Ruby
+# ***************************
+
+# Install rvm and rails
+curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+
+rvm install 2.4.1
+rvm use 2.4.1 --default
+
+# ***************************
+# JavaScript
+# ***************************
+
+yarn global add jshint
+yarn global add coffeelint
+yarn global add grunt-cli
+yarn global add typescript
+yarn global add tslint
+yarn global add jsxhint
+yarn global add js-beautify
+yarn global add tern
+yarn global add bower
+yarn global add eslint
+yarn global add eslint-plugin-jsx-a11y
+yarn global add prettier
+yarn global add import-js
+yarn global add babel-cli
+yarn global add babel-preset-es2015
+yarn global add save-dev babel-preset-react
+yarn global add babel-preset-stage-0
+
+# ***************************
+# Spacemacs
+# ***************************
+
 # Install Spacemacs
 brew tap d12frosted/emacs-plus
 brew install emacs-plus --HEAD --with-natural-title-bars
@@ -17,10 +74,18 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # Install Spacemacs dependencies
 git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
 
+# ***************************
+# Dotfiles
+# ***************************
+
 # Copy dotfiles to their appropriate paths
 cp ~/.dotfiles/emacs/.spacemacs/ ~/.spacemacs
 cp ~/.dotfiles/vim/.vimrc ~/.vimrc
 cp ~/.dotfiles/zsh/.zshrc ~/.zshrc
+
+# ***************************
+# Tools
+# ***************************
 
 # Install CLI tools
 git clone https://github.com/skeleton-cli/skeleton.git ~/.skeleton
