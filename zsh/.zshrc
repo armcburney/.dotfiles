@@ -140,6 +140,7 @@ alias ll='ls -alF'
 alias ls='ls -G'
 alias sk="skeleton"
 alias fb='node ~/fb-messenger-cli/cli.js'
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 
 # ******************************************************************************
 # Other

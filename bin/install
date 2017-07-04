@@ -8,6 +8,9 @@
 # Install command line tools for Xcode
 xcode-select --install
 
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # ***************************
 # Homebrew
 # ***************************
@@ -18,22 +21,62 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 # Update homebrew
 brew update
 
+brew install apache-spark
+brew install boost
 brew install cask
+brew install cmake
+brew install crystal-lang
+brew install docker
+brew install docker-compose
+brew install dockutil
+brew install elasticsearch
+brew install elixir
 brew install git
+brew install go
+brew install heroku
+brew install hub
+brew install imagemagick
+brew install ispell
+brew install llvm
+brew install lua
+brew install maven
+brew install mysql
+brew install node
+brew install nvm
+brew install openssl
+brew install postgresql
+brew install pyenv
+brew install pyenv-virtualenv
+brew install pygtk
+brew install python
+brew install python3
+brew install r
+brew install rbenv
+brew install rbenv-gemset
+brew install redis
+brew install ruby
+brew install ruby-build
+brew install sbt
+brew install scala
+brew install scalafmt
+brew install scalastyle
+brew install sqlite
+brew install the_silver_searcher
+brew install tree
+brew install valgrind
+brew install wget
 brew install yarn
 
-# ***************************
-# Crystal
-# ***************************
-
-brew install crystal-lang
-
-# ***************************
-# Scala
-# ***************************
-
-brew install scala
-brew install sbt
+brew cask install caffeine
+brew cask install google-chrome
+brew cask install google-drive
+brew cask install java
+brew cask install iterm2
+brew cask install kindle
+brew cask install omnigraffle
+brew cask install slack
+brew cask install spotify
+brew cask install virtualbox
 
 # ***************************
 # Ruby
@@ -44,6 +87,13 @@ curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --
 
 rvm install 2.4.1
 rvm use 2.4.1 --default
+
+# ***************************
+# C++
+# ***************************
+
+brew tap homebrew/versions
+brew install --with-all-languages gcc48
 
 # ***************************
 # JavaScript
