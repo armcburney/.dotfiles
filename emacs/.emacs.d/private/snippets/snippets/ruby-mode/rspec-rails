@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+#key : rspec-rails
+#name : Rspec Rails
+#contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+# frozen_string_literal: true
+
+describe '' do
+  describe '#' do
+    it '' do
+    end
+  end
+end

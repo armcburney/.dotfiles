@@ -23,6 +23,12 @@ brew install git
 brew install yarn
 
 # ***************************
+# Crystal
+# ***************************
+
+brew install crystal-lang
+
+# ***************************
 # Scala
 # ***************************
 
@@ -62,6 +68,13 @@ yarn global add save-dev babel-preset-react
 yarn global add babel-preset-stage-0
 
 # ***************************
+# Python
+# ***************************
+
+sudo easy_install pip
+pip install virtualenv
+
+# ***************************
 # Spacemacs
 # ***************************
 
@@ -70,6 +83,7 @@ brew tap d12frosted/emacs-plus
 brew install emacs-plus --HEAD --with-natural-title-bars
 brew linkapps emacs-plus
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+cp -r ~/.dotfiles/emacs/.emacs.d/private/* ~/.emacs.d/private/
 
 # Install Spacemacs dependencies
 git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
@@ -84,8 +98,9 @@ cp ~/.dotfiles/vim/.vimrc ~/.vimrc
 cp ~/.dotfiles/zsh/.zshrc ~/.zshrc
 
 # ***************************
-# Tools
+# Skeletons
 # ***************************
 
-# Install CLI tools
-git clone https://github.com/skeleton-cli/skeleton.git ~/.skeleton
+git clone git@github.com:AndrewMcBurney/sinatra-slim-sass-coffee.git .skeletons/sinatra-slim-sass-coffee
+git clone git@github.com:AndrewMcBurney/ruby-cli-activerecord.git .skeletons/ruby-cli-activerecord
+git clone git@github.com:AndrewMcBurney/express-pug-sass-ts.git .skeletons/express-pug-sass-ts.git

@@ -37,6 +37,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 if [ -n "$INSIDE_EMACS" ]; then
   ZSH_THEME="refined"
+
+  # Don't use vim plugin inside emacs
+  plugins=(git)
 else
   ZSH_THEME="powerlevel9k/powerlevel9k"
   POWERLEVEL9K_MODE='awesome-patched'
@@ -82,6 +85,8 @@ else
   POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='236'
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('context' 'dir' 'vcs')
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('status' 'nvm' 'node_version' 'rvm' 'vi_mode')
+
+  plugins=(git vi-mode)
 fi
 
 # ******************************************************************************
@@ -90,8 +95,6 @@ fi
 
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -126,6 +129,9 @@ alias em="emacsclient -t"
 alias sshuw='ssh -Y armcburn@linux.student.cs.uwaterloo.ca'
 alias ssham='ssh root@138.197.135.132'
 
+# overwrites
+alias mkdir="mkdir -p"
+
 # other
 alias a="clear"
 alias l='ls -CF'
@@ -141,3 +147,7 @@ alias fb='node ~/fb-messenger-cli/cli.js'
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
