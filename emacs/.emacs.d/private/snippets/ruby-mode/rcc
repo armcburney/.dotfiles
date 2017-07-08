@@ -1,0 +1,135 @@
+# -*- mode: snippet -*-
+# name : Rails CRUD REST Controller
+# key : rcc
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+# frozen_string_literal: true
+
+#
+# ${1:model} controller
+# CRUD controller
+#
+$0class $1sController < ApplicationController
+  http_basic_authenticate_with(
+    name: ENV['USERNAME'], password: ENV['PASSWORD'],
+    except: %i(index show)
+  )
+
+  before_action :set_${1:$(downcase yas-text)}, only: %i(show edit update destroy)
+
+  # ***************************
+  # C - Create Methods
+  # ***************************
+
+  # GET /${1:$(downcase yas-text)}/new
+  # Instantiates a new ${1:$(downcase yas-text)} object
+  def new
+    @${1:$(downcase yas-text)} = $1.new
+  end
+
+  # POST /${1:$(downcase yas-text)}
+  # Create ${1:$(downcase yas-text)} and save to database, render show view if success, else render new view
+  def create
+    @${1:$(downcase yas-text)} = $1.new(${1:$(downcase yas-text)}_params)
+
+    respond_to do |format|
+      if @${1:$(downcase yas-text)}.save
+        format.html { redirect_to @${1:$(downcase yas-text)}, notice: '$1 successfully created.' }
+        format.json { render :show, status: :created, location: @${1:$(downcase yas-text)} }
+      else
+        format.html { render :new }
+        format.json { render json: @${1:$(downcase yas-text)}.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # ***************************
+  # R - Read Methods
+  # ***************************
+
+  # GET /${1:$(downcase yas-text)}
+  # Aggregate by featured ${1:$(downcase yas-text)} (featured boolean)
+  def index
+    @images = $1.paginate(page: params[:page], per_page: 12)
+  end
+
+  # GET /${1:$(downcase yas-text)}/:title_slug
+  # Show single ${1:$(downcase yas-text)} in previewer view
+  def show() end
+
+  # GET /${1:$(downcase yas-text)}/types/copic
+  # Aggregate by copic marker paintings
+  def copic
+    @images = $1.where(${1:$(downcase yas-text)}_type: :copic).paginate(page: params[:page], per_page: 12)
+  end
+
+  # GET /${1:$(downcase yas-text)}/types/painting
+  # Aggregate by paintings
+  def paintings
+    @images = $1.where(${1:$(downcase yas-text)}_type: :painting).paginate(page: params[:page], per_page: 12)
+  end
+
+  # GET /${1:$(downcase yas-text)}/types/sketch
+  # Aggregate by sketches
+  def sketches
+    @images = $1.where(${1:$(downcase yas-text)}_type: :sketch).paginate(page: params[:page], per_page: 12)
+  end
+
+  # GET /${1:$(downcase yas-text)}/types/for_sale
+  # Select ${1:$(downcase yas-text)}s for sale (for_sale boolean)
+  def for_sale
+    @images = $1.where(for_sale: true).paginate(page: params[:page], per_page: 12)
+  end
+
+  # ***************************
+  # U - Update Methods
+  # ***************************
+
+  # GET /${1:$(downcase yas-text)}/:title_slug/edit
+  # Find ${1:$(downcase yas-text)} to be updated
+  def edit() end
+
+  # PATCH/PUT /${1:$(downcase yas-text)}/:title_slug
+  # Update ${1:$(downcase yas-text)} with new params
+  def update
+    respond_to do |format|
+      if @${1:$(downcase yas-text)}.update(${1:$(downcase yas-text)}_params)
+        format.html { redirect_to @${1:$(downcase yas-text)}, notice: '$1 was successfully updated.' }
+        format.json { render :show, status: :ok, location: @${1:$(downcase yas-text)} }
+      else
+        format.html { render :edit }
+        format.json { render json: @${1:$(downcase yas-text)}.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # ***************************
+  # D - Delete Methods
+  # ***************************
+
+  # DELETE /${1:$(downcase yas-text)}/:title_slug
+  # Find ${1:$(downcase yas-text)} by id and delete from database, redirect to ${1:$(downcase yas-text)}s_url
+  def destroy
+    @${1:$(downcase yas-text)}.destroy
+
+    respond_to do |format|
+      format.html { redirect_to ${1:$(downcase yas-text)}s_url, notice: '$1 was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # ***************************
+  # Private Methods
+  # ***************************
+
+  private
+
+  def set_${1:$(downcase yas-text)}
+    @${1:$(downcase yas-text)} = $1.friendly.find(params[:id])
+  end
+
+  def ${1:$(downcase yas-text)}_params
+    params.require(:${1:$(downcase yas-text)})
+      .permit(:title, :featured, :for_sale, :${1:$(downcase yas-text)}_type, :size, :price, :media, :image)
+  end
+end

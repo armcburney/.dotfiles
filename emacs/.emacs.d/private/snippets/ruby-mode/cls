@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name : Ruby Class
+# key : class
+# contributor: hitesh <hitesh.jasani@gmail.com>
+#              Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+# frozen_string_literal: true
+
+#
+# ${1:file-name-nondirectory}
+#
+class ${2:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                                 (or (buffer-file-name)
+                                     (buffer-name (current-buffer))))))))
+             (replace-regexp-in-string "_" "" fn t t))`}
+  def initialize(args)
+  end
+
+  $0
+end

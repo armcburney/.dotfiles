@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name : Slim Include
+# key : ren
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+= render '${1:relative_path}'
+$0
