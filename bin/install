@@ -20,11 +20,19 @@ class Install
   end
 
   def setup
+    # Install command line tools
     `xcode-select --install`
+
+    # Install and update brew
+    `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
     `brew tap homebrew/versions`
     `brew update`
-    `sudo easy_install pip`
+
+    # Install zsh
     `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+
+    # Install other packages
+    `sudo easy_install pip`
   end
 
   def install_packages
@@ -53,7 +61,7 @@ class Install
       rails-es6
       ruby-cli-activerecord
       sinatra-slim-sass-coffee
-    ].each do
+    ].each do |skeleton|
       `git clone git@github.com:AndrewMcBurney/#{skeleton}.git ~/.emacs.d/private/skeletons/#{skeleton}`
     end
   end
