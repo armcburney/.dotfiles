@@ -30,6 +30,13 @@
      ;; Crystal layer
      (crystal)
 
+     ;; CSV layer
+     (csv)
+
+     ;; BEAM VM
+     (elixir)
+     (erlang)
+
      ;; Emacs Lisp layer
      (emacs-lisp)
 
