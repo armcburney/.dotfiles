@@ -1,156 +1,68 @@
-#!/bin/sh
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative "includes/packages"
 
 #
 # ~/.dotfiles/bin/install
 # Installation script for new machines (Mac OS)
 #
+class Install
+  include Packages
 
-# Install command line tools for Xcode
-xcode-select --install
+  def initialize
+    setup
+    install_packages
+    install_spacemacs
+    install_emacs_private
+    install_skeletons
+    copy_dotfiles
+  end
 
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  def setup
+    `xcode-select --install`
+    `brew tap homebrew/versions`
+    `brew update`
+    `sudo easy_install pip`
+    `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+  end
 
-# ***************************
-# Homebrew
-# ***************************
+  def install_packages
+    Packages::BREWS.each { |package| `brew install #{package}` }
+    Packages::CASKS.each { |package| `brew cask install #{package}` }
+    Packages::YARNS.each { |package| `yarn global add #{package}` }
+    Packages::PIPS.each  { |package| `pip install #{package}` }
+  end
 
-# Install homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  def install_spacemacs
+    `brew tap d12frosted/emacs-plus`
+    `brew install emacs-plus --HEAD --with-natural-title-bars`
+    `brew linkapps emacs-plus`
+    `git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d`
+  end
 
-# Update homebrew
-brew update
+  def install_emacs_private
+    `git clone git@github.com:AndrewMcBurney/emacs.d.git ~/.emacs.d/private/`
+    `git clone git@github.com:AndrewMcBurney/emacs.d.git ~/.emacs.d/private/emerald`
+    `git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal`
+  end
 
-brew install apache-spark
-brew install boost
-brew install cask
-brew install cmake
-brew install crystal-lang
-brew install docker
-brew install docker-compose
-brew install dockutil
-brew install elasticsearch
-brew install elixir
-brew install git
-brew install go
-brew install heroku
-brew install hub
-brew install imagemagick
-brew install ispell
-brew install llvm
-brew install lua
-brew install maven
-brew install mysql
-brew install node
-brew install nvm
-brew install openssl
-brew install postgresql
-brew install pyenv
-brew install pyenv-virtualenv
-brew install pygtk
-brew install python
-brew install python3
-brew install r
-brew install rbenv
-brew install rbenv-gemset
-brew install redis
-brew install ruby
-brew install ruby-build
-brew install sbt
-brew install scala
-brew install scalafmt
-brew install scalastyle
-brew install sqlite
-brew install the_silver_searcher
-brew install tree
-brew install valgrind
-brew install wget
-brew install yarn
+  def install_skeletons
+    %w[
+      express-pug-sass-ts
+      rails-es6
+      ruby-cli-activerecord
+      sinatra-slim-sass-coffee
+    ].each do
+      `git clone git@github.com:AndrewMcBurney/#{skeleton}.git ~/.emacs.d/private/skeletons/#{skeleton}`
+    end
+  end
 
-brew cask install caffeine
-brew cask install google-chrome
-brew cask install google-drive
-brew cask install java
-brew cask install iterm2
-brew cask install kindle
-brew cask install omnigraffle
-brew cask install slack
-brew cask install spotify
-brew cask install virtualbox
+  def copy_dotfiles
+    `cp ~/.dotfiles/emacs/.spacemacs/ ~/.spacemacs`
+    `cp ~/.dotfiles/vim/.vimrc ~/.vimrc`
+    `cp ~/.dotfiles/zsh/.zshrc ~/.zshrc`
+  end
+end
 
-# ***************************
-# Ruby
-# ***************************
-
-# Install rvm and rails
-curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
-
-rvm install 2.4.1
-rvm use 2.4.1 --default
-
-# ***************************
-# C++
-# ***************************
-
-brew tap homebrew/versions
-brew install --with-all-languages gcc48
-
-# ***************************
-# JavaScript
-# ***************************
-
-yarn global add jshint
-yarn global add coffeelint
-yarn global add grunt-cli
-yarn global add typescript
-yarn global add tslint
-yarn global add jsxhint
-yarn global add js-beautify
-yarn global add tern
-yarn global add bower
-yarn global add eslint
-yarn global add eslint-plugin-jsx-a11y
-yarn global add prettier
-yarn global add import-js
-yarn global add babel-cli
-yarn global add babel-preset-es2015
-yarn global add save-dev babel-preset-react
-yarn global add babel-preset-stage-0
-
-# ***************************
-# Python
-# ***************************
-
-sudo easy_install pip
-pip install virtualenv
-
-# ***************************
-# Spacemacs
-# ***************************
-
-# Install Spacemacs
-brew tap d12frosted/emacs-plus
-brew install emacs-plus --HEAD --with-natural-title-bars
-brew linkapps emacs-plus
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-cp -r ~/.dotfiles/emacs/.emacs.d/private/* ~/.emacs.d/private/
-
-# Install Spacemacs dependencies
-git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
-
-# ***************************
-# Dotfiles
-# ***************************
-
-# Copy dotfiles to their appropriate paths
-cp ~/.dotfiles/emacs/.spacemacs/ ~/.spacemacs
-cp ~/.dotfiles/vim/.vimrc ~/.vimrc
-cp ~/.dotfiles/zsh/.zshrc ~/.zshrc
-
-# ***************************
-# Skeletons
-# ***************************
-
-git clone git@github.com:AndrewMcBurney/sinatra-slim-sass-coffee.git .skeletons/sinatra-slim-sass-coffee
-git clone git@github.com:AndrewMcBurney/ruby-cli-activerecord.git .skeletons/ruby-cli-activerecord
-git clone git@github.com:AndrewMcBurney/express-pug-sass-ts.git .skeletons/express-pug-sass-ts.git
+Install.new
