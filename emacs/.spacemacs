@@ -2,12 +2,21 @@
 ;;
 ;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
 ;;
-;; Author: Andrew R. McBurney <andrewrobertmcburney@gmail.com>
+;; Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+;; Maintainer: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+
 ;; URL: https://github.com/AndrewMcBurney/dotfiles
-;;
-;; This file is not part of GNU Emacs.
-;;
+;; Compatibility: only tested with Spacemacs (Emacs 25.0)
+;; Version: 0.0.1
+;; Last-Updated: 2017-07-13
+
 ;;; License: GPLv3
+
+;;; Commentary:
+
+;; My personal Spacemacs configuration file
+
+;;; Code:
 
 (defun dotspacemacs/layers ()
   "Spacemacs configuration layers."
@@ -24,21 +33,18 @@
       :variables
       c-c++-default-mode-for-headers 'c++-mode
       c-c++-enable-clang-support t
+      indent
       standard-indent 2
       set-fill-column 80)
 
      ;; Crystal layer
      (crystal)
 
-     ;; CSV layer
-     (csv)
-
-     ;; BEAM VM
-     (elixir)
-     (erlang)
-
      ;; Emacs Lisp layer
      (emacs-lisp)
+
+     ;; Erlang layer
+     (erlang)
 
      ;; HTML & CSS layer
      (html
@@ -57,7 +63,6 @@
      ;; Based on AirBnb's JS style guide
      (javascript
       :variables
-      standard-indent 2
       set-fill-column 100)
 
      ;; Lua layer
@@ -82,8 +87,9 @@
      ;; Based on Rubocop specification
      (ruby
       :variables
-      ruby-version-manager 'rvm
+      ruby-version-manager 'rbenv
       ruby-enable-ruby-on-rails-support t
+      ruby-test-runner 'rspec
       set-fill-column 80)
 
      (ruby-on-rails)
@@ -102,7 +108,6 @@
      ;; Shell layer
      (shell
       :variables
-      shell-default-term-shell 'ansi-term
       shell-default-height 30
       shell-default-position 'bottom)
 
@@ -132,6 +137,7 @@
       auto-completion-complete-with-key-sequence nil
       auto-completion-complete-with-key-sequence-delay 0.1
       auto-completion-private-snippets-directory nil)
+
      (better-defaults)
      (chrome)
      (dash)
@@ -151,6 +157,7 @@
       :variables
       wakatime-api-key  "70253e4e-195a-4cc7-90d8-be6a94b4733c"
       wakatime-cli-path "/usr/local/bin/wakatime"))
+
    dotspacemacs-additional-packages '(skeletor)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
@@ -170,7 +177,7 @@
    dotspacemacs-startup-lists '((todos . 5) (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(atom-one-dark zenburn dichromacy)
+   dotspacemacs-themes '(atom-one-dark dichromacy)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10
@@ -230,52 +237,28 @@
   (load custom-file)
 
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-  (setq exec-path (append exec-path '("/usr/local/bin")))
-
-  (add-hook 'focus-out-hook (lambda () (save-some-buffers t))))
+  (setq exec-path (append exec-path '("/usr/local/bin"))))
 
 
 (defun dotspacemacs/user-config ()
   "User configuration code."
 
-  ;; Set ensime startup notifications off
-  (setq ensime-startup-notification nil)
-  (setq ensime-startup-snapshot-notification nil)
+  ;; Add configuration code to load path
+  (push "~/.emacs.d/private/general/" load-path)
+  (push "~/.emacs.d/private/c++/"     load-path)
+  (push "~/.emacs.d/private/js/"      load-path)
+  (push "~/.emacs.d/private/scala/"   load-path)
+  (push "~/.emacs.d/private/emerald/" load-path)
 
-  ;; sets the background to transparent if emacs is being run from the terminal
-  (add-hook 'after-make-frame-functions
-            '(lambda (frame)
-               (select-frame frame)
-               (if window-system
-                   nil
-                 (unless (display-graphic-p (selected-frame))
-                   (set-face-background 'default "unspecified-bg" (selected-frame))))))
+  ;; Custom configuration code - to avoid namespace collisions I prefix my
+  ;; packages with 'andrew-'
+  (require 'andrew-transparent)
+  (require 'andrew-style)
+  (require 'andrew-global)
+  (require 'andrew-skeletor)
+  (require 'andrew-c++-style)
+  (require 'andrew-javascript)
+  (require 'andrew-ensime)
+  (require 'emerald-mode))
 
-  ;; set window transparency
-  (set-frame-parameter (selected-frame) 'alpha '(85 85))
-  (add-to-list 'default-frame-alist '(alpha 85 85))
-
-  (setq skeletor-project-directory "~/coding/projects/")
-  (setq skeletor-user-directory "~/.skeletons")
-
-  (skeletor-define-template "sinatra"
-    :after-creation
-    (lambda (dir)
-      (skeletor-async-shell-command "echo 'built'")))
-
-  ;; Global modes
-  (global-company-mode t)
-  (global-auto-complete-mode t)
-  (global-prettify-symbols-mode t)
-  (global-linum-mode t)
-  (spacemacs/toggle-camel-case-motion-globally)
-
-  ;; Turn on visual line mode
-  (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
-
-  (setq powerline-default-separator 'utf-8)
-
-  ;; Enable mouse support
-  (unless window-system
-    (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
-    (global-set-key (kbd "<mouse-5>") 'scroll-up-line)))
+;;; .spacemacs ends here
