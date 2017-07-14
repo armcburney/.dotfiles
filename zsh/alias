@@ -1,0 +1,34 @@
+  #!/bin/sh
+
+# ******************************************************************************
+# ZSH Aliases
+# Maintained by: Andrew McBurney
+# ******************************************************************************
+
+# emacs
+alias ed="emacs --daemon"
+alias ek="emacsclient -e \"(kill-emacs)\""
+alias em="emacsclient -t"
+
+# ssh
+alias sshuw='ssh -Y armcburn@linux.student.cs.uwaterloo.ca'
+alias ssham='ssh root@138.197.135.132'
+
+# overwrites
+alias mkdir="mkdir -p"
+
+# other
+alias c="clear"
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls -G'
+alias sk="skeleton"
+alias fb='node ~/fb-messenger-cli/cli.js'
+alias k9='kill -9'
+alias port='lsof -i -P -n | grep'
+alias net='netstat -p tcp | grep'
+alias fs='foreman start'
+
+# git
+alias gdh='git diff HEAD'
