@@ -32,10 +32,7 @@
      (c-c++
       :variables
       c-c++-default-mode-for-headers 'c++-mode
-      c-c++-enable-clang-support t
-      indent
-      standard-indent 2
-      set-fill-column 80)
+      c-c++-enable-clang-support t)
 
      ;; Crystal layer
      (crystal)
@@ -43,20 +40,21 @@
      ;; Emacs Lisp layer
      (emacs-lisp)
 
+     ;; Elixir layer
+     (elixir)
+
      ;; Erlang layer
      (erlang)
 
      ;; HTML & CSS layer
      (html
       :variables
-      standard-indent 2
       set-fill-column 100)
 
      ;; Java layer
      ;; Based on Google's Java style guide
      (java
       :variables
-      standard-indent 2
       set-fill-column 100)
 
      ;; JavaScript layer
@@ -66,11 +64,7 @@
       set-fill-column 100)
 
      ;; Lua layer
-     ;; Based on Olivine Labs style guide
-     (lua
-      :variables
-      standard-indent 2
-      set-fill-column 80)
+     (lua)
 
      ;; Markdown layer
      (markdown
@@ -78,10 +72,9 @@
       markdown-live-preview-engine 'vmd)
 
      ;; Python layer
-     ;; Based on PEP8 specification
      (python
       :variables
-      set-fill-column 80)
+      python-enable-yapf-format-on-save t)
 
      ;; Ruby layer
      ;; Based on Rubocop specification
@@ -89,10 +82,12 @@
       :variables
       ruby-version-manager 'rbenv
       ruby-enable-ruby-on-rails-support t
-      ruby-test-runner 'rspec
-      set-fill-column 80)
+      ruby-test-runner 'rspec)
 
      (ruby-on-rails)
+
+     ;; Rust layer
+     (rust)
 
      ;; Scala layer
      ;; Based on Databricks Scala style guide
@@ -119,7 +114,6 @@
      (typescript
       :variables
       typescript-fmt-on-save t
-      standard-indent 4
       set-fill-column 100)
 
      ;; Vim Script layer
@@ -142,7 +136,9 @@
      (chrome)
      (dash)
      (emoji)
-     (git)
+     (git
+      :variables
+      git-magit-status-fullscreen t)
      (helm)
      (osx)
      (pdf-tools)
@@ -152,13 +148,9 @@
      (spell-checking)
      (syntax-checking)
      (twitter)
-     (version-control)
-     (wakatime
-      :variables
-      wakatime-api-key  "70253e4e-195a-4cc7-90d8-be6a94b4733c"
-      wakatime-cli-path "/usr/local/bin/wakatime"))
+     (version-control))
 
-   dotspacemacs-additional-packages '(skeletor)
+   dotspacemacs-additional-packages '(ag skeletor)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only))
@@ -177,7 +169,7 @@
    dotspacemacs-startup-lists '((todos . 5) (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(atom-one-dark dichromacy)
+   dotspacemacs-themes '(atom-one-dark dichromacy alect-black-alt)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10
@@ -201,17 +193,13 @@
    dotspacemacs-large-file-size 1
    dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-max-rollback-slots 5
-   dotspacemacs-helm-resize nil
-   dotspacemacs-helm-no-header t
-   dotspacemacs-helm-position 'bottom
-   dotspacemacs-helm-use-fuzzy 'always
    dotspacemacs-enable-paste-transient-state nil
    dotspacemacs-which-key-delay 0.4
    dotspacemacs-which-key-position 'bottom
    dotspacemacs-loading-progress-bar t
-   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-at-startup t
    dotspacemacs-fullscreen-use-non-native nil
-   dotspacemacs-maximized-at-startup t
+   dotspacemacs-maximized-at-startup nil
    dotspacemacs-active-transparency 90
    dotspacemacs-inactive-transparency 90
    dotspacemacs-show-transient-state-title t
@@ -243,22 +231,24 @@
 (defun dotspacemacs/user-config ()
   "User configuration code."
 
-  ;; Add configuration code to load path
   (push "~/.emacs.d/private/general/" load-path)
-  (push "~/.emacs.d/private/c++/"     load-path)
-  (push "~/.emacs.d/private/js/"      load-path)
-  (push "~/.emacs.d/private/scala/"   load-path)
-  (push "~/.emacs.d/private/emerald/" load-path)
-
-  ;; Custom configuration code - to avoid namespace collisions I prefix my
-  ;; packages with 'andrew-'
-  (require 'andrew-transparent)
-  (require 'andrew-style)
   (require 'andrew-global)
+  (require 'andrew-helm)
   (require 'andrew-skeletor)
+  (require 'andrew-style)
+  (require 'andrew-terminal)
+  (require 'andrew-transparent)
+
+  (push "~/.emacs.d/private/c++/" load-path)
   (require 'andrew-c++-style)
+
+  (push "~/.emacs.d/private/js/" load-path)
   (require 'andrew-javascript)
+
+  (push "~/.emacs.d/private/scala/" load-path)
   (require 'andrew-ensime)
+
+  (push "~/.emacs.d/private/emerald/" load-path)
   (require 'emerald-mode))
 
 ;;; .spacemacs ends here

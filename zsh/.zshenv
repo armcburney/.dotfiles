@@ -2,6 +2,8 @@
 # Exports
 # ******************************************************************************
 
+export TERM="xterm-256color"
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PATH="$PATH:$HOME/.skeleton/bin/run"

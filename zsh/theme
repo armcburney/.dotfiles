@@ -7,10 +7,6 @@
 
 if [ -n "$INSIDE_EMACS" ]; then
   ZSH_THEME="refined"
-
-  # Don't use vim plugin inside emacs
-  plugins=(git)
-else
   ZSH_THEME="powerlevel9k/powerlevel9k"
   POWERLEVEL9K_MODE='awesome-patched'
   POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -61,6 +57,4 @@ else
 
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm node_version rbenv vi_mode)
-
-  plugins=(git vi-mode)
 fi
