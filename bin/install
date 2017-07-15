@@ -1,76 +1,62 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require_relative "includes/packages"
+require_relative "includes/install.rb"
+require_relative "includes/logger.rb"
 
 #
 # ~/.dotfiles/bin/install
 # Installation script for new machines (Mac OS)
 #
-class Install
-  include Packages
+module SetUp
+  require "rubygems"
+  require "bundler"
 
-  def initialize
-    setup
-    install_packages
-    install_spacemacs
-    install_emacs_private
-    install_skeletons
-    copy_dotfiles
-  end
+  Bundler.require(:default)
 
-  def setup
-    # Install command line tools
-    `xcode-select --install`
+  class CLI < Thor
+    desc "all", "Install all dependencies / tools and copy dotfiles to their respective locations"
+    def all
+      Install.all
+      copy_dotfiles
+    end
 
-    # Install and update brew
-    `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-    `brew tap homebrew/versions`
-    `brew update`
+    desc "setup", "Install package managers, command line tools, oh-my-zsh"
+    def setup
+      Install.setup
+    end
 
-    # Install zsh
-    `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+    desc "packages", "Install all brew, yarn, and pip packages, specified in ./includes/packages.rb"
+    option :brew, aliases: "b", type: :boolean, default: true
+    option :cask, aliases: "c", type: :boolean, default: true
+    option :pip,  aliases: "p", type: :boolean, default: true
+    option :yarn, aliases: "y", type: :boolean, default: true
+    def packages
+      Install.packages(options)
+    end
 
-    # Install other packages
-    `sudo easy_install pip`
-  end
+    desc "spacemacs", "Install spacemacs and its dependencies"
+    option :private,   aliases: "p", type: :boolean, default: true
+    option :skeletons, aliases: "s", type: :boolean, default: true
+    def spacemacs
+      Install.spacemacs(options)
+    end
 
-  def install_packages
-    Packages::BREWS.each { |package| `brew install #{package}` }
-    Packages::CASKS.each { |package| `brew cask install #{package}` }
-    Packages::YARNS.each { |package| `yarn global add #{package}` }
-    Packages::PIPS.each  { |package| `pip install #{package}` }
-  end
+    desc "emacs_private", "Install or update ~/.emacs.d/private/ directory with custom snippets"
+    def emacs_private
+      Install.emacs_private
+    end
 
-  def install_spacemacs
-    `brew tap d12frosted/emacs-plus`
-    `brew install emacs-plus --HEAD --with-natural-title-bars`
-    `brew linkapps emacs-plus`
-    `git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d`
-  end
+    desc "skeletons", "Install custom project skeletons to the ~/.emacs.d/private/ directory"
+    def skeletons
+      Install.skeletons
+    end
 
-  def install_emacs_private
-    `git clone git@github.com:AndrewMcBurney/emacs.d.git ~/.emacs.d/private/`
-    `git clone git@github.com:AndrewMcBurney/emacs.d.git ~/.emacs.d/private/emerald`
-    `git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal`
-  end
-
-  def install_skeletons
-    %w[
-      express-pug-sass-ts
-      rails-es6
-      ruby-cli-activerecord
-      sinatra-slim-sass-coffee
-    ].each do |skeleton|
-      `git clone git@github.com:AndrewMcBurney/#{skeleton}.git ~/.emacs.d/private/skeletons/#{skeleton}`
+    desc "copy_dotfiles", "Copies dotfiles from ~/.dotfiles/ to their respective locations"
+    def copy_dotfiles
+      `cp ~/.dotfiles/emacs/.spacemacs/ ~/.spacemacs`
+      `cp ~/.dotfiles/vim/.vimrc ~/.vimrc`
+      `cp ~/.dotfiles/zsh/.zshrc ~/.zshrc`
     end
   end
-
-  def copy_dotfiles
-    `cp ~/.dotfiles/emacs/.spacemacs/ ~/.spacemacs`
-    `cp ~/.dotfiles/vim/.vimrc ~/.vimrc`
-    `cp ~/.dotfiles/zsh/.zshrc ~/.zshrc`
-  end
 end
-
-Install.new
