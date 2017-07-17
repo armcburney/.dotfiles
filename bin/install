@@ -19,6 +19,7 @@ module SetUp
     def all
       Install.all
       copy_dotfiles
+      configure
     end
 
     desc "setup", "Install package managers, command line tools, oh-my-zsh"
@@ -57,6 +58,11 @@ module SetUp
       `cp ~/.dotfiles/emacs/.spacemacs/ ~/.spacemacs`
       `cp ~/.dotfiles/vim/.vimrc ~/.vimrc`
       `cp ~/.dotfiles/zsh/.zshrc ~/.zshrc`
+    end
+
+    desc "configure", "Configure command line tools and services"
+    def configure
+      `git config --global core.editor emacs`
     end
   end
 end

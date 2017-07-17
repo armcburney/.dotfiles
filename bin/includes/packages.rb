@@ -51,15 +51,28 @@ module SetUp
     ].freeze
 
     CASK = %w[
-      caffeine
+      atom
+      dash
+      firefox
+      font-source-code-pro
+      font-source-code-pro-for-powerline
+      gimp
       google-chrome
       google-drive
+      google-hangouts
+      hammerspoon
       java
       iterm2
       kindle
-      omnigraffle
+      mysql-utilities
+      ngrok
+      opera-neon
+      rstudio
       slack
       spotify
+      xquartz
+      vagrant
+      vagrant-manager
       virtualbox
     ].freeze
 
