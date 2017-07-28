@@ -48,7 +48,7 @@ module SetUp
       tree
       valgrind
       wget
-    ].freeze
+    ]
 
     CASK = %w[
       atom
@@ -74,7 +74,7 @@ module SetUp
       vagrant
       vagrant-manager
       virtualbox
-    ].freeze
+    ]
 
     YARN = %w[
       jshint
@@ -94,10 +94,12 @@ module SetUp
       babel-preset-es2015
       save-dev babel-preset-react
       babel-preset-stage-0
-    ].freeze
+    ]
 
     PIP = %w[
       virtualenv
-    ].freeze
+    ]
+
+    RUBY_VERSIONS = %w[2.3.2 2.4.0 2.4.1]
   end
 end

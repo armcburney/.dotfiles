@@ -7,6 +7,7 @@
 
 if [ -n "$INSIDE_EMACS" ]; then
   ZSH_THEME="refined"
+else
   ZSH_THEME="powerlevel9k/powerlevel9k"
   POWERLEVEL9K_MODE='awesome-patched'
   POWERLEVEL9K_PROMPT_ON_NEWLINE=true

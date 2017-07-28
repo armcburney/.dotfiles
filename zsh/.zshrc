@@ -3,12 +3,14 @@
 # Maintained by: Andrew McBurney
 # ******************************************************************************
 
+source ~/.dotfiles/zsh/.zshenv
+source ~/.dotfiles/zsh/theme
+source ~/.dotfiles/zsh/functions
+source ~/.dotfiles/zsh/alias
+
 unsetopt nomatch
 
-. ~/.dotfiles/zsh/.zshenv
-. ~/.dotfiles/zsh/theme
-. ~/.dotfiles/zsh/functions
-. ~/.dotfiles/zsh/alias
+plugins=(git vi-mode bundler osx rake ruby)
 
 # ******************************************************************************
 # ZSH Other

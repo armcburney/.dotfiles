@@ -53,6 +53,11 @@ module SetUp
       Install.skeletons
     end
 
+    desc "rbenv", "Installs commonly used ruby versions and bundler for said versions"
+    def rbenv
+      Install.rbenv
+    end
+
     desc "copy_dotfiles", "Copies dotfiles from ~/.dotfiles/ to their respective locations"
     def copy_dotfiles
       `cp ~/.dotfiles/emacs/.spacemacs/ ~/.spacemacs`

@@ -50,7 +50,7 @@ module SetUp
 
     def emacs_private
       `git clone git@github.com:AndrewMcBurney/emacs.d.git ~/.emacs.d/private/`
-      `git clone git@github.com:AndrewMcBurney/emacs.d.git ~/.emacs.d/private/emerald`
+      `git clone git@github.com:emerald-lang/emerald-emacs.git ~/.emacs.d/private/emerald`
       `git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal`
     end
 
@@ -62,6 +62,14 @@ module SetUp
         sinatra-slim-sass-coffee
       ].each do |skeleton|
         `git clone git@github.com:AndrewMcBurney/#{skeleton}.git ~/.emacs.d/private/skeletons/#{skeleton}`
+      end
+    end
+
+    def rbenv
+      Packages::RUBY_VERSIONS.each do |version|
+        `rbenv install #{version}`
+        `rbenv shell #{version}`
+        `gem install bundler #{version}`
       end
     end
   end
