@@ -6,6 +6,8 @@ module SetUp
   module Install
     include Packages
 
+    module_function
+
     def all
       setup
       packages

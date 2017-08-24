@@ -100,6 +100,10 @@ module SetUp
       virtualenv
     ]
 
-    RUBY_VERSIONS = %w[2.3.2 2.4.0 2.4.1]
+    RUBY_VERSIONS = %w[
+      2.3.2
+      2.4.0
+      2.4.1
+    ]
   end
 end

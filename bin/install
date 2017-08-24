@@ -60,7 +60,7 @@ module SetUp
 
     desc "copy_dotfiles", "Copies dotfiles from ~/.dotfiles/ to their respective locations"
     def copy_dotfiles
-      `cp ~/.dotfiles/emacs/.spacemacs/ ~/.spacemacs`
+      `cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs`
       `cp ~/.dotfiles/vim/.vimrc ~/.vimrc`
       `cp ~/.dotfiles/zsh/.zshrc ~/.zshrc`
     end
