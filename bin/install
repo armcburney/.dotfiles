@@ -71,3 +71,5 @@ module SetUp
     end
   end
 end
+
+SetUp::CLI.start(ARGV)
