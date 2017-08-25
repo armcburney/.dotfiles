@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.3.0)
+    colorize (0.8.1)
     parallel (1.11.2)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -24,6 +25,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  colorize
   rubocop
   thor
 
@@ -31,4 +33,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.1
+   1.15.4

@@ -2,11 +2,12 @@
 # frozen_string_literal: true
 
 require_relative "includes/install.rb"
-require_relative "includes/logger.rb"
+require_relative "includes/logging.rb"
+require_relative "includes/packages.rb"
 
 #
 # ~/.dotfiles/bin/install
-# Installation script for new machines (Mac OS)
+# installeration script for new machines (Mac OS)
 #
 module SetUp
   require "rubygems"
@@ -15,16 +16,24 @@ module SetUp
   Bundler.require(:default)
 
   class CLI < Thor
+    include Logging
+
+    attr_reader :installer
+    def initialize(args = [], options = {}, config = {})
+      @installer = Installer.new
+      super
+    end
+
     desc "all", "Install all dependencies / tools and copy dotfiles to their respective locations"
     def all
-      Install.all
+      installer.all
       copy_dotfiles
       configure
     end
 
     desc "setup", "Install package managers, command line tools, oh-my-zsh"
     def setup
-      Install.setup
+      installer.setup
     end
 
     desc "packages", "Install all brew, yarn, and pip packages, specified in ./includes/packages.rb"
@@ -33,36 +42,38 @@ module SetUp
     option :pip,  aliases: "p", type: :boolean, default: true
     option :yarn, aliases: "y", type: :boolean, default: true
     def packages
-      Install.packages(options)
+      installer.packages(options)
     end
 
     desc "spacemacs", "Install spacemacs and its dependencies"
     option :private,   aliases: "p", type: :boolean, default: true
     option :skeletons, aliases: "s", type: :boolean, default: true
     def spacemacs
-      Install.spacemacs(options)
+      installer.spacemacs(options)
     end
 
     desc "emacs_private", "Install or update ~/.emacs.d/private/ directory with custom snippets"
     def emacs_private
-      Install.emacs_private
+      installer.emacs_private
     end
 
     desc "skeletons", "Install custom project skeletons to the ~/.emacs.d/private/ directory"
     def skeletons
-      Install.skeletons
+      installer.skeletons
     end
 
     desc "rbenv", "Installs commonly used ruby versions and bundler for said versions"
     def rbenv
-      Install.rbenv
+      installer.rbenv
     end
 
     desc "copy_dotfiles", "Copies dotfiles from ~/.dotfiles/ to their respective locations"
     def copy_dotfiles
-      `cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs`
-      `cp ~/.dotfiles/vim/.vimrc ~/.vimrc`
-      `cp ~/.dotfiles/zsh/.zshrc ~/.zshrc`
+      `
+        cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs
+        cp ~/.dotfiles/vim/.vimrc ~/.vimrc
+        cp ~/.dotfiles/zsh/.zshrc ~/.zshrc
+      `
     end
 
     desc "configure", "Configure command line tools and services"

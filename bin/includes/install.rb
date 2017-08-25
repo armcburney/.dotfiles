@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
+require_relative "logging.rb"
 require_relative "packages.rb"
 
 module SetUp
-  module Install
+  class Installer
+    include Logging
     include Packages
-
-    module_function
 
     def all
       setup
@@ -18,20 +18,22 @@ module SetUp
     end
 
     def setup
-      # Install command line tools
-      `xcode-select --install`
+      `
+        # Install command line tools
+        xcode-select --install
 
-      # Install and update brew
-      `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-      `brew tap homebrew/versions`
-      `brew update`
+        # Install and update brew
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew tap homebrew/versions
+        brew update
 
-      # Install zsh
-      `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-      `git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
+        # Install zsh
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
-      # Install other packages
-      `sudo easy_install pip`
+        # Install other packages
+        sudo easy_install pip
+      `
     end
 
     def packages(options)
@@ -42,19 +44,24 @@ module SetUp
     end
 
     def install_spacemacs(options)
-      `brew tap d12frosted/emacs-plus`
-      `brew install emacs-plus --HEAD --with-natural-title-bars`
-      `brew linkapps emacs-plus`
-      `git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d`
+      `
+        brew tap d12frosted/emacs-plus
+        brew install emacs-plus --HEAD --with-natural-title-bars
+        brew linkapps emacs-plus
+        git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+      `
 
       emacs_private if options[:private]
       skeletons     if options[:skeletons]
     end
 
     def emacs_private
-      `git clone git@github.com:AndrewMcBurney/emacs.d.git ~/.emacs.d/private/`
-      `git clone git@github.com:emerald-lang/emerald-emacs.git ~/.emacs.d/private/emerald`
-      `git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal`
+      logger.info "INSTALL - emacs private repo.".colorize(:green)
+      `
+        git clone git@github.com:AndrewMcBurney/emacs.d.git ~/.emacs.d/private/
+        git clone git@github.com:emerald-lang/emerald-emacs.git ~/.emacs.d/private/emerald
+        git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
+      `
     end
 
     def skeletons
@@ -64,15 +71,19 @@ module SetUp
         ruby-cli-activerecord
         sinatra-slim-sass-coffee
       ].each do |skeleton|
+        logger.info "CREATE - skeleton #{skeleton}.".colorize(:green)
         `git clone git@github.com:AndrewMcBurney/#{skeleton}.git ~/.emacs.d/private/skeletons/#{skeleton}`
       end
     end
 
     def rbenv
       Packages::RUBY_VERSIONS.each do |version|
-        `rbenv install #{version}`
-        `rbenv shell #{version}`
-        `gem install bundler #{version}`
+        logger.info "INSTALL - ruby #{version}.".colorize(:green)
+        `
+          rbenv install #{version}
+          rbenv shell #{version}
+          gem install bundler #{version}
+        `
       end
     end
   end
