@@ -10,14 +10,15 @@ module SetUp
 
     def all
       setup
-      packages
-      spacemacs
+      packages(brew: true, cask: true, yarn: true, pip: true)
+      spacemacs(private: true, skeletons: true)
       emacs_private
       skeletons
-      dotfiles
+      rbenv
     end
 
     def setup
+      logger.info "SETUP - initial setup.".colorize(:magenta)
       `
         # Install command line tools
         xcode-select --install
@@ -37,13 +38,21 @@ module SetUp
     end
 
     def packages(options)
-      Packages::BREW.each { |package| `brew install #{package}` }      if options[:brew]
+      logger.info "INSTALL - installing brew packages.".colorize(:yellow)
+      Packages::BREW.each { |package| `brew install #{package}` } if options[:brew]
+
+      logger.info "INSTALL - installing brew cask packages.".colorize(:yellow)
       Packages::CASK.each { |package| `brew cask install #{package}` } if options[:cask]
-      Packages::YARN.each { |package| `yarn global add #{package}` }   if options[:yarn]
-      Packages::PIP.each  { |package| `pip install #{package}` }       if options[:pip]
+
+      logger.info "INSTALL - installing yarn packages.".colorize(:yellow)
+      Packages::YARN.each { |package| `yarn global add #{package}` } if options[:yarn]
+
+      logger.info "INSTALL - installing pip packages.".colorize(:yellow)
+      Packages::PIP.each { |package| `pip install #{package}` } if options[:pip]
     end
 
     def install_spacemacs(options)
+      logger.info "INSTALL - installing spacemacs.".colorize(:green)
       `
         brew tap d12frosted/emacs-plus
         brew install emacs-plus --HEAD --with-natural-title-bars
@@ -56,7 +65,7 @@ module SetUp
     end
 
     def emacs_private
-      logger.info "INSTALL - emacs private repo.".colorize(:green)
+      logger.info "INSTALL - installing emacs private repo.".colorize(:green)
       `
         git clone git@github.com:AndrewMcBurney/emacs.d.git ~/.emacs.d/private/
         git clone git@github.com:emerald-lang/emerald-emacs.git ~/.emacs.d/private/emerald
@@ -71,17 +80,18 @@ module SetUp
         ruby-cli-activerecord
         sinatra-slim-sass-coffee
       ].each do |skeleton|
-        logger.info "CREATE - skeleton #{skeleton}.".colorize(:green)
+        logger.info "CLONE - cloning skeleton #{skeleton} from GitHub.".colorize(:blue)
         `git clone git@github.com:AndrewMcBurney/#{skeleton}.git ~/.emacs.d/private/skeletons/#{skeleton}`
       end
     end
 
     def rbenv
       Packages::RUBY_VERSIONS.each do |version|
-        logger.info "INSTALL - ruby #{version}.".colorize(:green)
+        logger.info "INSTALL - installing ruby #{version}.".colorize(:green)
         `
           rbenv install #{version}
           rbenv shell #{version}
+          rbenv rehash
           gem install bundler #{version}
         `
       end

@@ -69,6 +69,7 @@ module SetUp
 
     desc "copy_dotfiles", "Copies dotfiles from ~/.dotfiles/ to their respective locations"
     def copy_dotfiles
+      logger.info "CLONE - copying dotfiles.".colorize(:blue)
       `
         cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs
         cp ~/.dotfiles/vim/.vimrc ~/.vimrc
@@ -78,6 +79,7 @@ module SetUp
 
     desc "configure", "Configure command line tools and services"
     def configure
+      logger.info "CONFIG - configuring git.".colorize(:magenta)
       `git config --global core.editor emacs`
     end
   end
