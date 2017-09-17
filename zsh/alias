@@ -12,7 +12,6 @@ alias em="emacsclient -t"
 
 # ssh
 alias sshuw='ssh -Y armcburn@linux.student.cs.uwaterloo.ca'
-alias ssham='ssh root@138.197.135.132'
 
 # overwrites
 alias cp="cp -r"
