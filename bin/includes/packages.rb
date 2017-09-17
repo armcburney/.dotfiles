@@ -15,6 +15,8 @@ module SetUp
       elixir
       gcc48
       git
+      glfw3
+      glm
       go
       heroku
       hub

@@ -93,6 +93,7 @@ module SetUp
           rbenv shell #{version}
           rbenv rehash
           gem install bundler #{version}
+          gem install rubocop
         `
       end
     end
