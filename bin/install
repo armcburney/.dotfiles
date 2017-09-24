@@ -7,7 +7,7 @@ require_relative "includes/packages.rb"
 
 #
 # ~/.dotfiles/bin/install
-# installeration script for new machines (Mac OS)
+# installation script for new machines (Mac OS)
 #
 module SetUp
   require "rubygems"
