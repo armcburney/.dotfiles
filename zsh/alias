@@ -9,6 +9,7 @@
 alias ed="emacs --daemon"
 alias ek="emacsclient -e \"(kill-emacs)\""
 alias em="emacsclient -t"
+alias lmao="echo '😂'"
 
 # ssh
 alias sshuw='ssh -Y armcburn@linux.student.cs.uwaterloo.ca'

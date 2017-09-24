@@ -5,7 +5,7 @@
 # Maintained by: Andrew McBurney
 # ******************************************************************************
 
-if [ -n "$INSIDE_EMACS" ]; then
+if [ -n "$INSIDE_EMACS" ] || [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   ZSH_THEME="refined"
 else
   ZSH_THEME="powerlevel9k/powerlevel9k"
