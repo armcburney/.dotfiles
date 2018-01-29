@@ -46,6 +46,11 @@
      ;; Erlang layer
      (erlang)
 
+     ;; Go layer
+     (go
+      :variables
+      go-tab-width 2)
+
      ;; HTML & CSS layer
      (html
       :variables
@@ -230,6 +235,15 @@
 
 (defun dotspacemacs/user-config ()
   "User configuration code."
+
+  (defun bb/setup-term-mode ()
+    (evil-local-set-key 'insert (kbd "C-r") 'bb/send-C-r))
+
+  (defun bb/send-C-r ()
+    (interactive)
+    (term-send-raw-string "\C-r"))
+
+  (add-hook 'term-mode-hook 'bb/setup-term-mode)
 
   (push "~/.emacs.d/private/general/" load-path)
   (require 'andrew-global)
