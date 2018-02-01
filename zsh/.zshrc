@@ -36,5 +36,9 @@ source $ZSH/oh-my-zsh.sh
 # Load rbenv automatically
 eval "$(rbenv init -)"
 
-# Rbenv
+# rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

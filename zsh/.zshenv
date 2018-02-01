@@ -22,3 +22,15 @@ export PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
 
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Add system gems for ruby 2.3.0
+# export PATH="/Users/andrew.mcburney/.gem/ruby/2.3.0/gems/"
+
+# Coreutils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# GOPATH for datadog machine
+export GOPATH="/Users/andrew.mcburney/go"
+
+# Datadog root directory for vagrant box
+export DATADOG_ROOT="/Users/andrew.mcburney/dd"

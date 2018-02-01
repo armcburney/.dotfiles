@@ -28,8 +28,13 @@ alias sk="skeleton"
 alias fb='node ~/fb-messenger-cli/cli.js'
 alias k9='kill -9'
 alias port='lsof -i -P -n | grep'
-alias net='netstat -p tcp | grep'
+alias net='netstat -vanp tcp | grep'
 alias fs='foreman start'
+
+# Datadog aliases
+alias da='/usr/local/bin/datadog-agent'
+alias dai='/usr/local/bin/datadog-agent info -v'
+alias ta='~/trace-agent-osx -ddconfig ~/.datadog-agent/datadog.conf '
 
 # git
 alias gdh='git diff HEAD'

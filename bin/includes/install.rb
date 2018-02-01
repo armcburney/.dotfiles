@@ -11,7 +11,7 @@ module SetUp
     def all
       setup
       packages(brew: true, cask: true, yarn: true, pip: true)
-      spacemacs(private: true, skeletons: true)
+      install_spacemacs(private: true, skeletons: true)
       emacs_private
       skeletons
       rbenv
@@ -38,14 +38,14 @@ module SetUp
     end
 
     def packages(options)
+      # logger.info "INSTALL - installing brew cask packages.".colorize(:yellow)
+      # Packages::CASK.each { |package| `brew cask install #{package}` } if options[:cask]
+
       logger.info "INSTALL - installing brew packages.".colorize(:yellow)
       Packages::BREW.each { |package| `brew install #{package}` } if options[:brew]
 
-      logger.info "INSTALL - installing brew cask packages.".colorize(:yellow)
-      Packages::CASK.each { |package| `brew cask install #{package}` } if options[:cask]
-
-      logger.info "INSTALL - installing yarn packages.".colorize(:yellow)
-      Packages::YARN.each { |package| `yarn global add #{package}` } if options[:yarn]
+      # logger.info "INSTALL - installing yarn packages.".colorize(:yellow)
+      # Packages::YARN.each { |package| `yarn global add #{package}` } if options[:yarn]
 
       logger.info "INSTALL - installing pip packages.".colorize(:yellow)
       Packages::PIP.each { |package| `pip install #{package}` } if options[:pip]

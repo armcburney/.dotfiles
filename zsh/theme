@@ -57,5 +57,5 @@ else
   POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='236'
 
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm node_version rbenv vi_mode)
+  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status node_version rbenv vi_mode)
 fi

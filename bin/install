@@ -49,7 +49,7 @@ module SetUp
     option :private,   aliases: "p", type: :boolean, default: true
     option :skeletons, aliases: "s", type: :boolean, default: true
     def spacemacs
-      installer.spacemacs(options)
+      installer.install_spacemacs(options)
     end
 
     desc "emacs_private", "Install or update ~/.emacs.d/private/ directory with custom snippets"

@@ -5,10 +5,10 @@
 ;; Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
 ;; Maintainer: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
 
-;; URL: https://github.com/AndrewMcBurney/dotfiles
+;; URL: https://github.com/AndrewMcBurney/.dotfiles
 ;; Compatibility: only tested with Spacemacs (Emacs 25.0)
 ;; Version: 0.0.1
-;; Last-Updated: 2017-07-13
+;; Last-Updated: 2010-02-01
 
 ;;; License: GPLv3
 
@@ -27,6 +27,8 @@
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
+     ;;; Language Layers
+
      ;; C/C++ layer
      ;; Based on Google's C++ style guide
      (c-c++
@@ -109,7 +111,8 @@
      (shell
       :variables
       shell-default-height 30
-      shell-default-position 'bottom)
+      shell-default-position 'bottom
+      shell-default-shell 'multi-term)
 
      ;; SQL layer
      (sql)
@@ -127,32 +130,49 @@
      ;; Yaml layer
      (yaml)
 
-     ;; Other layers
+     ;;; General Layers
+
+     ;; Auto-completion layer
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
+      auto-completion-enable-help-tooltip t
+      auto-completion-enable-sort-by-usage t
       auto-completion-return-key-behavior 'complete
       auto-completion-tab-key-behavior 'cycle
       auto-completion-complete-with-key-sequence nil
-      auto-completion-complete-with-key-sequence-delay 0.1
+      auto-completion-complete-with-key-sequence-delay 0.05
       auto-completion-private-snippets-directory nil)
 
-     (better-defaults)
      (chrome)
      (dash)
+     (docker)
      (emoji)
+
      (git
       :variables
       git-magit-status-fullscreen t)
+
+     (github)
      (helm)
+
+     (ibuffer
+      :variables
+      ibuffer-group-buffers-by 'projects)
+
+     (org)
      (osx)
      (pdf-tools)
      (react)
      (search-engine)
      (slack)
-     (spell-checking)
+     (spotify)
+     (spell-checking
+      :variables
+      enable-flyspell-auto-completion t)
      (syntax-checking)
      (twitter)
+     (vagrant)
      (version-control))
 
    dotspacemacs-additional-packages '(ag skeletor)
@@ -236,15 +256,7 @@
 (defun dotspacemacs/user-config ()
   "User configuration code."
 
-  (defun bb/setup-term-mode ()
-    (evil-local-set-key 'insert (kbd "C-r") 'bb/send-C-r))
-
-  (defun bb/send-C-r ()
-    (interactive)
-    (term-send-raw-string "\C-r"))
-
-  (add-hook 'term-mode-hook 'bb/setup-term-mode)
-
+  ;; General configuration for emacs terminal
   (push "~/.emacs.d/private/general/" load-path)
   (require 'andrew-global)
   (require 'andrew-helm)
@@ -253,16 +265,29 @@
   (require 'andrew-terminal)
   (require 'andrew-transparent)
 
+  ;; C++-specific configuration
   (push "~/.emacs.d/private/c++/" load-path)
   (require 'andrew-c++-style)
 
+  ;; Emerald-specific configuration
+  (push "~/.emacs.d/private/emerald/" load-path)
+  (require 'emerald-mode)
+
+  ;; JavaScript-specific configuration
   (push "~/.emacs.d/private/js/" load-path)
   (require 'andrew-javascript)
 
+  ;; Ruby-specific configuration
+  (push "~/.emacs.d/private/ruby/" load-path)
+  (require 'andrew-ruby)
+
+  ;; Scala-specific configuration
   (push "~/.emacs.d/private/scala/" load-path)
   (require 'andrew-ensime)
 
-  (push "~/.emacs.d/private/emerald/" load-path)
-  (require 'emerald-mode))
+  ;; Shell-specific configuration
+  (push "~/.emacs.d/private/shell/" load-path)
+  (require 'andrew-shell)
+  )
 
 ;;; .spacemacs ends here
