@@ -231,7 +231,9 @@
    dotspacemacs-show-transient-state-color-guide t
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling t
-   dotspacemacs-line-numbers 'relative
+   dotspacemacs-line-numbers '(:disabled-for-modes
+                               ibuffer-mode
+                               :relative t)
    dotspacemacs-folding-method 'evil
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
