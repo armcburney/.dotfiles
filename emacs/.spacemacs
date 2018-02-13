@@ -141,7 +141,7 @@
       auto-completion-return-key-behavior 'complete
       auto-completion-tab-key-behavior 'cycle
       auto-completion-complete-with-key-sequence nil
-      auto-completion-complete-with-key-sequence-delay 0.05
+      auto-completion-complete-with-key-sequence-delay 0.01
       auto-completion-private-snippets-directory nil)
 
      (chrome)
@@ -167,18 +167,18 @@
      (search-engine)
      (slack)
      (spotify)
-     (spell-checking
-      :variables
-      enable-flyspell-auto-completion t)
+     (spell-checking)
      (syntax-checking)
      (twitter)
      (vagrant)
-     (version-control))
+     (version-control)
+     )
 
    dotspacemacs-additional-packages '(ag skeletor)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
-   dotspacemacs-install-packages 'used-only))
+   dotspacemacs-install-packages 'used-only)
+  )
 
 
 (defun dotspacemacs/init ()
@@ -194,7 +194,7 @@
    dotspacemacs-startup-lists '((todos . 5) (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(atom-one-dark dichromacy alect-black-alt)
+   dotspacemacs-themes '(atom-one-dark tsdh-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10
@@ -231,9 +231,7 @@
    dotspacemacs-show-transient-state-color-guide t
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling t
-   dotspacemacs-line-numbers '(:disabled-for-modes
-                               ibuffer-mode
-                               :relative t)
+   dotspacemacs-line-numbers '(:relative t)
    dotspacemacs-folding-method 'evil
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
@@ -241,18 +239,20 @@
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
-   dotspacemacs-whitespace-cleanup 'all))
+   dotspacemacs-whitespace-cleanup 'all)
+  )
 
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code."
 
   ;; Move custom-set-variables to a separate file
-  (setq custom-file (file-truename (concat user-emacs-directory "custom.el")))
+  (setq custom-file (file-truename (concat "~/.dotfiles/emacs" "custom.el")))
   (load custom-file)
 
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-  (setq exec-path (append exec-path '("/usr/local/bin"))))
+  (setq exec-path (append exec-path '("/usr/local/bin")))
+  )
 
 
 (defun dotspacemacs/user-config ()
