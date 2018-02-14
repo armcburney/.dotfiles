@@ -9,7 +9,6 @@
 alias ed="emacs --daemon"
 alias ek="emacsclient -e \"(kill-emacs)\""
 alias em="emacsclient -t"
-alias lmao="echo '😂'"
 
 # ssh
 alias sshuw='ssh -Y armcburn@linux.student.cs.uwaterloo.ca'
@@ -18,23 +17,24 @@ alias sshuw='ssh -Y armcburn@linux.student.cs.uwaterloo.ca'
 alias cp="cp -r"
 alias mkdir="mkdir -p"
 
+# datadog
+alias da='/usr/local/bin/datadog-agent'
+alias dai='/usr/local/bin/datadog-agent info -v'
+alias ta='~/trace-agent-osx -ddconfig ~/.datadog-agent/datadog.conf '
+
+# docker
+alias dka='docker kill $(docker ps -q)'
+
+# git
+alias gdh='git diff HEAD'
+
 # other
 alias c="clear"
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
 alias ls='ls -G'
-alias sk="skeleton"
-alias fb='node ~/fb-messenger-cli/cli.js'
 alias k9='kill -9'
 alias port='lsof -i -P -n | grep'
 alias net='netstat -vanp tcp | grep'
 alias fs='foreman start'
-
-# Datadog aliases
-alias da='/usr/local/bin/datadog-agent'
-alias dai='/usr/local/bin/datadog-agent info -v'
-alias ta='~/trace-agent-osx -ddconfig ~/.datadog-agent/datadog.conf '
-
-# git
-alias gdh='git diff HEAD'
