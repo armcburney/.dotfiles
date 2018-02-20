@@ -103,9 +103,8 @@
       scala-indent:use-javadoc-style t
       scala-use-java-doc-style t
       scala-auto-insert-asterisk-in-comments t
-      scala-use-unicode-arrows t
       scala-auto-start-ensime t
-      set-fill-column 100)
+      set-fill-column 120)
 
      ;; Shell layer
      (shell
@@ -116,6 +115,8 @@
 
      ;; SQL layer
      (sql)
+
+     (swift)
 
      ;; TypeScript layer
      ;; Based on Microsoft's TS style guide and AirBnb's JS style guide
@@ -247,7 +248,7 @@
   "Initialization function for user code."
 
   ;; Move custom-set-variables to a separate file
-  (setq custom-file (file-truename (concat "~/.dotfiles/emacs" "custom.el")))
+  (setq custom-file (file-truename (concat "~/.dotfiles/emacs/" "custom.el")))
   (load custom-file)
 
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
@@ -257,6 +258,8 @@
 
 (defun dotspacemacs/user-config ()
   "User configuration code."
+
+  (setq web-mode-markup-indent-offset 2)
 
   ;; General configuration for emacs terminal
   (push "~/.emacs.d/private/general/" load-path)
