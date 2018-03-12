@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# ******************************************************************************
+# ZSH Loaders
+# Maintained by: Andrew McBurney
+# ******************************************************************************
+
+# Reverse image search with fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Load rbenv automatically
+eval "$(rbenv init -)"
+
+# Rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
