@@ -29,75 +29,40 @@
    '(
      ;;; Language Layers
 
-     ;; C/C++ layer
-     ;; Based on Google's C++ style guide
      (c-c++
       :variables
       c-c++-default-mode-for-headers 'c++-mode
       c-c++-enable-clang-support t)
-
-     ;; Crystal layer
      (crystal)
-
-     ;; Emacs Lisp layer
      (emacs-lisp)
-
-     ;; Elixir layer
      (elixir)
-
-     ;; Erlang layer
      (erlang)
-
-     ;; Go layer
      (go
       :variables
       go-tab-width 2)
-
-     ;; HTML & CSS layer
      (html
       :variables
       set-fill-column 100)
-
-     ;; Java layer
-     ;; Based on Google's Java style guide
      (java
       :variables
       set-fill-column 100)
-
-     ;; JavaScript layer
-     ;; Based on AirBnb's JS style guide
      (javascript
       :variables
       set-fill-column 100)
-
-     ;; Lua layer
      (lua)
-
-     ;; Markdown layer
      (markdown
       :variables
       markdown-live-preview-engine 'vmd)
-
-     ;; Python layer
      (python
       :variables
       python-enable-yapf-format-on-save t)
-
-     ;; Ruby layer
-     ;; Based on Rubocop specification
      (ruby
       :variables
       ruby-version-manager 'rbenv
       ruby-enable-ruby-on-rails-support t
       ruby-test-runner 'rspec)
-
      (ruby-on-rails)
-
-     ;; Rust layer
      (rust)
-
-     ;; Scala layer
-     ;; Based on Databricks Scala style guide
      (scala
       :variables
       scala-indent:use-javadoc-style t
@@ -105,35 +70,22 @@
       scala-auto-insert-asterisk-in-comments t
       scala-auto-start-ensime t
       set-fill-column 120)
-
-     ;; Shell layer
      (shell
       :variables
       shell-default-height 30
       shell-default-position 'bottom
       shell-default-shell 'multi-term)
-
-     ;; SQL layer
      (sql)
-
      (swift)
-
-     ;; TypeScript layer
-     ;; Based on Microsoft's TS style guide and AirBnb's JS style guide
      (typescript
       :variables
       typescript-fmt-on-save t
       set-fill-column 100)
-
-     ;; Vim Script layer
      (vimscript)
-
-     ;; Yaml layer
      (yaml)
 
      ;;; General Layers
 
-     ;; Auto-completion layer
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
@@ -144,23 +96,20 @@
       auto-completion-complete-with-key-sequence nil
       auto-completion-complete-with-key-sequence-delay 0.01
       auto-completion-private-snippets-directory nil)
-
      (chrome)
      (dash)
      (docker)
      (emoji)
-
      (git
       :variables
       git-magit-status-fullscreen t)
-
      (github)
      (helm)
-
      (ibuffer
       :variables
       ibuffer-group-buffers-by 'projects)
-
+     (mu4e :variables
+           mu4e-installation-path "/usr/share/emacs/site-lisp")
      (org)
      (osx)
      (pdf-tools)
@@ -195,7 +144,7 @@
    dotspacemacs-startup-lists '((todos . 5) (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(atom-one-dark tsdh-light)
+   dotspacemacs-themes '(atom-one-dark spacemacs-dark tsdh-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10
@@ -259,7 +208,17 @@
 (defun dotspacemacs/user-config ()
   "User configuration code."
 
+  ;; Use 2 spaces in HTML and CSS files
   (setq web-mode-markup-indent-offset 2)
+
+  ;; Encryption bois
+  (require 'epa-file)
+  (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg2"))
+  (epa-file-enable)
+
+  ;; Slack integration
+  (push "~/.slack/" load-path)
+  (require 'andrew-slack)
 
   ;; General configuration for emacs terminal
   (push "~/.emacs.d/private/general/" load-path)
