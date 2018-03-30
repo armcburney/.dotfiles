@@ -34,6 +34,7 @@
       c-c++-default-mode-for-headers 'c++-mode
       c-c++-enable-clang-support t)
      (crystal)
+     (csv)
      (emacs-lisp)
      (elixir)
      (erlang)
@@ -144,7 +145,7 @@
    dotspacemacs-startup-lists '((todos . 5) (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(atom-one-dark spacemacs-dark tsdh-light)
+   dotspacemacs-themes '(atom-one-dark spacemacs-light tsdh-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10

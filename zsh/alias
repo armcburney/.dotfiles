@@ -28,7 +28,7 @@ alias dka='docker kill $(docker ps -q)'
 # git
 alias gdh='git diff HEAD'
 
-# other
+# general
 alias c="clear"
 alias l='ls -CF'
 alias la='ls -A'
@@ -38,3 +38,6 @@ alias k9='kill -9'
 alias port='lsof -i -P -n | grep'
 alias net='netstat -vanp tcp | grep'
 alias fs='foreman start'
+
+# go
+alias gdbnew='/usr/local/Cellar/gdb/7.6/bin/gdb'
