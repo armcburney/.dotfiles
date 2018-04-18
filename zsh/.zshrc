@@ -13,6 +13,3 @@ source $ZSH/oh-my-zsh.sh
 unsetopt nomatch
 
 plugins=(git vi-mode bundler osx rake ruby)
-
-COMPLETION_WAITING_DOTS="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"

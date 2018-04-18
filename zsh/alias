@@ -20,13 +20,19 @@ alias mkdir="mkdir -p"
 # datadog
 alias da='/usr/local/bin/datadog-agent'
 alias dai='/usr/local/bin/datadog-agent info -v'
-alias ta='~/trace-agent-osx -ddconfig ~/.datadog-agent/datadog.conf '
+alias ta='~/trace-agent-osx -ddconfig ~/.datadog-agent/datadog.conf'
 
 # docker
 alias dka='docker kill $(docker ps -q)'
 
 # git
 alias gdh='git diff HEAD'
+
+# movement
+alias cdu2="cd ../../"
+alias cdu3="cd ../../../"
+alias cdu4="cd ../../../../"
+alias cdu5="cd ../../../../../"
 
 # general
 alias c="clear"
