@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name : C++ Header
+# key : hdr
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+#ifndef ${1:$(upcase yas-text)}_H
+#define ${1:$(upcase yas-text)}_H
+
+/**
+ * $1.hpp
+ */
+class ${1:class_name} {
+
+public:
+  $1();
+  ~$1();
+
+private:
+
+};
+
+#endif // ${1:$(upcase yas-text)}_H

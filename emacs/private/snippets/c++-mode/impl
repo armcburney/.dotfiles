@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name : C++ Imlpementation
+# key : impl
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+#include "${1:$(downcase yas-text)}.hpp"
+
+${1:ClassName}::$1() {
+  $0
+}
+
+$1::~$1() {
+}

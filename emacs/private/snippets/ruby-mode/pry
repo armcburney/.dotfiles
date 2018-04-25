@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : Ruby Debug Session
+# key : pry
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+require "pry"; binding.pry

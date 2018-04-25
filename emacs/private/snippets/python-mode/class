@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name : Python Class
+# key : class
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+# -*- coding: utf-8 -*-
+
+"""${1:`(let ((fn (capitalize (file-name-nondirectory
+                                (file-name-sans-extension
+                                (or (buffer-file-name)
+                                    (buffer-name (current-buffer))))))))
+             (replace-regexp-in-string "_" "" fn t t))`}
+"""
+
+class $1(object):
+   """"""
+
+    def __init__(self):
+        """Initializes a new $1 object."""
+        pass$0

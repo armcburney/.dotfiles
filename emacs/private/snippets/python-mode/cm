@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name : Class Method
+# key : cm
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+    def ${1:method_name}(self):
+        """${2:method_docstring}"""
+        pass$0

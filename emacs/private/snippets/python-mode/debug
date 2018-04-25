@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : Python Debug Session
+# key : debug
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+import code; code.interact(local=dict(globals(), **locals()))

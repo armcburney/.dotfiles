@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name : frozen_string_literal: true
+# key : frozen
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+# frozen_string_literal: true
+$0

@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name : initialize
+# key : init
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+# frozen_string_literal: true
+
+class ${1:class_name}
+  # Instantiates a new `$1` object
+  #
+  # @param  []
+  # @return [nil]
+  def initialize(
+    $0
+  end
+end

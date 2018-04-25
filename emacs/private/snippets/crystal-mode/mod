@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name : Crystal Module
+# key : mod
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+module ${1:module_name}
+  class ${2:class_name}
+    $0
+  end
+end

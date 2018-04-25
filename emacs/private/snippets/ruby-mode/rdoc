@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name : RubyDoc Comment
+# key : documentation
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+# ${1:description}
+#
+# @param  [type] variable_name
+# @return [nil] $0

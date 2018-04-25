@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : Rails Logger Info
+# key : log
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+Rails.logger.info

@@ -1,0 +1,115 @@
+# -*- mode: snippet -*-
+# name : Rspec Rails REST Controller
+# key : rrrc
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+$0RSpec.describe ${1:model_name}sController, type: :controller do
+  let(:valid_attributes) do
+    {}
+  end
+
+  let(:invalid_attributes) do
+    {}
+  end
+
+  describe 'GET #index' do
+    it 'returns a success response' do
+      $1.create! valid_attributes
+      get :index, params: {}
+      expect(response).to be_success
+    end
+  end
+
+  describe 'GET #show' do
+    it 'returns a success response' do
+      ${1:$(downcase yas-text)} = $1.create! valid_attributes
+      get :show, params: { id: ${1:$(downcase yas-text)}.to_param }
+      expect(response).to be_success
+    end
+  end
+
+  describe 'GET #new' do
+    it 'returns a success response' do
+      get :new, params: {}
+      expect(response).to be_success
+    end
+  end
+
+  describe 'GET #edit' do
+    it 'returns a success response' do
+      ${1:$(downcase yas-text)} = $1.create! valid_attributes
+      get :edit, params: { id: ${1:$(downcase yas-text)}.to_param }
+      expect(response).to be_success
+    end
+  end
+
+  describe 'POST #create' do
+    context 'with valid params' do
+      it 'creates a new $1' do
+        expect do
+          post :create, params: { ${1:$(downcase yas-text)}: valid_attributes }
+        end.to change($1, :count).by(1)
+      end
+
+      it 'redirects to the created ${1:$(downcase yas-text)}' do
+        post :create, params: { ${1:$(downcase yas-text)}: valid_attributes }
+        expect(response).to redirect_to($1.last)
+      end
+    end
+
+    context 'with invalid params' do
+      it 'returns a success response (i.e. to display the "new" template)' do
+        post :create, params: { ${1:$(downcase yas-text)}: invalid_attributes }
+        expect(response).to be_success
+      end
+    end
+  end
+
+  describe 'PUT #update' do
+    context 'with valid params' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
+
+      it 'updates the requested ${1:$(downcase yas-text)}' do
+        ${1:$(downcase yas-text)} = $1.create! valid_attributes
+        put :update, params: { id: ${1:$(downcase yas-text)}.to_param, ${1:$(downcase yas-text)}: new_attributes }
+        ${1:$(downcase yas-text)}.reload
+        skip('Add assertions for updated state')
+      end
+
+      it 'redirects to the ${1:$(downcase yas-text)}' do
+        ${1:$(downcase yas-text)} = $1.create! valid_attributes
+        put :update, params: { id: ${1:$(downcase yas-text)}.to_param, ${1:$(downcase yas-text)}: valid_attributes }
+        expect(response).to redirect_to(${1:$(downcase yas-text)})
+      end
+    end
+
+    context 'with invalid params' do
+      it 'returns a success response (i.e. to display the "edit" template)' do
+        ${1:$(downcase yas-text)} = $1.create! valid_attributes
+        put :update, params: { id: ${1:$(downcase yas-text)}.to_param, ${1:$(downcase yas-text)}: invalid_attributes }
+        expect(response).not_to be_success
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    it 'destroys the requested ${1:$(downcase yas-text)}' do
+      ${1:$(downcase yas-text)} = $1.create! valid_attributes
+      expect do
+        delete :destroy, params: { id: ${1:$(downcase yas-text)}.to_param }
+      end.to change($1, :count).by(-1)
+    end
+
+    it 'redirects to the ${1:$(downcase yas-text)}s list' do
+      ${1:$(downcase yas-text)} = $1.create! valid_attributes
+      delete :destroy, params: { id: ${1:$(downcase yas-text)}.to_param }
+      expect(response).to redirect_to(${1:$(downcase yas-text)}s_url)
+    end
+  end
+end

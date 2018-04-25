@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : Header 1
+# key : h1
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+* $0

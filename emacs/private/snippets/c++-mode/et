@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name : Emerald Test
+# key : et
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+
+SECTION("") {
+  std::vector<std::string> input = {
+    ""
+  };
+  std::string output = "";
+
+  REQUIRE(input == output);
+}
