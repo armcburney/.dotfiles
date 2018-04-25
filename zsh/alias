@@ -28,12 +28,6 @@ alias dka='docker kill $(docker ps -q)'
 # git
 alias gdh='git diff HEAD'
 
-# movement
-alias cdu2="cd ../../"
-alias cdu3="cd ../../../"
-alias cdu4="cd ../../../../"
-alias cdu5="cd ../../../../../"
-
 # general
 alias c="clear"
 alias l='ls -CF'
