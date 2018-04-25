@@ -209,49 +209,25 @@
 (defun dotspacemacs/user-config ()
   "User configuration code."
 
-  ;; Use 2 spaces in HTML and CSS files
-  (setq web-mode-markup-indent-offset 2)
-
   ;; Encryption bois
   (require 'epa-file)
   (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg2"))
   (epa-file-enable)
 
-  ;; Slack integration
-  (push "~/.slack/" load-path)
-  (require 'andrew-slack)
+  ;; Load all code from the `/private' directory
+  (let ((default-directory "~/.emacs.d/private/"))
+    (normal-top-level-add-subdirs-to-load-path))
 
-  ;; General configuration for emacs terminal
-  (push "~/.emacs.d/private/general/" load-path)
   (require 'andrew-global)
   (require 'andrew-helm)
   (require 'andrew-skeletor)
   (require 'andrew-style)
   (require 'andrew-terminal)
   (require 'andrew-transparent)
-
-  ;; C++-specific configuration
-  (push "~/.emacs.d/private/c++/" load-path)
   (require 'andrew-c++-style)
-
-  ;; Emerald-specific configuration
-  (push "~/.emacs.d/private/emerald/" load-path)
-  (require 'emerald-mode)
-
-  ;; JavaScript-specific configuration
-  (push "~/.emacs.d/private/js/" load-path)
   (require 'andrew-javascript)
-
-  ;; Ruby-specific configuration
-  (push "~/.emacs.d/private/ruby/" load-path)
   (require 'andrew-ruby)
-
-  ;; Scala-specific configuration
-  (push "~/.emacs.d/private/scala/" load-path)
   (require 'andrew-ensime)
-
-  ;; Shell-specific configuration
-  (push "~/.emacs.d/private/shell/" load-path)
   (require 'andrew-shell)
   )
 
