@@ -11,7 +11,7 @@
 #cVim-command-bar {
   position: fixed;
   z-index: 2147483646;
-  background-color: #0066ff;
+  background-color: #1b1d1e;
   color: #bbb;
   display: none;
   box-sizing: content-box;
