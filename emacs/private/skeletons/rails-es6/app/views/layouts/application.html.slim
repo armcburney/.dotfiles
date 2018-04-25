@@ -1,0 +1,13 @@
+doctype html
+
+html
+  head
+    title __PROJECT-NAME__
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    = yield
