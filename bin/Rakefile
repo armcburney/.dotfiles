@@ -10,10 +10,8 @@ namespace :general do
       # Install command line tools
       xcode-select --install
 
-      # Install and update brew
+      # Install homebrew
       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-      brew tap homebrew/versions
-      brew update
 
       # Install zsh
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -59,7 +57,7 @@ namespace :dotfiles do
   task :copy do
     `
       cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs
-      cp ~/.dotfiles/vim/.vimrc ~/.vimrc
+      cp ~/.dotfiles/emacs/private/ ~/.emacs.d/
       cp ~/.dotfiles/zsh/.zshrc ~/.zshrc
     `
   end

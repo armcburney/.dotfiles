@@ -26,7 +26,7 @@ module SetUp
 
     def install!(package)
       puts "#{install_command} #{package}"
-      `#{install_command} #{package}`
+      system("#{install_command} #{package}")
     end
 
     def post_install!
