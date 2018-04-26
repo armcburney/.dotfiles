@@ -4,22 +4,20 @@ require "rake"
 require_relative "string"
 
 namespace :general do
-  desc "sets stuff up"
+  desc "sets up requirements for installer"
   task :setup do
-    `
-      # Install command line tools
-      xcode-select --install
+    # Install command line tools
+    system("xcode-select --install")
 
-      # Install homebrew
-      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    # Install homebrew
+    system("/usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"")
 
-      # Install zsh
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-      git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    # Install zsh
+    system("sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"")
+    system("git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k")
 
-      # Install other packages
-      sudo easy_install pip
-    `
+    # Install pip
+    system("sudo easy_install pip")
   end
 end
 
@@ -41,12 +39,9 @@ namespace :install do
 
   desc "installs spacemacs"
   task :spacemacs do
-    `
-    brew tap d12frosted/emacs-plus
-    brew install emacs-plus --HEAD --with-natural-title-bars
-    brew linkapps emacs-plus
-    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-  `
+    system("brew tap d12frosted/emacs-plus")
+    system("brew install emacs-plus --HEAD --with-natural-title-bars")
+    system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
   end
 
   task all: %w[packages spacemacs]
@@ -55,18 +50,16 @@ end
 namespace :dotfiles do
   desc "copies dotfiles to their appropriate locations"
   task :copy do
-    `
-      cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs
-      cp ~/.dotfiles/emacs/private/ ~/.emacs.d/
-      cp ~/.dotfiles/zsh/.zshrc ~/.zshrc
-    `
+    system("cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs")
+    system("cp ~/.dotfiles/emacs/private/ ~/.emacs.d/")
+    system("cp ~/.dotfiles/zsh/.zshrc ~/.zshrc")
   end
 end
 
 namespace :git do
   desc "configure git"
   task :configure do
-    `git config --global core.editor emacs`
+    system("git config --global core.editor emacs")
   end
 end
 
