@@ -1,1 +1,4 @@
 virtualenv
+flake8
+autoflake
+hy

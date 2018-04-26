@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 require_relative "package_installer"
+require_relative "gem"
 
 module SetUp
   class Rbenv < PackageInstaller
-    def options
-      %w[-s]
+    def initialize
+      super(nil, [Gem.new(self)], %w[-s])
     end
   end
 end

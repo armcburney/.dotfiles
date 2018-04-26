@@ -4,21 +4,25 @@ require_relative "../string"
 
 module SetUp
   class PackageInstaller
-    def install_packages!
+    attr_reader :parent, :children, :options
+
+    def initialize(parent = nil, children = [], options = [])
+      @parent   = parent
+      @children = children
+      @options  = options
+    end
+
+    def install_packages!(config: {})
+      @config = config
       pre_install!
-      packages.each { |package| install!(package) }
+
+      packages.each do |package|
+        install!(package)
+        children.each { |child| child.install_packages!(config: { version: package }) }
+      end
+
       post_install!
     end
-
-    def install_command
-      "#{snake_case_name} install #{options.join(" ")}"
-    end
-
-    def options
-      []
-    end
-
-    private
 
     def pre_install!
       puts "No pre-install script defined for #{snake_case_name}."
@@ -32,6 +36,14 @@ module SetUp
     def post_install!
       puts "No post-install script defined for #{snake_case_name}."
     end
+
+    def install_command
+      "#{snake_case_name} install #{options.join(" ")}"
+    end
+
+    private
+
+    attr_reader :config
 
     def packages
       File.read("./packages/#{snake_case_name}.txt").split("\n")
