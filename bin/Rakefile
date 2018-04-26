@@ -1,0 +1,80 @@
+# frozen_string_literal: true
+
+require "rake"
+require_relative "string"
+
+namespace :general do
+  desc "sets stuff up"
+  task :setup do
+    `
+      # Install command line tools
+      xcode-select --install
+
+      # Install and update brew
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      brew tap homebrew/versions
+      brew update
+
+      # Install zsh
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+      # Install other packages
+      sudo easy_install pip
+    `
+  end
+end
+
+namespace :install do
+  desc "installs all packages"
+  task :packages do
+    package_installers = Dir["./installers/*.rb"].map do |file|
+      require file
+      basename = File.basename(file, File.extname(file))
+
+      # Don't call `install_packages` on the abstract base class
+      next if basename == "package_installer"
+
+      "SetUp::#{basename.camelize}".split("::").inject(Object) { |o, c| o.const_get c }.new
+    end
+
+    package_installers.compact.each(&:install_packages!)
+  end
+
+  desc "installs spacemacs"
+  task :spacemacs do
+    `
+    brew tap d12frosted/emacs-plus
+    brew install emacs-plus --HEAD --with-natural-title-bars
+    brew linkapps emacs-plus
+    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+  `
+  end
+
+  task all: %w[packages spacemacs]
+end
+
+namespace :dotfiles do
+  desc "copies dotfiles to their appropriate locations"
+  task :copy do
+    `
+      cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs
+      cp ~/.dotfiles/vim/.vimrc ~/.vimrc
+      cp ~/.dotfiles/zsh/.zshrc ~/.zshrc
+    `
+  end
+end
+
+namespace :git do
+  desc "configure git"
+  task :configure do
+    `git config --global core.editor emacs`
+  end
+end
+
+task default: %w[
+  general:setup
+  install:all
+  dotfiles:copy
+  git:configure
+]
