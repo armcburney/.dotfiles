@@ -18,20 +18,19 @@ end
 namespace :install do
   desc "installs all packages"
   task :packages do
-    package_installers = Dir["./installers/*.rb"].map do |file|
+    package_installers = Dir["./installers/root/*.rb"].sort.map do |file|
+      # Require the root installers
       require file
+
+      # Get the file basename
       basename = File.basename(file, File.extname(file))
 
-      # Don't call `install_packages` on the abstract base class
-      next if basename == "package_installer"
-
+      # Create the class instance
       "SetUp::#{basename.camelize}".split("::").inject(Object) { |o, c| o.const_get c }.new
     end
 
     # Only call `install_packages!` for the root nodes in the forest
-    package_installers
-      .reject { |installer| installer.nil? || !installer.parent.nil? }
-      .each(&:install_packages!)
+    package_installers.each(&:install_packages!)
   end
 
   desc "installs spacemacs"

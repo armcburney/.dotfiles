@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "package_installer"
-require_relative "gem"
+require_relative "../package_installer"
+require_relative "../child/gem"
 
 module SetUp
   class Rbenv < PackageInstaller

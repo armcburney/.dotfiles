@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "package_installer"
+require_relative "../package_installer"
 
 module SetUp
   class Gem < PackageInstaller
-    # Install gems for the default ruby version
+    # Install gems for a ruby version
     def pre_install!
       system("rbenv install -s #{config[:version]}")
       system("rbenv shell #{config[:version]}")
