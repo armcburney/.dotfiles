@@ -52,7 +52,7 @@ namespace :dotfiles do
   desc "copies dotfiles to their appropriate locations"
   task :copy do
     system("cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs")
-    system("cp ~/.dotfiles/emacs/private/ ~/.emacs.d/")
+    system("cp -r ~/.dotfiles/emacs/private/ ~/.emacs.d/private/")
     system("cp ~/.dotfiles/zsh/.zshrc ~/.zshrc")
   end
 
