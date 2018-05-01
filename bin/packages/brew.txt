@@ -1,4 +1,5 @@
 apache-spark
+automake
 boost
 cask
 cmake
@@ -17,6 +18,8 @@ maven
 mysql
 node
 openssl
+pkg-config
+poppler
 postgresql
 pyenv
 pyenv-virtualenv
