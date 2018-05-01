@@ -35,3 +35,4 @@ scala
 scalafmt
 scalastyle
 valgrind
+yarn
