@@ -54,6 +54,7 @@ namespace :dotfiles do
     system("cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs")
     system("cp -r ~/.dotfiles/emacs/private/ ~/.emacs.d/private/")
     system("cp ~/.dotfiles/zsh/.zshrc ~/.zshrc")
+    system("cp ~/.dotfiles/ruby/.rubocop.yml ~/.rubocop.yml")
   end
 
   task all: %w[copy]

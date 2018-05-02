@@ -1,0 +1,18 @@
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 25
+  ExcludedMethods: []
+
+Metrics/BlockNesting:
+  CountBlocks: false
+  Max: 3
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 100
+
+Metrics/LineLength:
+  Max: 120
