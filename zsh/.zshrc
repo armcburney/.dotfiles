@@ -8,8 +8,9 @@ source ~/.dotfiles/zsh/alias
 source ~/.dotfiles/zsh/functions
 source ~/.dotfiles/zsh/loaders
 source ~/.dotfiles/zsh/theme
-source $ZSH/oh-my-zsh.sh
 
 unsetopt nomatch
 
 plugins=(git vi-mode bundler osx rake ruby)
+
+source $ZSH/oh-my-zsh.sh
