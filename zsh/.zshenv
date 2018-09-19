@@ -22,8 +22,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-# GOPATH for datadog machine
-export GOPATH="/Users/$(whoami)/coding/go"
+# GOPATH for my machine
+export GOPATH="/Users/$(whoami)/go"
 
 # Add GOPATH binaries to PATH
 export PATH=$PATH:$GOPATH/bin
