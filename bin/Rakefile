@@ -23,7 +23,7 @@ namespace :unix do
       desc "copies dotfiles to their appropriate locations"
       task :copy do
         system("cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs")
-        system("cp -r ~/.dotfiles/emacs/private/ ~/.emacs.d/private/")
+        system("rsync -r ~/.dotfiles/emacs/private/ ~/.emacs.d/private/")
         system("cp ~/.dotfiles/zsh/.zshrc ~/.zshrc")
         system("cp ~/.dotfiles/ruby/.rubocop.yml ~/.rubocop.yml")
       end
@@ -69,6 +69,7 @@ namespace :unix do
       task :spacemacs do
         system("brew tap d12frosted/emacs-plus")
         system("brew install emacs-plus --HEAD --with-natural-title-bars")
+        system("ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications")
         system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
       end
 
