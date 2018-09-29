@@ -5,7 +5,7 @@
 # Maintained by: Andrew McBurney
 # ******************************************************************************
 
-# ls whenever you cd.
+# ls whenever you cd
 function cd {
   builtin cd "$@" && ls
 }

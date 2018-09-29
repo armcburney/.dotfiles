@@ -2,11 +2,7 @@
 # Exports
 # ******************************************************************************
 
-export TERM="xterm-256color"
-
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-export PATH="$PATH:$HOME/.skeleton/bin/run"
 
 export ZSH=$HOME/.oh-my-zsh
 
@@ -27,10 +23,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # GOPATH for datadog machine
-export GOPATH="/Users/andrew.mcburney/go"
+export GOPATH="/Users/$(whoami)/coding/go"
 
 # Add GOPATH binaries to PATH
 export PATH=$PATH:$GOPATH/bin
-
-# Datadog root directory for vagrant box
-export DATADOG_ROOT="/Users/andrew.mcburney/dd"
