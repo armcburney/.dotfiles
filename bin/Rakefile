@@ -3,75 +3,80 @@
 require "rake"
 require_relative "string"
 
-namespace :general do
-  desc "installs macOS devtools"
-  task :devtools do
-    # Install command line tools
-    system("xcode-select --install")
-  end
+namespace :unix do
+  namespace :shared do
+    namespace :install do
+      desc "install zsh"
+      task :zsh do
+        system("sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"")
+      end
 
-  desc "install zsh"
-  task :zsh do
-    # Install zsh
-    system("sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"")
-    system("git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k")
-  end
+      desc "install powerline"
+      task :powerline do
+        system("git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k")
+      end
 
-  task all: %w[devtools zsh]
-end
-
-namespace :install do
-  desc "installs all packages"
-  task :packages do
-    package_installers = Dir["./installers/root/*.rb"].sort.map do |file|
-      # Require the root installers
-      require file
-
-      # Get the file basename
-      basename = File.basename(file, File.extname(file))
-
-      # Create the class instance
-      "SetUp::#{basename.camelize}".split("::").inject(Object) { |o, c| o.const_get c }.new
+      task all: %w[zsh powerline]
     end
 
-    # Only call `install_packages!` for the root nodes in the forest
-    package_installers.each(&:install_packages!)
+    namespace :dotfiles do
+      desc "copies dotfiles to their appropriate locations"
+      task :copy do
+        system("cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs")
+        system("cp -r ~/.dotfiles/emacs/private/ ~/.emacs.d/private/")
+        system("cp ~/.dotfiles/zsh/.zshrc ~/.zshrc")
+        system("cp ~/.dotfiles/ruby/.rubocop.yml ~/.rubocop.yml")
+      end
+
+      task all: %w[copy]
+    end
+
+    namespace :git do
+      desc "configure git"
+      task :configure do
+        system("git config --global core.editor emacs")
+      end
+
+      task all: %w[configure]
+    end
   end
 
-  desc "installs spacemacs"
-  task :spacemacs do
-    system("brew tap d12frosted/emacs-plus")
-    system("brew install emacs-plus --HEAD --with-natural-title-bars")
-    system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
+  namespace :masOS do
+    namespace :install do
+      desc "installs macOS devtools"
+      task :devtools do
+        system("xcode-select --install")
+      end
+
+      desc "installs all packages"
+      task :packages do
+        package_installers = Dir["./installers/root/*.rb"].sort.map do |file|
+          # Require the root installers
+          require file
+
+          # Get the file basename
+          basename = File.basename(file, File.extname(file))
+
+          # Create the class instance
+          "SetUp::#{basename.camelize}".split("::").inject(Object) { |o, c| o.const_get c }.new
+        end
+
+        # Only call `install_packages!` for the root nodes in the forest
+        package_installers.each(&:install_packages!)
+      end
+
+      desc "installs spacemacs"
+      task :spacemacs do
+        system("brew tap d12frosted/emacs-plus")
+        system("brew install emacs-plus --HEAD --with-natural-title-bars")
+        system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
+      end
+
+      task all: %w[devtools packages spacemacs]
+    end
   end
 
-  task all: %w[packages spacemacs]
+  namespace :linux do
+    # TODO
+  end
 end
-
-namespace :dotfiles do
-  desc "copies dotfiles to their appropriate locations"
-  task :copy do
-    system("cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs")
-    system("cp -r ~/.dotfiles/emacs/private/ ~/.emacs.d/private/")
-    system("cp ~/.dotfiles/zsh/.zshrc ~/.zshrc")
-    system("cp ~/.dotfiles/ruby/.rubocop.yml ~/.rubocop.yml")
-  end
-
-  task all: %w[copy]
-end
-
-namespace :git do
-  desc "configure git"
-  task :configure do
-    system("git config --global core.editor emacs")
-  end
-
-  task all: %w[configure]
-end
-
-task default: %w[
-  general:all
-  install:all
-  dotfiles:all
-  git:all
-]

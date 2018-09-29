@@ -33,11 +33,8 @@
       :variables
       c-c++-default-mode-for-headers 'c++-mode
       c-c++-enable-clang-support t)
-     (crystal)
      (csv)
      (emacs-lisp)
-     (elixir)
-     (erlang)
      (go
       :variables
       go-tab-width 2)
@@ -63,7 +60,6 @@
       ruby-enable-ruby-on-rails-support t
       ruby-test-runner 'rspec)
      (ruby-on-rails)
-     (rust)
      (scala
       :variables
       scala-indent:use-javadoc-style t
@@ -82,7 +78,6 @@
       :variables
       typescript-fmt-on-save t
       set-fill-column 100)
-     (vimscript)
      (yaml)
 
      ;;; General Layers
@@ -96,7 +91,7 @@
       auto-completion-tab-key-behavior 'cycle
       auto-completion-complete-with-key-sequence nil
       auto-completion-complete-with-key-sequence-delay 0.01
-      auto-completion-private-snippets-directory nil)
+      auto-completion-private-snippets-directory t)
      (chrome)
      (dash)
      (docker)
@@ -111,17 +106,16 @@
       ibuffer-group-buffers-by 'projects)
      (mu4e :variables
            mu4e-installation-path "/usr/share/emacs/site-lisp")
-     (org)
+     (org
+      :variables
+      org-enable-github-support t
+      org-enable-bootstrap-support t)
      (osx)
-     (pdf-tools)
-     (react)
      (search-engine)
      (slack)
      (spotify)
      (spell-checking)
      (syntax-checking)
-     (twitter)
-     (vagrant)
      (version-control)
      )
 
@@ -208,11 +202,6 @@
 
 (defun dotspacemacs/user-config ()
   "User configuration code."
-
-  ;; Encryption bois
-  (require 'epa-file)
-  (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg2"))
-  (epa-file-enable)
 
   ;; Load all code from the `/private' directory
   (let ((default-directory "~/.emacs.d/private/"))

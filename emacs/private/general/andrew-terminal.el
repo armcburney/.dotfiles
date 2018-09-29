@@ -20,23 +20,14 @@
 
 ;;; Code:
 
-(if (display-graphic-p)
-    (enable-theme 'atom-one-dark)
-  (enable-theme 'lush))
-
 ;; Adds space between line-number in terminal mode
 (unless (display-graphic-p)
-  (load "~/.emacs.d/private/evil-terminal-cursor-changer.el")
-  (require 'evil-terminal-cursor-changer)
-  (evil-terminal-cursor-changer-activate)
   (setq linum-relative-format "%3s "))
 
 ;; Terminal mode hook to limit the maximum size (for performance)
 (add-hook 'term-mode-hook
           (lambda ()
-            (setq term-buffer-maximum-size 10000)))
-
-;;(evil-set-initial-state 'term-mode 'vim)
+            (setq term-buffer-maximum-size 5000)))
 
 (provide 'andrew-terminal)
 

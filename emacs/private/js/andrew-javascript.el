@@ -22,7 +22,11 @@
 ;;; Code:
 
 ;; Use 2 spaces in HTML and CSS files
-(setq web-mode-markup-indent-offset 2)
+(setq-default
+  web-mode-markup-indent-offset 2
+  web-mode-css-indent-offset    2
+  web-mode-code-indent-offset   2
+  web-mode-attr-indent-offset   2)
 
 ;; Use 2 spaces in JavaScript files
 (setq js-indent-level                 2
