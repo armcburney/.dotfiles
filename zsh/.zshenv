@@ -2,6 +2,14 @@
 # Exports
 # ******************************************************************************
 
+# Use the current emacs session as the editor.
+export EDITOR="emacsclient"
+
+# Use the current emacs session to fix mercurial conflicts.
+export HGMERGE="emacsclient"
+
+export TERM="xterm-256color"
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH=$HOME/.oh-my-zsh
