@@ -8,12 +8,22 @@ namespace :unix do
     namespace :install do
       desc "install zsh"
       task :zsh do
-        system("sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"")
+        system(
+          <<~BASH
+            sh -c \"$(curl -fsSL https://raw.githubusercontent.com/\
+            robbyrussell/oh-my-zsh/master/tools/install.sh)\""
+          BASH
+        )
       end
 
       desc "install powerline"
       task :powerline do
-        system("git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k")
+        system(
+          <<~BASH
+            git clone https://github.com/bhilburn/powerlevel9k.git \
+              ~/.oh-my-zsh/custom/themes/powerlevel9k
+          BASH
+        )
       end
 
       task all: %w[zsh powerline]
@@ -58,7 +68,10 @@ namespace :unix do
           basename = File.basename(file, File.extname(file))
 
           # Create the class instance
-          "SetUp::#{basename.camelize}".split("::").inject(Object) { |o, c| o.const_get c }.new
+          "SetUp::#{basename.camelize}"
+            .split("::")
+            .inject(Object) { |o, c| o.const_get c }
+            .new
         end
 
         # Only call `install_packages!` for the root nodes in the forest
