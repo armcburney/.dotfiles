@@ -1,9 +1,0 @@
-AllCops:
-  Exclude:
-    - db/**
-    - spec/factories/**/*.rb
-    - config/roles/**/*.rb
-    - config/routes.rb
-
-Metrics/AbcSize:
-  Enabled: false

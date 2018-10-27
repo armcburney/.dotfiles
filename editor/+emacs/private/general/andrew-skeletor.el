@@ -23,14 +23,7 @@
 (defvar skeletor-project-directory)
 (defvar skeletor-user-directory)
 
-(setq skeletor-project-directory "~/coding/projects/")
-(setq skeletor-user-directory "~/.emacs.d/private/skeletons")
-
-(skeletor-define-template "rails-es6")
-(skeletor-define-template "ruby-base-project")
-(skeletor-define-template "ruby-cli-activerecord")
-(skeletor-define-template "scala-sbt-project")
-(skeletor-define-template "sinatra-slim-sass-coffee")
+(setq skeletor-project-directory "~/coding")
 
 (provide 'andrew-skeletor)
 
