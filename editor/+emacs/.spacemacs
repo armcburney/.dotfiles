@@ -116,6 +116,7 @@
      (spotify)
      (spell-checking)
      (syntax-checking)
+     (treemacs)
      (version-control)
      )
 
