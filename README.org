@@ -1,4 +1,24 @@
-* .dotfiles
+* =.dotfiles=
+This repository contains my personal dotfiles used in my everyday development.
+** Overview
+*** =/config=
+A collection of configuration scripts and snippets.
+**** =/+cron=
+Contains definitions for my cron jobs.
+**** =/+hammerspoon=
+My hammerspoon OS X desktop automation configuration.
+**** =/+vagrant=
+Virtual machines used for development purposes.
+*** =/editor=
+My emacs and vim configurations.
+**** =/+emacs=
+My spacemacs configuration file, custom YASnippets, and custom elisp configuration code.
+**** =/+vim=
+My cvim and vim configurations. 99.9% of the time I use emacs, but sometimes I use vim for nostalgic purposes.
+*** =/lang=
+A collection of scripts, snippets, and configuration files for various languages I code in.
+**** =/+ruby=
+Contains my global =.rubocop.yml= configuration file.
 ** Setup
 1. Clone the repository.
 #+BEGIN_SRC bash
