@@ -28,7 +28,6 @@
    dotspacemacs-configuration-layers
    '(
      ;;; Language Layers
-
      (c-c++
       :variables
       c-c++-default-mode-for-headers 'c++-mode
@@ -81,7 +80,6 @@
      (yaml)
 
      ;;; General Layers
-
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
@@ -191,7 +189,6 @@
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code."
-
   ;; Move custom-set-variables to a separate file
   (setq custom-file (file-truename (concat "~/.dotfiles/emacs/" "custom.el")))
   (load custom-file)
@@ -203,6 +200,20 @@
 
 (defun dotspacemacs/user-config ()
   "User configuration code."
+  ;; Don't use normal startup buffer
+  (kill-buffer "*spacemacs*")
+
+  ;; Don't export with a table of contents
+  (setq org-export-with-toc nil)
+  (setq org-export-with-tags nil)
+
+  ;; Use indent-mode by default.
+  (use-package org
+    :config
+    (setq org-startup-indented t))
+
+  ;; Wrap lines at 80 characters in org-mode.
+  (add-hook 'org-mode-hook #'auto-fill-mode)
 
   ;; Load all code from the `/private' directory
   (let ((default-directory "~/.emacs.d/private/"))
