@@ -22,10 +22,10 @@ namespace :unix do
     namespace :dotfiles do
       desc "copies dotfiles to their appropriate locations"
       task :copy do
-        system("cp ~/.dotfiles/emacs/.spacemacs ~/.spacemacs")
-        system("rsync -r ~/.dotfiles/emacs/private/ ~/.emacs.d/private/")
-        system("cp ~/.dotfiles/zsh/.zshrc ~/.zshrc")
-        system("cp ~/.dotfiles/ruby/.rubocop.yml ~/.rubocop.yml")
+        system("cp ~/.dotfiles/editor/+emacs/.spacemacs ~/.spacemacs")
+        system("rsync -r ~/.dotfiles/editor/+emacs/private/ ~/.emacs.d/private/")
+        system("cp ~/.dotfiles/tools/+zsh/.zshrc ~/.zshrc")
+        system("cp ~/.dotfiles/lang/+ruby/.rubocop.yml ~/.rubocop.yml")
       end
 
       task all: %w[copy]

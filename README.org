@@ -1,0 +1,11 @@
+* .dotfiles
+** Setup
+1. Clone the repository.
+#+BEGIN_SRC bash
+git clone https://github.com/AndrewMcBurney/.dotfiles.git
+#+END_SRC
+
+2. Run the setup script.
+#+BEGIN_SRC bash
+cd ~/.dotfiles/.setup && rake
+#+END_SRC

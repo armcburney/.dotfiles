@@ -1,2 +1,2 @@
 .DS_Store
-emacs/custom.el
+./editor/+emacs/custom.el
