@@ -205,24 +205,13 @@
   ;; Don't use normal startup buffer
   (kill-buffer "*spacemacs*")
 
-  ;; Don't export with a table of contents
-  (setq org-export-with-toc nil)
-  (setq org-export-with-tags nil)
-
-  ;; Use indent-mode by default.
-  (use-package org
-    :config
-    (setq org-startup-indented t))
-
-  ;; Wrap lines at 80 characters in org-mode.
-  (add-hook 'org-mode-hook #'auto-fill-mode)
-
   ;; Load all code from the `/private' directory
   (let ((default-directory "~/.emacs.d/private/"))
     (normal-top-level-add-subdirs-to-load-path))
 
   (require 'andrew-global)
   (require 'andrew-helm)
+  (require 'andrew-org)
   (require 'andrew-skeletor)
   (require 'andrew-style)
   (require 'andrew-terminal)
