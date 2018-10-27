@@ -35,6 +35,7 @@ namespace :unix do
         system("cp ~/.dotfiles/editor/+emacs/.spacemacs ~/.spacemacs")
         system("rsync -r ~/.dotfiles/editor/+emacs/private/ ~/.emacs.d/private/")
         system("cp ~/.dotfiles/tools/+zsh/.zshrc ~/.zshrc")
+        system("cp ~/.dotfiles/tools/+zsh/.zshenv ~/.zshenv")
         system("cp ~/.dotfiles/lang/+ruby/.rubocop.yml ~/.rubocop.yml")
       end
 

@@ -4,10 +4,10 @@
 # ******************************************************************************
 
 source ~/.zshenv
-source ~/.dotfiles/zsh/alias
-source ~/.dotfiles/zsh/functions
-source ~/.dotfiles/zsh/loaders
-source ~/.dotfiles/zsh/theme
+source ~/.dotfiles/tools/+zsh/alias
+source ~/.dotfiles/tools/+zsh/functions
+source ~/.dotfiles/tools/+zsh/loaders
+source ~/.dotfiles/tools/+zsh/theme
 
 unsetopt nomatch
 
