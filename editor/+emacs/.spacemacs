@@ -118,7 +118,7 @@
      (version-control)
      )
 
-   dotspacemacs-additional-packages '(ag skeletor)
+   dotspacemacs-additional-packages '(ag skeletor god-mode)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only)
