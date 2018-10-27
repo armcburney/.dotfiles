@@ -5,7 +5,6 @@ go
 heroku
 imagemagick
 ispell
-llvm
 lua
 mysql
 node
@@ -13,6 +12,7 @@ openssl
 postgresql
 pyenv
 pyenv-virtualenv
+python
 python3
 rbenv
 redis
