@@ -35,6 +35,8 @@
       js2-indent-switch-body          2
       js2-strict-missing-semi-warning t)
 
+(add-hook 'html-mode-hook #'auto-fill-mode)
+
 (provide 'andrew-javascript)
 
 ;;; andrew-javascript.el ends here
