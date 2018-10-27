@@ -190,7 +190,9 @@
 (defun dotspacemacs/user-init ()
   "Initialization function for user code."
   ;; Move custom-set-variables to a separate file
-  (setq custom-file (file-truename (concat "~/.dotfiles/emacs/" "custom.el")))
+  (setq custom-file
+        (file-truename
+         (concat "~/.dotfiles/editor/+emacs" "custom.el")))
   (load custom-file)
 
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
