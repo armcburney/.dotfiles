@@ -94,6 +94,7 @@
      (dash)
      (docker)
      (emoji)
+     (finance)
      (git
       :variables
       git-magit-status-fullscreen t)
@@ -118,7 +119,17 @@
      (version-control)
      )
 
-   dotspacemacs-additional-packages '(ag skeletor god-mode)
+   dotspacemacs-additional-packages
+   '(ag
+     flycheck-package
+     (atom-one-dark-theme
+      :location
+      (recipe :fetcher github :repo "jonathanchu/atom-one-dark-theme"))
+     (flycheck-ledger
+      :location
+      (recipe :fetcher github :repo "purcell/flycheck-ledger"))
+     skeletor
+     )
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only)
@@ -137,8 +148,8 @@
    dotspacemacs-startup-banner 'official
    dotspacemacs-startup-lists '((todos . 5) (projects . 7))
    dotspacemacs-startup-buffer-responsive t
-   dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(atom-one-dark spacemacs-light tsdh-light)
+   dotspacemacs-scratch-mode 'emacs-lisp-mode
+   dotspacemacs-themes '(atom-one-dark)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10
@@ -192,7 +203,7 @@
   ;; Move custom-set-variables to a separate file
   (setq custom-file
         (file-truename
-         (concat "~/.dotfiles/editor/+emacs" "custom.el")))
+         (concat "~/.dotfiles/editor/+emacs/" "custom.el")))
   (load custom-file)
 
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
