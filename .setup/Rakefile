@@ -4,52 +4,50 @@ require "rake"
 require_relative "string"
 
 namespace :unix do
-  namespace :shared do
-    namespace :install do
-      desc "install zsh"
-      task :zsh do
-        system(
-          <<~BASH
-            sh -c \"$(curl -fsSL https://raw.githubusercontent.com/\
-            robbyrussell/oh-my-zsh/master/tools/install.sh)\""
-          BASH
-        )
-      end
-
-      desc "install powerline"
-      task :powerline do
-        system(
-          <<~BASH
-            git clone https://github.com/bhilburn/powerlevel9k.git \
-              ~/.oh-my-zsh/custom/themes/powerlevel9k
-          BASH
-        )
-      end
-
-      task all: %w[zsh powerline]
+  namespace :install do
+    desc "install zsh"
+    task :zsh do
+      system(
+        <<~BASH
+          sh -c \"$(curl -fsSL https://raw.githubusercontent.com/\
+          robbyrussell/oh-my-zsh/master/tools/install.sh)\""
+        BASH
+      )
     end
 
-    namespace :dotfiles do
-      desc "copies dotfiles to their appropriate locations"
-      task :copy do
-        system("cp ~/.dotfiles/editor/+emacs/.spacemacs ~/.spacemacs")
-        system("rsync -r ~/.dotfiles/editor/+emacs/private/ ~/.emacs.d/private/")
-        system("cp ~/.dotfiles/tools/+zsh/.zshrc ~/.zshrc")
-        system("cp ~/.dotfiles/tools/+zsh/.zshenv ~/.zshenv")
-        system("cp ~/.dotfiles/lang/+ruby/.rubocop.yml ~/.rubocop.yml")
-      end
-
-      task all: %w[copy]
+    desc "install powerline"
+    task :powerline do
+      system(
+        <<~BASH
+          git clone https://github.com/bhilburn/powerlevel9k.git \
+            ~/.oh-my-zsh/custom/themes/powerlevel9k
+        BASH
+      )
     end
 
-    namespace :git do
-      desc "configure git"
-      task :configure do
-        system("git config --global core.editor emacsclient")
-      end
+    task all: %w[zsh powerline]
+  end
 
-      task all: %w[configure]
+  namespace :dotfiles do
+    desc "copies dotfiles to their appropriate locations"
+    task :copy do
+      system("cp ~/.dotfiles/editor/+emacs/.spacemacs ~/.spacemacs")
+      system("rsync -r ~/.dotfiles/editor/+emacs/private/ ~/.emacs.d/private/")
+      system("cp ~/.dotfiles/tools/+zsh/.zshrc ~/.zshrc")
+      system("cp ~/.dotfiles/tools/+zsh/.zshenv ~/.zshenv")
+      system("cp ~/.dotfiles/lang/+ruby/.rubocop.yml ~/.rubocop.yml")
     end
+
+    task all: %w[copy]
+  end
+
+  namespace :git do
+    desc "configure git"
+    task :configure do
+      system("git config --global core.editor emacsclient")
+    end
+
+    task all: %w[configure]
   end
 
   namespace :masOS do
@@ -95,3 +93,10 @@ namespace :unix do
     # TODO
   end
 end
+
+task :default => %w[
+  unix:install
+  unix:macOS:install
+  unix:dotfiles
+  unix:git
+]
