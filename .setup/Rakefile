@@ -94,7 +94,7 @@ namespace :unix do
   end
 end
 
-task :default => %w[
+task default: %w[
   unix:install
   unix:macOS:install
   unix:dotfiles
