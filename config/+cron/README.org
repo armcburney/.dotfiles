@@ -1,0 +1,2 @@
+* =/config/+cron=
+A collection of cron jobs I use.

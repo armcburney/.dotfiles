@@ -20,12 +20,12 @@ A collection of scripts, snippets, and configuration files for various languages
 **** =/+ruby=
 Contains my global =.rubocop.yml= configuration file.
 ** Setup
-1. Clone the repository.
+*1. Clone the repository.*
 #+BEGIN_SRC bash
 git clone https://github.com/AndrewMcBurney/.dotfiles.git
 #+END_SRC
 
-2. Run the setup script.
+*2. Run the setup script.*
 #+BEGIN_SRC bash
 cd ~/.dotfiles/.setup && rake
 #+END_SRC

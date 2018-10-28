@@ -1,0 +1,12 @@
+* =/config/+hammerspoon=
+My hammerspoon configuration.
+** =/hs-hybrid=
+This was my attempt to make modal vim and emacs key bindings work system-wide for
+macOS. I archived the [[https://github.com/armcburney/hs-hybrid][original repo]] because I wasn't happy with the product. The
+editing was janky at best. I have the original files here, because I like to
+play around with them, but they probably won't work as expected for your
+use case, and should be used with caution.
+** =/hs-keys=
+Custom key bindings for window management I use.
+** =/hs-music=
+Custom key bindings for iTunes and Spotify I use.
