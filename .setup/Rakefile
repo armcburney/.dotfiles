@@ -45,7 +45,7 @@ namespace :unix do
     namespace :git do
       desc "configure git"
       task :configure do
-        system("git config --global core.editor emacs")
+        system("git config --global core.editor emacsclient")
       end
 
       task all: %w[configure]
