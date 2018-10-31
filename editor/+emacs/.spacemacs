@@ -239,6 +239,9 @@
   (require 'andrew-ruby)
   (require 'andrew-ensime)
   (require 'andrew-shell)
+
+  ;; Run emacs as a server
+  (server-start)
   )
 
 ;;; .spacemacs ends here
