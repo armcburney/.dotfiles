@@ -20,9 +20,18 @@
 
 ;;; Code:
 
-;; Adds space between line-number in terminal mode
 (unless (display-graphic-p)
+  ;; Load the script to fix the issue with iterm cursors.
+  (load "~/.emacs.d/private/evil-terminal-cursor-changer.el")
+  (require 'evil-terminal-cursor-changer)
+  (evil-terminal-cursor-changer-activate)
+
+  ;; Adds space between line-number in terminal mode
   (setq linum-relative-format "%3s "))
+
+;; Set the background to nil in terminal mode.
+(custom-set-faces (if (not window-system)
+                      '(default ((t (:background "nil"))))))
 
 ;; Terminal mode hook to limit the maximum size (for performance)
 (add-hook 'term-mode-hook
