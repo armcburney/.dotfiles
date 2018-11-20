@@ -125,6 +125,9 @@
      (atom-one-dark-theme
       :location
       (recipe :fetcher github :repo "jonathanchu/atom-one-dark-theme"))
+     (zerodark-theme
+      :location
+      (recipe :fetcher github :repo "NicolasPetton/zerodark-theme"))
      (flycheck-ledger
       :location
       (recipe :fetcher github :repo "purcell/flycheck-ledger"))
@@ -149,7 +152,7 @@
    dotspacemacs-startup-lists '((todos . 5) (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'emacs-lisp-mode
-   dotspacemacs-themes '(atom-one-dark)
+   dotspacemacs-themes '(zerodark atom-one-dark)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10
@@ -219,6 +222,10 @@
   ;; Load all code from the `/private' directory
   (let ((default-directory "~/.emacs.d/private/"))
     (normal-top-level-add-subdirs-to-load-path))
+
+  ;; Fix: https://github.com/syl20bnr/spacemacs/issues/10316
+  (setq yas-snippet-dirs
+        '("~/.emacs.d/private/snippets/"))
 
   (require 'andrew-global)
   (require 'andrew-helm)
