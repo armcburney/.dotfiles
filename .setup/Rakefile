@@ -9,8 +9,7 @@ namespace :unix do
     task :zsh do
       system(
         <<~BASH
-          sh -c \"$(curl -fsSL https://raw.githubusercontent.com/\
-          robbyrussell/oh-my-zsh/master/tools/install.sh)\""
+          sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"
         BASH
       )
     end
@@ -80,7 +79,7 @@ namespace :unix do
       desc "installs spacemacs"
       task :spacemacs do
         system("brew tap d12frosted/emacs-plus")
-        system("brew install emacs-plus --HEAD --with-natural-title-bars")
+        system("brew install emacs-plus --HEAD")
         system("ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications")
         system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
       end
@@ -90,13 +89,29 @@ namespace :unix do
   end
 
   namespace :linux do
-    # TODO
+    namespace :install do
+      desc "instals linux packages"
+      task :packages do
+        # Pyenv
+        system("git clone https://github.com/pyenv/pyenv.git ~/.pyenv")
+
+        # Pyenv virtualenv
+        system("git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv")
+      end
+
+      desc "installs spacemacs"
+      task :spacemacs do
+        system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
+      end
+
+      task all: %w[spacemacs]
+    end
   end
 end
 
 task default: %w[
-  unix:install
-  unix:macOS:install
-  unix:dotfiles
-  unix:git
+  unix:install:all
+  unix:linux:install:all
+  unix:dotfiles:all
+  unix:git:all
 ]
