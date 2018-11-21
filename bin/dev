@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+## dev
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: SSH into my workstation from my local machine.
+#  Usage:
+#
+#    dev
+
+Dir[File.join(__dir__, "shared", "*.rb")].each { |file| require file }
+
+def ssh_workstation!
+  `ssh -i #{PEM_FILE_PATH} #{WORKSTATION}`
+end
+
+ssh_workstation!

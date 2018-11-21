@@ -4,5 +4,7 @@ A collection of scripts to be added to my =$PATH=.
 Constants used across my =$PATH= scripts.
 ** =/bin/shared/errors.rb=
 Error messages used across my =$PATH= scripts.
+** =/bin/dev=
+SSH into my workstation from my local machine.
 ** =/bin/dev-port=
 Forwards a port from my workstation to my local machine.
