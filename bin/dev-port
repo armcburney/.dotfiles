@@ -11,7 +11,7 @@
 Dir[File.join(__dir__, "shared", "*.rb")].each { |file| require file }
 
 def ssh_forward_port!(source, dest)
-  system("ssh -i #{PEM_FILE_PATH} #{WORKSTATION} -N -L #{source}:localhost:#{dest}")
+  exec("ssh -i #{PEM_FILE_PATH} #{WORKSTATION} -N -L #{source}:localhost:#{dest}")
 end
 
 Error.not_enough_arguments(1) if ARGV.size.zero?
