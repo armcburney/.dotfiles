@@ -17,6 +17,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH=$HOME/.oh-my-zsh
 export NVM_DIR="$HOME/.nvm"
 
+# Add helper functions to PATH.
+export PATH="$HOME/.dotfiles/bin:$PATH"
+
 # Setting PATH for Python 3.4.
 export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
 

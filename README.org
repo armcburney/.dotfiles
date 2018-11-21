@@ -1,6 +1,8 @@
 * =.dotfiles=
 This repository contains my personal dotfiles used in my everyday development.
 ** Overview
+*** =/bin=
+A collection of scripts to be added to my =$PATH=.
 *** =/config=
 A collection of configuration scripts and snippets.
 **** =/config/+cron=
