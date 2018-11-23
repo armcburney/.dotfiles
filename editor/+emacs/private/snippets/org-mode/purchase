@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name : Purchase Request
+# key : purchase
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+* $1
+** Details
+:PROPERTIES:
+  :Cost:
+  :Currency:
+:END:
+** Questions
+*** Why do you want to make this purchase?
+
+*** Why do you need this purchase?
+
+*** Do cheaper alternatives exist?
+
+*** Will you use this product one year from now?
+
+*** Will you use this product five years from now?

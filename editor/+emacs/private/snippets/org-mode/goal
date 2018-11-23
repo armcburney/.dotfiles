@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name : Goal Template
+# key : goal
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+* $1
+** Problem Statement
+*** Description
+
+*** Why is this a problem?
+-
+*** Why do you want to overcome this problem?
+-
+** Desired Result
+
+** Actions
+***
+** Key Metrics
+***
+** Deadline
