@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name : Issue Stance
+# key : stance
+# contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
+# --
+* ${1:Issue Name}
+** Stance on Issue
+$2
+** Questions
+*** Why do I have this stance?
+$3
+*** What biases do I have that contribute to this stance?
+**** Selection
+$4
+**** Confirmation
+$5
+*** What are compelling reasons for the opposing stance(s)?
+$6
+** Counter Arguments
+$7
+** Criticisms and Rebuttals
+i.e., beliefs why the stance is incorrect, and their corresponding
+counterarguments in favor of the original stance.
+$7
+** Resources
+$0
