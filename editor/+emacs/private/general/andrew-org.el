@@ -60,6 +60,13 @@
   :after org
   :custom (org-contacts-files (directory-files "~/me/friends/" t)))
 
+(use-package org-journal
+  :after org
+  :custom
+  (org-journal-enable-encryption t)
+  (org-journal-file-format "%Y/%m/%d.org")
+  (org-journal-time-format ""))
+
 ;; Wrap lines at 80 characters in org-mode.
 (add-hook 'org-mode-hook #'auto-fill-mode)
 
