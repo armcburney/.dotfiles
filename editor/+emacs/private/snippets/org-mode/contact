@@ -1,25 +1,17 @@
 # -*- mode: snippet -*-
-# name : Friend Template
-# key : friend
+# name : Contact Template
+# key : contact
 # contributor: Andrew McBurney <andrewrobertmcburney@gmail.com>
 # --
-* $0
-** Personal Information
-*** About
+* ${1:Contact Name}
 :PROPERTIES:
   :Birthday:
   :Email:
   :Phone:
   :Facebook:
   :Website:
-:END:
-*** Location
-:PROPERTIES:
   :Home:
   :Current:
-:END:
-*** Job
-:PROPERTIES:
   :Title:
   :Company:
 :END:

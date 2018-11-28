@@ -14,7 +14,7 @@
 
 ;;; Commentary:
 
-;; My personal Spacemacs configuration file
+;; My personal Spacemacs configuration file.
 
 ;;; Code:
 
@@ -27,7 +27,7 @@
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
-     ;;; Language Layers
+     ;;; Language layers.
      (c-c++
       :variables
       c-c++-default-mode-for-headers 'c++-mode
@@ -79,7 +79,7 @@
       set-fill-column 100)
      (yaml)
 
-     ;;; General Layers
+     ;;; General layers.
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
@@ -108,7 +108,9 @@
      (org
       :variables
       org-enable-github-support t
-      org-enable-bootstrap-support t)
+      org-enable-bootstrap-support t
+      org-enable-org-journal-support t
+      org-journal-dir "~/me/journal/")
      (osx)
      (search-engine)
      (slack)
@@ -135,8 +137,7 @@
      )
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
-   dotspacemacs-install-packages 'used-only)
-  )
+   dotspacemacs-install-packages 'used-only))
 
 
 (defun dotspacemacs/init ()
@@ -197,33 +198,31 @@
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
-   dotspacemacs-whitespace-cleanup 'all)
-  )
+   dotspacemacs-whitespace-cleanup 'all))
 
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code."
-  ;; Move custom-set-variables to a separate file
+  ;; Move custom-set-variables to a separate file.
   (setq custom-file
         (file-truename
          (concat "~/.dotfiles/editor/+emacs/" "custom.el")))
   (load custom-file)
 
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-  (setq exec-path (append exec-path '("/usr/local/bin")))
-  )
+  (setq exec-path (append exec-path '("/usr/local/bin"))))
 
 
 (defun dotspacemacs/user-config ()
   "User configuration code."
-  ;; Don't use normal startup buffer
+  ;; Don't use normal startup buffer.
   (kill-buffer "*spacemacs*")
 
-  ;; Load all code from the `/private' directory
+  ;; Load all code from the `/private` directory.
   (let ((default-directory "~/.emacs.d/private/"))
     (normal-top-level-add-subdirs-to-load-path))
 
-  ;; Fix: https://github.com/syl20bnr/spacemacs/issues/10316
+  ;; Fix: https://github.com/syl20bnr/spacemacs/issues/10316.
   (setq yas-snippet-dirs
         '("~/.emacs.d/private/snippets/"))
 
@@ -240,8 +239,7 @@
   (require 'andrew-ensime)
   (require 'andrew-shell)
 
-  ;; Run emacs as a server
-  (server-start)
-  )
+  ;; Run emacs as a server.
+  (server-start))
 
-;;; .spacemacs ends here
+;;; .spacemacs ends here.
