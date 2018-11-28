@@ -226,6 +226,7 @@
   (setq yas-snippet-dirs
         '("~/.emacs.d/private/snippets/"))
 
+  (require 'andrew-company)
   (require 'andrew-global)
   (require 'andrew-helm)
   (require 'andrew-org)
