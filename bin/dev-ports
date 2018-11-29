@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+## dev-ports
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: Forwards a number of ports from my workstation to my local machine.
+#  Usage:
+#
+#    dev-ports <port_1>, ..., <port_n>
+
+Dir[File.join(__dir__, "shared", "*.rb")].each { |file| require file }
+
+def ssh_forward_ports!(ports)
+  tunneled_ports = ports.map { |port| "-L #{port}:localhost:#{port}" }.join(" ")
+  exec("ssh -i #{PEM_FILE_PATH} #{WORKSTATION} -N #{tunneled_ports}")
+end
+
+Error.not_enough_arguments(1) if ARGV.size.zero?
+
+ssh_forward_ports!(ARGV)
