@@ -8,3 +8,5 @@ Error messages used across my =$PATH= scripts.
 SSH into my workstation from my local machine.
 ** =/bin/dev-port=
 Forwards a port from my workstation to my local machine.
+** =/bin/dev-ports=
+Forwards a number of ports from my workstation to my local machine.
