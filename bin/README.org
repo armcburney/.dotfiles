@@ -6,6 +6,8 @@ Constants used across my =$PATH= scripts.
 Error messages used across my =$PATH= scripts.
 ** =/bin/dev=
 SSH into my workstation from my local machine.
+** =/bin/dev-copy=
+Copy a directory from my workstation to my local machine.
 ** =/bin/dev-port=
 Forwards a port from my workstation to my local machine.
 ** =/bin/dev-ports=

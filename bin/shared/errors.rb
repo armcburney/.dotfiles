@@ -3,4 +3,9 @@ class Error
     puts "Not enough arguments. Please provide at least #{n} arguments."
     exit(1)
   end
+
+  def self.not_exact_arguments(n)
+    puts "Please provide #{n} arguments."
+    exit(1)
+  end
 end
