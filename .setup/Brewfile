@@ -1,0 +1,17 @@
+tap "homebrew/core"
+tap "homebrew/bundle"
+tap "homebrew/services"
+tap "caskroom/cask"
+
+brew "docker"
+brew "docker-compose"
+brew "git"
+brew "heroku"
+brew "imagemagick"
+brew "ispell"
+
+cask "dash"
+cask "google-chrome"
+cask "hammerspoon"
+cask "iterm2"
+cask "slack"

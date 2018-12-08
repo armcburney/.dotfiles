@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rake"
-require_relative "string"
 
 namespace :unix do
   namespace :install do
@@ -56,24 +55,11 @@ namespace :unix do
         system("xcode-select --install")
       end
 
-      desc "installs all packages"
-      task :packages do
-        package_installers = Dir["./installers/root/*.rb"].sort.map do |file|
-          # Require the root installers
-          require file
-
-          # Get the file basename
-          basename = File.basename(file, File.extname(file))
-
-          # Create the class instance
-          "SetUp::#{basename.camelize}"
-            .split("::")
-            .inject(Object) { |o, c| o.const_get c }
-            .new
-        end
-
-        # Only call `install_packages!` for the root nodes in the forest
-        package_installers.each(&:install_packages!)
+      desc "installs brew packages"
+      task :brew do
+        system("/usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"")
+        system("brew tap Homebrew/bundle")
+        system("brew bundle")
       end
 
       desc "installs spacemacs"
@@ -84,21 +70,12 @@ namespace :unix do
         system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
       end
 
-      task all: %w[devtools packages spacemacs]
+      task all: %w[devtools brew spacemacs]
     end
   end
 
   namespace :linux do
     namespace :install do
-      desc "instals linux packages"
-      task :packages do
-        # Pyenv
-        system("git clone https://github.com/pyenv/pyenv.git ~/.pyenv")
-
-        # Pyenv virtualenv
-        system("git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv")
-      end
-
       desc "installs spacemacs"
       task :spacemacs do
         system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
@@ -108,10 +85,3 @@ namespace :unix do
     end
   end
 end
-
-task default: %w[
-  unix:install:all
-  unix:linux:install:all
-  unix:dotfiles:all
-  unix:git:all
-]

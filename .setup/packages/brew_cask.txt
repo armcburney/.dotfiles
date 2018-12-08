@@ -1,6 +1,0 @@
-dash
-google-chrome
-hammerspoon
-iterm2
-slack
-spotify
