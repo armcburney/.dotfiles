@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+## dev-copy
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: Copy a directory from my workstation to my local machine.
+#  Usage:
+#
+#    dev-copy </remote/file/path> </local/file/path>
+
+Dir[File.join(__dir__, "shared", "*.rb")].each { |file| require file }
+
+def scp_workstation!(remote_path, local_path)
+  exec("scp -r -i #{PEM_FILE_PATH} #{WORKSTATION}:#{remote_path} #{local_path}")
+end
+
+Error.not_exact_arguments(2) if ARGV.size != 2
+
+scp_workstation!(*ARGV)
