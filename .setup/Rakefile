@@ -2,86 +2,50 @@
 
 require "rake"
 
-namespace :unix do
-  namespace :install do
-    desc "install zsh"
-    task :zsh do
-      system(
-        <<~BASH
-          sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"
-        BASH
-      )
-    end
-
-    desc "install powerline"
-    task :powerline do
-      system(
-        <<~BASH
-          git clone https://github.com/bhilburn/powerlevel9k.git \
-            ~/.oh-my-zsh/custom/themes/powerlevel9k
-        BASH
-      )
-    end
-
-    task all: %w[zsh powerline]
+namespace :masOS do
+  desc "installs macOS devtools"
+  task :devtools do
+    system("xcode-select --install")
   end
 
-  namespace :dotfiles do
-    desc "copies dotfiles to their appropriate locations"
-    task :copy do
-      system("cp ~/.dotfiles/editor/+emacs/.spacemacs ~/.spacemacs")
-      system("rsync -r ~/.dotfiles/editor/+emacs/private/ ~/.emacs.d/private/")
-      system("cp ~/.dotfiles/tools/+zsh/.zshrc ~/.zshrc")
-      system("cp ~/.dotfiles/tools/+zsh/.zshenv ~/.zshenv")
-      system("cp ~/.dotfiles/lang/+ruby/.rubocop.yml ~/.rubocop.yml")
-    end
-
-    task all: %w[copy]
+  desc "installs brew packages"
+  task :brew do
+    system("/usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"")
+    system("brew tap Homebrew/bundle")
+    system("brew bundle")
   end
 
-  namespace :git do
-    desc "configure git"
-    task :configure do
-      system("git config --global core.editor emacsclient")
-    end
+  task all: %w[devtools brew]
+end
 
-    task all: %w[configure]
+namespace :install do
+  desc "install zsh"
+  task :zsh do
+    system("sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"")
   end
 
-  namespace :masOS do
-    namespace :install do
-      desc "installs macOS devtools"
-      task :devtools do
-        system("xcode-select --install")
-      end
-
-      desc "installs brew packages"
-      task :brew do
-        system("/usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"")
-        system("brew tap Homebrew/bundle")
-        system("brew bundle")
-      end
-
-      desc "installs spacemacs"
-      task :spacemacs do
-        system("brew tap d12frosted/emacs-plus")
-        system("brew install emacs-plus --HEAD")
-        system("ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications")
-        system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
-      end
-
-      task all: %w[devtools brew spacemacs]
-    end
+  desc "install powerline"
+  task :powerline do
+    system("git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k")
   end
 
-  namespace :linux do
-    namespace :install do
-      desc "installs spacemacs"
-      task :spacemacs do
-        system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
-      end
-
-      task all: %w[spacemacs]
-    end
+  desc "clone spacemacs"
+  task :spacemacs do
+    system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
   end
+
+  task all: %w[zsh powerline spacemacs]
+end
+
+namespace :dotfiles do
+  desc "copies dotfiles to their appropriate locations"
+  task :copy do
+    system("cp ~/.dotfiles/editor/+emacs/.spacemacs ~/.spacemacs")
+    system("rsync -r ~/.dotfiles/editor/+emacs/private/ ~/.emacs.d/private/")
+    system("cp ~/.dotfiles/tools/+zsh/.zshrc ~/.zshrc")
+    system("cp ~/.dotfiles/tools/+zsh/.zshenv ~/.zshenv")
+    system("cp ~/.dotfiles/lang/+ruby/.rubocop.yml ~/.rubocop.yml")
+  end
+
+  task all: %w[copy]
 end
