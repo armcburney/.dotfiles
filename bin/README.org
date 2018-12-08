@@ -10,3 +10,5 @@ SSH into my workstation from my local machine.
 Copy a directory from my workstation to my local machine.
 ** =/bin/dev-port=
 Forwards a port from my workstation to my local machine.
+** =/bin/dev-ports=
+Forwards a number of ports from my workstation to my local machine.
