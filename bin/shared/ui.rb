@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require "colored"
+require "highline/import"
 require "logger"
 require "tty-screen"
 
@@ -104,10 +105,7 @@ module UI
   #####################################################
 
   def interactive?
-    interactive = true
-    interactive = false if $stdout.isatty == false
-    interactive = false if Helper.ci?
-    interactive
+    $stdout.isatty != false
   end
 
   def input(message)

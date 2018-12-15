@@ -17,6 +17,10 @@ module Org
     def text
       headline&.headline_text || ""
     end
+
+    def description
+      "TODO"
+    end
   end
 
   class Parser
@@ -52,7 +56,7 @@ module Org
       parent_stack   = []
 
       parser.headlines.each do |headline|
-        heading = Org::Heading.new(headline.headline_text, headline.level, [])
+        heading = Org::Heading.new(headline, [])
         parent_heading = parent_stack.pop until heading.level > parent_heading.level
         parent_heading.subheadings.push(heading)
         parent_stack.push(parent_heading)
