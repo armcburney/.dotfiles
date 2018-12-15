@@ -10,7 +10,7 @@ module Model
     # @return [String]
     attr_reader :description
 
-    # @return [Model::Date]
+    # @return [String]
     attr_reader :date
 
     # @return [Integer]

@@ -12,3 +12,5 @@ Copy a directory from my workstation to my local machine.
 Forwards a port from my workstation to my local machine.
 ** =/bin/dev-ports=
 Forwards a number of ports from my workstation to my local machine.
+** =/bin/org-goals-report=
+Generates a new report for my goals.
