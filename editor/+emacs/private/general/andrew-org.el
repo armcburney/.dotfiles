@@ -20,6 +20,8 @@
 
 ;;; Code:
 
+(require 'org-crypt)
+
 (use-package org
   :config
   ;; Use indent-mode by default.
@@ -30,7 +32,14 @@
   (setq org-export-with-tags nil)
 
   ;; Unfold everything on startup.
-  (setq org-inhibit-startup-visibility-stuff t))
+  (setq org-inhibit-startup-visibility-stuff t)
+  (setq epa-file-encrypt-to "andrewrobertmcburney@gmail.com")
+
+  ;; Org-encrypt related files.
+  (org-crypt-use-before-save-magic)
+  (setq org-tags-exclude-from-inheritance (quote ("crypt")))
+  (setq org-crypt-key "andrewrobertmcburney@gmail.com")
+  (setq auto-save-default nil))
 
 (use-package org-agenda
   :ensure nil
