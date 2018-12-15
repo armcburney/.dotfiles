@@ -13,10 +13,14 @@ module Model
     # @return [Model::Date]
     attr_reader :date
 
-    def initialize(name:, description:, date:)
+    # @return [Integer]
+    attr_reader :rating
+
+    def initialize(name:, description:, date:, rating:)
       @name        = name
       @description = description
       @date        = date
+      @rating      = rating
     end
   end
 end

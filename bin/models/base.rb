@@ -23,8 +23,10 @@ module Model
       params = JSON.parse(json).reduce({}) do |hash, (var, val)|
         hash.merge(var.to_sym => deserialize_ival!(val))
       end
+
+      type = params[:type]
       params.delete(:type)
-      new(**params)
+      Object.const_get(type).new(**params)
     end
 
     private
@@ -49,23 +51,12 @@ module Model
 
       case val
       when Array
-        val.map { |v| deserialize_hash!(v) }
+        val.map { |v| deserialize!(v) }
       when Hash
-        deserialize_hash!(val)
+        deserialize!(val)
       else
         val
       end
-    end
-
-    # @param [String]
-    # @return [Model]
-    def self.deserialize_hash!(json)
-      params = JSON.parse(json).reduce({}) do |hash, (var, val)|
-        hash.merge(var.to_sym => deserialize_ival!(val))
-      end
-      type = params[:type]
-      params.delete(:type)
-      Object.const_get(type).new(**params)
     end
   end
 end
