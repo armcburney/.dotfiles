@@ -5,12 +5,12 @@
 # --
 # frozen_string_literal: true
 
-class ${1:class_name}
+class ${1:name}
   # Instantiates a new `$1` object
   #
   # @param  []
   # @return [nil]
-  def initialize(
+  def initialize(${2:args})
     $0
   end
 end
