@@ -8,7 +8,8 @@
 #
 #    dev-copy </remote/file/path> </local/file/path>
 
-Dir[File.join(__dir__, "shared", "*.rb")].each { |file| require file }
+require_relative "shared/constants"
+require_relative "shared/errors"
 
 def scp_workstation!(remote_path, local_path)
   exec("scp -r -i #{PEM_FILE_PATH} #{WORKSTATION}:#{remote_path} #{local_path}")

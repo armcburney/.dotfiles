@@ -1,8 +1,10 @@
-* =.dotfiles=
+* =armcburney/.dotfiles=
 This repository contains my personal dotfiles used in my everyday development.
+
 ** Overview
 *** =/bin=
 A collection of scripts to be added to my =$PATH=.
+
 *** =/config=
 A collection of configuration scripts and snippets.
 **** =/config/+cron=
@@ -11,22 +13,26 @@ Contains definitions for my cron jobs.
 My hammerspoon OS X desktop automation configuration.
 **** =/config/+vagrant=
 Virtual machines used for development purposes.
+
 *** =/editor=
 My emacs and vim configurations.
 **** =/editor/+emacs=
 My spacemacs configuration file, YASnippet definitions, and custom elisp configuration code.
 **** =/editor/+vim=
 My cvim and vim configurations. 99.9% of the time I use emacs, but sometimes I use vim for nostalgic purposes.
+
 *** =/lang=
 A collection of scripts, snippets, and configuration files for various languages I code in.
 **** =/lang/+ruby=
 Contains my global =.rubocop.yml= configuration file.
+
 *** =/tools=
 Configuration for miscellaneous tools I use.
 **** =/tools/+fzf=
 Configuration for fzf command-line fuzzy finder.
 **** =/tools/+zsh=
 Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]].
+
 ** Setup
 *1. Clone the repository.*
 #+BEGIN_SRC bash

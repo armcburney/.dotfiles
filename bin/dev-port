@@ -8,7 +8,8 @@
 #
 #    dev-port <source_port> <optional:dest_port>
 
-Dir[File.join(__dir__, "shared", "*.rb")].each { |file| require file }
+require_relative "shared/constants"
+require_relative "shared/errors"
 
 def ssh_forward_port!(source, dest)
   exec("ssh -i #{PEM_FILE_PATH} #{WORKSTATION} -N -L #{source}:localhost:#{dest}")

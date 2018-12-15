@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "org-ruby"
 
 module Org
