@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# coding: utf-8
 
 ## org-goals-report
 #
@@ -45,7 +46,14 @@ def generate_report!
 
   serialized_categories = categories.serialize!
   org_report_path = File.join(Const::Org::GOALS_REPORTS_PATH, "#{date}.json")
-  File.write(org_report_path, serialized_categories)
+
+  begin
+    File.write(org_report_path, serialized_categories)
+    UI.success("Wrote #{org_report_path} successfully! 💯")
+  rescue Error
+    UI.error("Error writing #{org_report_path}! 😳")
+  end
 end
 
+UI.header("org-goals-report")
 generate_report!
