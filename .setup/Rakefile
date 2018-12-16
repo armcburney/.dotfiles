@@ -25,17 +25,12 @@ namespace :install do
     system("sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"")
   end
 
-  desc "install powerline"
-  task :powerline do
-    system("git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k")
-  end
-
   desc "clone spacemacs"
   task :spacemacs do
     system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
   end
 
-  task all: %w[zsh powerline spacemacs]
+  task all: %w[zsh spacemacs]
 end
 
 namespace :dotfiles do
