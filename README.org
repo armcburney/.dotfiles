@@ -9,9 +9,6 @@ A collection of scripts to be added to my =$PATH=.
 My spacemacs configuration file, YASnippet definitions, and custom elisp
 configuration code.
 
-*** =/+fzf=
-Configuration for fzf command-line fuzzy finder.
-
 *** =/+hammerspoon=
 My hammerspoon OS X desktop automation configuration.
 
