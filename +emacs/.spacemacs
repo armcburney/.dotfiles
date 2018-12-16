@@ -206,7 +206,7 @@
   ;; Move custom-set-variables to a separate file.
   (setq custom-file
         (file-truename
-         (concat "~/.dotfiles/editor/+emacs/" "custom.el")))
+         (concat "~/.dotfiles/+emacs/" "custom.el")))
   (load custom-file)
 
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))

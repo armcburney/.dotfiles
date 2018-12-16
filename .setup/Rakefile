@@ -11,7 +11,7 @@ namespace :masOS do
 
   desc "installs brew packages"
   task :brew do
-    system("/usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"")
+    system("/usr/bin/ruby -e \"$(curl -fsSL #{Const::URL::GitHub::HOMEBREW})\"")
     system("brew tap Homebrew/bundle")
     system("brew bundle")
   end
@@ -22,26 +22,31 @@ end
 namespace :install do
   desc "install zsh"
   task :zsh do
-    system("sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"")
+    system("sh -c \"$(curl -fsSL #{Const::URL::GitHub::OH_MY_ZSH})\"")
   end
 
   desc "clone spacemacs"
   task :spacemacs do
-    system("git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d")
+    system("git clone #{Const::URL::GitHub::SPACEMACS} ~/.emacs.d")
   end
 
   task all: %w[zsh spacemacs]
 end
 
 namespace :dotfiles do
-  desc "copies dotfiles to their appropriate locations"
-  task :copy do
-    system("cp #{Const::Dotfiles::Emacs::SPACEMACS_PATH} ~/.spacemacs")
-    system("rsync -r #{Const::Dotfiles::Emacs::PRIVATE_PATH} ~/.emacs.d/private/")
-    system("cp #{Const::Dotfiles::Zsh::RC_PATH} ~/.zshrc")
-    system("cp #{Const::Dotfiles::Zsh::ENV_PATH} ~/.zshenv")
-    system("cp #{Const::Dotfiles::Ruby::RUBOCOP_PATH} ~/.rubocop.yml")
+  desc "clones my dotfiles repository"
+  task :clone do
+    system("git clone #{Const::URL::GitHub::DOTFILES} ~/")
   end
 
-  task all: %w[copy]
+  desc "copies dotfiles to their appropriate locations"
+  task :copy do
+    system("cp #{Const::Dotfiles::Emacs::SPACEMACS_PATH} ~/")
+    system("rsync -r #{Const::Dotfiles::Emacs::PRIVATE_PATH} ~/.emacs.d/private/")
+    system("cp #{Const::Dotfiles::Zsh::RC_PATH} ~/")
+    system("cp #{Const::Dotfiles::Zsh::ENV_PATH} ~/")
+    system("cp #{Const::Dotfiles::Ruby::RUBOCOP_PATH} ~/")
+  end
+
+  task all: %w[clone copy]
 end

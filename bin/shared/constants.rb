@@ -35,4 +35,14 @@ module Const
       RUBOCOP_PATH = File.join(PATH, ".rubocop.yml")
     end
   end
+
+  # URL constants.
+  module URL
+    module GitHub
+      SPACEMACS = "https://github.com/syl20bnr/spacemacs"
+      OH_MY_ZSH = "https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+      HOMEBREW  = "https://raw.githubusercontent.com/Homebrew/install/master/install"
+      DOTFILES  = "https://github.com/armcburney/.dotfiles.git"
+    end
+  end
 end
