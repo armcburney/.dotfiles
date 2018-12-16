@@ -5,33 +5,30 @@ This repository contains my personal dotfiles used in my everyday development.
 *** =/bin=
 A collection of scripts to be added to my =$PATH=.
 
-*** =/config=
-A collection of configuration scripts and snippets.
-**** =/config/+cron=
-Contains definitions for my cron jobs.
-**** =/config/+hammerspoon=
+*** =/+emacs=
+My spacemacs configuration file, YASnippet definitions, and custom elisp
+configuration code.
+
+*** =/+fzf=
+Configuration for fzf command-line fuzzy finder.
+
+*** =/+hammerspoon=
 My hammerspoon OS X desktop automation configuration.
-**** =/config/+vagrant=
-Virtual machines used for development purposes.
 
-*** =/editor=
-My emacs and vim configurations.
-**** =/editor/+emacs=
-My spacemacs configuration file, YASnippet definitions, and custom elisp configuration code.
-**** =/editor/+vim=
-My cvim and vim configurations. 99.9% of the time I use emacs, but sometimes I use vim for nostalgic purposes.
+*** =/+iterm2=
+My iterm2 color configuration.
 
-*** =/lang=
-A collection of scripts, snippets, and configuration files for various languages I code in.
-**** =/lang/+ruby=
+*** =/+ruby=
 Contains my global =.rubocop.yml= configuration file.
 
-*** =/tools=
-Configuration for miscellaneous tools I use.
-**** =/tools/+fzf=
-Configuration for fzf command-line fuzzy finder.
-**** =/tools/+zsh=
+*** =/+vim=
+My cvim and vim configurations.
+
+*** =/+zsh=
 Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]].
+
+*** =/.setup=
+      A collection of installation scripts.
 
 ** Setup
 *1. Clone the repository.*

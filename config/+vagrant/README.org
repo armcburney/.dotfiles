@@ -1,2 +1,0 @@
-* =/config/+vagrant=
-A collection of =Vagrantfile=s used for development purposes.

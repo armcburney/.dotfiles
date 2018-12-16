@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "rake"
+require_relative "../bin/shared/constants"
 
 namespace :masOS do
   desc "installs macOS devtools"
@@ -40,11 +41,11 @@ end
 namespace :dotfiles do
   desc "copies dotfiles to their appropriate locations"
   task :copy do
-    system("cp ~/.dotfiles/editor/+emacs/.spacemacs ~/.spacemacs")
-    system("rsync -r ~/.dotfiles/editor/+emacs/private/ ~/.emacs.d/private/")
-    system("cp ~/.dotfiles/tools/+zsh/.zshrc ~/.zshrc")
-    system("cp ~/.dotfiles/tools/+zsh/.zshenv ~/.zshenv")
-    system("cp ~/.dotfiles/lang/+ruby/.rubocop.yml ~/.rubocop.yml")
+    system("cp #{Const::Dotfiles::Emacs::SPACEMACS_PATH} ~/.spacemacs")
+    system("rsync -r #{Const::Dotfiles::Emacs::PRIVATE_PATH} ~/.emacs.d/private/")
+    system("cp #{Const::Dotfiles::Zsh::RC_PATH} ~/.zshrc")
+    system("cp #{Const::Dotfiles::Zsh::ENV_PATH} ~/.zshenv")
+    system("cp #{Const::Dotfiles::Ruby::RUBOCOP_PATH} ~/.rubocop.yml")
   end
 
   task all: %w[copy]

@@ -13,7 +13,7 @@ require_relative "shared/errors"
 
 def ssh_forward_ports!(ports)
   tunneled_ports = ports.map { |port| "-L #{port}:localhost:#{port}" }.join(" ")
-  exec("ssh -i #{PEM_FILE_PATH} #{WORKSTATION} -N #{tunneled_ports}")
+  exec("ssh -i #{Const::EC2::PEM} #{Const::EC2::WORKSTATION} -N #{tunneled_ports}")
 end
 
 Error.not_enough_arguments(1) if ARGV.size.zero?

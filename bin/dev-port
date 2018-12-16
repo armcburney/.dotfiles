@@ -12,7 +12,7 @@ require_relative "shared/constants"
 require_relative "shared/errors"
 
 def ssh_forward_port!(source, dest)
-  exec("ssh -i #{PEM_FILE_PATH} #{WORKSTATION} -N -L #{source}:localhost:#{dest}")
+  exec("ssh -i #{Const::EC2::PEM} #{Const::EC2::WORKSTATION} -N -L #{source}:localhost:#{dest}")
 end
 
 Error.not_enough_arguments(1) if ARGV.size.zero?

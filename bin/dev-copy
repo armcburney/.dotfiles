@@ -11,8 +11,8 @@
 require_relative "shared/constants"
 require_relative "shared/errors"
 
-def scp_workstation!(remote_path, local_path)
-  exec("scp -r -i #{PEM_FILE_PATH} #{WORKSTATION}:#{remote_path} #{local_path}")
+def scp_workstation!(remote, local)
+  exec("scp -r -i #{Const::EC2::PEM} #{Const::EC2::WORKSTATION}:#{remote} #{local}")
 end
 
 Error.not_exact_arguments(2) if ARGV.size != 2
