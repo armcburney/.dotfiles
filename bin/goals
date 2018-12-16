@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+
+## goals
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: Opens the README.org for my goals directory.
+#  Usage:
+#
+#    goals
+
+require_relative "shared/constants"
+require_relative "shared/ui"
+
+def view_org_goals!
+  if ENV["INSIDE_EMACS"].nil?
+    system("emacs -nw #{Const::Org::GOALS_README_PATH}")
+  else
+    system("emacsclient #{Const::Org::GOALS_README_PATH}")
+  end
+rescue Error
+  UI.error("Error opening #{Const::Org::GOALS_README_PATH}! 😳")
+end
+
+view_org_goals!
