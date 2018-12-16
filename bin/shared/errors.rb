@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
-class Error
-  def self.not_enough_arguments(n)
-    puts "Not enough arguments. Please provide at least #{n} arguments."
+require_relative "ui"
+
+module Error
+  module_function
+
+  def not_enough_arguments(n)
+    UI.error("Not enough arguments. Please provide at least #{n} arguments.")
     exit(1)
   end
 
-  def self.not_exact_arguments(n)
-    puts "Please provide #{n} arguments."
+  def not_exact_arguments(n)
+    UI.error("Please provide #{n} arguments.")
     exit(1)
   end
 end

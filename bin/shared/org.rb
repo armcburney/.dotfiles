@@ -17,10 +17,6 @@ module Org
     def text
       headline&.headline_text || ""
     end
-
-    def description
-      "TODO"
-    end
   end
 
   class Parser

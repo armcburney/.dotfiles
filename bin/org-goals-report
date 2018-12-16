@@ -28,13 +28,13 @@ def generate_report!
     h3_headings = h2.subheadings
 
     goals = h3_headings.map do |h3|
-      name = h3.text
-      description = h3.description
-      rating = UI.input("How would you rate your progress on goal #{name}?")
+      name   = h3.text
+      rating = UI.input("How would you rate your progress on goal #{name}? ")
+      desc   = UI.input("Brief description why: ")
 
       Model::Goal.new(
         name: name,
-        description: description,
+        description: desc,
         date: date,
         rating: rating.to_i
       )
