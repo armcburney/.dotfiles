@@ -12,3 +12,5 @@ Forwards a number of ports from my workstation to my local machine.
 Generates a new report for my goals.
 ** =/bin/goals=
 Opens the README.org for my goals directory.
+** =/bin/gh=
+Opens a project in the ~/gh directory interactively.

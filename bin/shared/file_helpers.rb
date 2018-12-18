@@ -15,9 +15,21 @@ module FileHelpers
     if ENV["INSIDE_EMACS"].nil?
       system("emacs -nw #{file_path}")
     else
-      system("emacsclient #{file_path}")
+      system("emacsclient -c #{file_path}")
     end
-  rescue Error
-    UI.error("Error opening #{file_path}! 😳")
+  rescue Errno::ENOENT => e
+    UI.error("Error opening file #{file_path}! 😳\n\t#{e}")
+  end
+
+  # Opens a directory and returns the contents in an array.
+  #
+  # @param [String] dir_path
+  # @return [Array[String]]
+  def dir_contents(dir_path)
+    Dir
+      .entries(dir_path)
+      .select { |p| p != "." && p != ".." }
+  rescue Errno::ENOENT => e
+    UI.error("Error opening directory #{dir_path}! 😳\n\t#{e}")
   end
 end

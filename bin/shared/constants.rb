@@ -1,17 +1,9 @@
 # frozen_string_literal: true
 
 module Const
-  # EC2 constants.
-  module EC2
-    WORKSTATION = "ubuntu@ec2-18-206-179-19.compute-1.amazonaws.com"
-    PEM = File.join(Dir.home, "ec2/andrew-workstation.pem")
-  end
-
-  # Org-mode constants.
-  module Org
-    GOALS_PATH = File.join(Dir.home, "me/goals")
-    GOALS_README_PATH = File.join(GOALS_PATH, "README.org")
-    GOALS_REPORTS_PATH = File.join(GOALS_PATH, "reports")
+  # File and directory constants.
+  module Directory
+    GITHUB = File.join(Dir.home, "gh")
   end
 
   # Dotfiles constants.
@@ -34,6 +26,19 @@ module Const
       PATH = File.join(Dotfiles::PATH, "+ruby")
       RUBOCOP_PATH = File.join(PATH, ".rubocop.yml")
     end
+  end
+
+  # EC2 constants.
+  module EC2
+    WORKSTATION = "ubuntu@ec2-18-206-179-19.compute-1.amazonaws.com"
+    PEM = File.join(Dir.home, "ec2/andrew-workstation.pem")
+  end
+
+  # Org-mode constants.
+  module Org
+    GOALS_PATH = File.join(Dir.home, "me/goals")
+    GOALS_README_PATH = File.join(GOALS_PATH, "README.org")
+    GOALS_REPORTS_PATH = File.join(GOALS_PATH, "reports")
   end
 
   # URL constants.
