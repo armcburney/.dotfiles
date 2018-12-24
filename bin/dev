@@ -8,11 +8,6 @@
 #
 #    dev
 
-require_relative "shared/constants"
-require_relative "shared/errors"
+require_relative "scripts/dev"
 
-def ssh_workstation!
-  exec("ssh -i #{Const::EC2::PEM} #{Const::EC2::WORKSTATION}")
-end
-
-ssh_workstation!
+Scripts::Dev.execute!

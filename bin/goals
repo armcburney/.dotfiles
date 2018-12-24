@@ -8,11 +8,6 @@
 #
 #    goals
 
-require_relative "shared/constants"
-require_relative "shared/file_helpers"
+require_relative "scripts/goals"
 
-def view_org_goals!
-  FileHelpers.open_file!(Const::Org::GOALS_README_PATH)
-end
-
-view_org_goals!
+Scripts::Goals.execute!

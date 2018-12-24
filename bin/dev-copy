@@ -8,13 +8,6 @@
 #
 #    dev-copy </remote/file/path> </local/file/path>
 
-require_relative "shared/constants"
-require_relative "shared/errors"
+require_relative "scripts/dev_copy"
 
-def scp_workstation!(remote, local)
-  exec("scp -r -i #{Const::EC2::PEM} #{Const::EC2::WORKSTATION}:#{remote} #{local}")
-end
-
-Error.not_exact_arguments(2) if ARGV.size != 2
-
-scp_workstation!(*ARGV)
+Scripts::DevCopy.execute!(remote: ARGV[0], local: ARGV[1])

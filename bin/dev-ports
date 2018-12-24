@@ -8,14 +8,6 @@
 #
 #    dev-ports <port_1>, ..., <port_n>
 
-require_relative "shared/constants"
-require_relative "shared/errors"
+require_relative "scripts/dev_ports"
 
-def ssh_forward_ports!(ports)
-  tunneled_ports = ports.map { |port| "-L #{port}:localhost:#{port}" }.join(" ")
-  exec("ssh -i #{Const::EC2::PEM} #{Const::EC2::WORKSTATION} -N #{tunneled_ports}")
-end
-
-Error.not_enough_arguments(1) if ARGV.size.zero?
-
-ssh_forward_ports!(ARGV)
+Scripts::DevPorts.execute!(ports: ARGV)

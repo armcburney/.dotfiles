@@ -8,16 +8,6 @@
 #
 #    dev-port <source_port> <optional:dest_port>
 
-require_relative "shared/constants"
-require_relative "shared/errors"
+require_relative "scripts/dev_port"
 
-def ssh_forward_port!(source, dest)
-  exec("ssh -i #{Const::EC2::PEM} #{Const::EC2::WORKSTATION} -N -L #{source}:localhost:#{dest}")
-end
-
-Error.not_enough_arguments(1) if ARGV.size.zero?
-
-source_port = ARGV[0]
-dest_port   = ARGV[1] || source_port
-
-ssh_forward_port!(source_port, dest_port)
+Scripts::DevPort.execute!(source: ARGV[0], dest: ARGV[1])
