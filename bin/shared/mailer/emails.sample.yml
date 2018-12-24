@@ -1,0 +1,16 @@
+emails:
+  -
+    subject: 'Email Subject 1'
+    to: 'email1@gmail.com'
+    sender: 'sender.email@gmail.com'
+    template: 'sample'
+    variables:
+      foo: 'bar'
+
+  -
+    subject: 'Email Subject 2'
+    to: 'email2@gmail.com'
+    sender: 'sender.email@gmail.com'
+    template: 'sample'
+    variables:
+      foo: 'bar2'
