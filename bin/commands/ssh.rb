@@ -14,6 +14,10 @@ module Commands
       "ssh -i #{Const::EC2::PEM} #{workstation} #{tunnelled_ports}"
     end
 
+    def run!
+      exec(source)
+    end
+
     private
 
     attr_reader :workstation, :ports
