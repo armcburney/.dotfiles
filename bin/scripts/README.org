@@ -1,1 +1,2 @@
-TODO
+* =/bin/scripts=
+Classes abstracting Ruby scripts to execute.

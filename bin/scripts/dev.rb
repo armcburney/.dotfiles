@@ -10,8 +10,7 @@ module Scripts
 
     def self.execute!(params = {})
       command = Commands::Ssh.new(workstation: Const::EC2::WORKSTATION, **params)
-      status = command.run!
-      UI.error("Error running #{script_name} command") unless status.success?
+      command.run!
     end
   end
 end
