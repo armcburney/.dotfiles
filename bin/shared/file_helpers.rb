@@ -15,7 +15,7 @@ module FileHelpers
     if ENV["INSIDE_EMACS"].nil?
       system("emacs -nw #{file_path}")
     else
-      system("emacsclient -c #{file_path}")
+      system("emacsclient #{file_path}")
     end
   rescue Errno::ENOENT => e
     UI.error("Error opening file #{file_path}! 😳\n\t#{e}")
