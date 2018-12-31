@@ -1,0 +1,37 @@
+* =/+emacs=
+My spacemacs configuration file, YASnippet definitions, and custom elisp
+configuration code.
+
+** Structure
+#+BEGIN_SRC bash
+      $ tree -a -x -L 2 -I 'README.org' --dirsfirst ~/.dotfiles/+emacs/
+
+        /home/ubuntu/.dotfiles/+emacs/
+        |-- private
+        |   |-- c++
+        |   |-- general
+        |   |-- js
+        |   |-- local
+        |   |-- ruby
+        |   |-- scala
+        |   |-- shell
+        |   |-- snippets
+        |   |-- templates
+        |   |-- .gitignore
+        |   |-- README.md
+        |   `-- evil-terminal-cursor-changer.el
+        |-- .spacemacs
+        `-- custom.el
+
+        10 directories, 5 files
+#+END_SRC
+
+*** =/+emacs/private/=
+My private emacs configuration. Includes my YASnippet templating files, and
+custom elisp logic.
+
+*** =/+emacs/.spacemacs=
+My .spacemacs configuration file.
+
+*** =/+emacs/custom.el=
+My emacs custom-set variables file.
