@@ -1,9 +1,57 @@
 * =armcburney/.dotfiles=
 This repository contains my personal dotfiles used in my everyday development.
 
-** Overview
-*** =/bin=
-A collection of scripts to be added to my =$PATH=.
+** Structure
+#+BEGIN_SRC bash
+  $ tree -a -x -L 2 -I '.git*|LICENSE|README.org' --dirsfirst ~/.dotfiles
+
+    /home/ubuntu/.dotfiles
+    |-- +cvim
+    |   |-- cvim_styles.css
+    |   `-- cvimrc.vim
+    |-- +emacs
+    |   |-- private
+    |   |-- .spacemacs
+    |   `-- custom.el
+    |-- +hammerspoon
+    |   |-- hs-hybrid
+    |   |-- hs-keys
+    |   |-- hs-music
+    |   `-- init.lua
+    |-- +hg
+    |   `-- .hgrc
+    |-- +iterm2
+    |   `-- AndrewsTermTheme.itermcolors
+    |-- +ruby
+    |   `-- .rubocop.yml
+    |-- +zsh
+    |   |-- .zshenv
+    |   |-- .zshrc
+    |   |-- alias
+    |   |-- functions
+    |   |-- loaders
+    |   `-- theme
+    |-- .setup
+    |   |-- Brewfile
+    |   `-- Rakefile
+    `-- bin
+        |-- commands
+        |-- models
+        |-- scripts
+        |-- shared
+        |-- dev
+        |-- dev-copy
+        |-- dev-port
+        |-- dev-ports
+        |-- gh
+        |-- goals
+        `-- org-goals-report
+
+    17 directories, 23 files
+#+END_SRC
+
+*** =/+cvim=
+My cvim configuration file and custom styles.
 
 *** =/+emacs=
 My spacemacs configuration file, YASnippet definitions, and custom elisp
@@ -12,20 +60,23 @@ configuration code.
 *** =/+hammerspoon=
 My hammerspoon OS X desktop automation configuration.
 
+*** =/+hg=
+My mercurial version control setup, compatible with multi-term in emacs.
+
 *** =/+iterm2=
 My iterm2 color configuration.
 
 *** =/+ruby=
 Contains my global =.rubocop.yml= configuration file.
 
-*** =/+vim=
-My cvim and vim configurations.
-
 *** =/+zsh=
-Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]].
+Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]] and a few shell functions.
 
 *** =/.setup=
-      A collection of installation scripts.
+A collection of installation scripts.
+
+*** =/bin=
+A collection of scripts to be added to my =$PATH=.
 
 ** Setup
 *1. Clone the repository.*
