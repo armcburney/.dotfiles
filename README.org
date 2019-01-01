@@ -73,7 +73,7 @@ Contains my global =.rubocop.yml= configuration file.
 Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]] and a few shell functions.
 
 *** =/.setup=
-A collection of installation scripts.
+ A collection of installation scripts and settings.
 
 *** =/bin=
 A collection of scripts to be added to my =$PATH=.

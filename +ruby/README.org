@@ -1,0 +1,15 @@
+* =/+ruby=
+Contains my global =.rubocop.yml= configuration file.
+
+** Structure
+#+BEGIN_SRC bash
+  $ tree -a -x -L 2 -I 'README.org' --dirsfirst ~/.dotfiles/+ruby/
+
+    /home/ubuntu/.dotfiles/+ruby/
+    `-- .rubocop.yml
+
+    0 directories, 1 file
+#+END_SRC
+
+*** =/+ruby/.rubocop.yml=
+My rubocop configuration.

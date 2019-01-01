@@ -1,0 +1,35 @@
+* =/+zsh=
+Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]] and a few shell functions.
+
+** Structure
+#+BEGIN_SRC bash
+  $ tree -a -x -L 2 -I 'README.org' --dirsfirst ~/.dotfiles/+zsh/
+
+    /home/ubuntu/.dotfiles/+zsh/
+    |-- .zshenv
+    |-- .zshrc
+    |-- alias
+    |-- functions
+    |-- loaders
+    `-- theme
+
+    0 directories, 6 files
+#+END_SRC
+
+*** =/+zsh/.zshenv=
+My shell environment variables.
+
+*** =/+zsh/.zshrc=
+My oh-my-zsh configuration file.
+
+*** =/+zsh/alias=
+Custom aliases.
+
+*** =/+zsh/functions=
+Custom bash functions.
+
+*** =/+zsh/loaders=
+Custom loading logic.
+
+*** =/+zsh/t heme=
+My zsh theme.

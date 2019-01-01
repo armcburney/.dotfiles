@@ -1,0 +1,15 @@
+* =/+hg=
+My mercurial version control setup, compatible with multi-term in emacs.
+
+** Structure
+#+BEGIN_SRC bash
+  $ tree -a -x -L 2 -I 'README.org' --dirsfirst ~/.dotfiles/+hg/
+
+    /home/ubuntu/.dotfiles/+hg/
+    `-- .hgrc
+
+    0 directories, 1 file
+#+END_SRC
+
+*** =/+hg/.hgrc=
+My configuration file for mercurial version control.
