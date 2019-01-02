@@ -72,7 +72,6 @@
 (use-package org-journal
   :after org
   :custom
-  (org-journal-enable-encryption t)
   (org-journal-file-format "%Y/%m/%d.org")
   (org-journal-time-format ""))
 
