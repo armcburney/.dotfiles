@@ -1,4 +1,58 @@
-* =/editor/+emacs/private=
-This repo contains my `~/.emacs.d/private/` directory, which contains custom
-emacs lisp for my emacs configuration, and YASnippet embedded lisp snippets for
-boilerplate templating.
+* =/.dotfiles/+emacs/private=
+This repo contains my `~/.emacs.d/private/` directory, which contains custom emacs lisp for my emacs configuration, and YASnippet embedded lisp snippets for boilerplate templating.
+
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private
+/Users/armcburney/.dotfiles/+emacs/private
+├── c++
+│   ├── .DS_Store
+│   └── andrew-c++-style.el
+├── general
+│   ├── .DS_Store
+│   ├── andrew-abbrevs.el
+│   ├── andrew-company.el
+│   ├── andrew-global.el
+│   ├── andrew-helm.el
+│   ├── andrew-org.el
+│   ├── andrew-skeletor.el
+│   ├── andrew-style.el
+│   ├── andrew-terminal.el
+│   └── andrew-transparent.el
+├── js
+│   ├── .DS_Store
+│   └── andrew-javascript.el
+├── ruby
+│   ├── .DS_Store
+│   └── andrew-ruby.el
+├── scala
+│   ├── .DS_Store
+│   └── andrew-ensime.el
+├── shell
+│   ├── .DS_Store
+│   └── andrew-shell.el
+├── snippets
+│   ├── c++-mode
+│   ├── c-mode
+│   ├── crystal-mode
+│   ├── emacs-lisp-mode
+│   ├── org-mode
+│   ├── python-mode
+│   ├── ruby-mode
+│   ├── scala-mode
+│   ├── slim-mode
+│   └── .DS_Store
+└── evil-terminal-cursor-changer.el
+
+16 directories, 22 files
+
+#+END_SRC
+*** =/.dotfiles/+emacs/private/c++=
+*** =/.dotfiles/+emacs/private/evil-terminal-cursor-changer.el=
+*** =/.dotfiles/+emacs/private/general=
+*** =/.dotfiles/+emacs/private/js=
+*** =/.dotfiles/+emacs/private/ruby=
+*** =/.dotfiles/+emacs/private/scala=
+*** =/.dotfiles/+emacs/private/shell=
+*** =/.dotfiles/+emacs/private/snippets=
+*** =/.dotfiles/+emacs/private/.gitignore=

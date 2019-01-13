@@ -1,19 +1,18 @@
-* =/+cvim=
+* =/.dotfiles/+cvim=
 My cvim configuration file and custom styles.
 
 ** Structure
 #+BEGIN_SRC bash
-  $ tree -a -x -L 2 -I 'README.org' --dirsfirst ~/.dotfiles/+cvim/
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+cvim
+/Users/armcburney/.dotfiles/+cvim
+├── cvim_styles.css
+└── cvimrc.vim
 
-    /home/ubuntu/.dotfiles/+cvim/
-    |-- cvim_styles.css
-    `-- cvimrc.vim
+0 directories, 2 files
 
-    0 directories, 2 files
 #+END_SRC
-
-*** =/+cvim/cvim_styles.css=
+*** =/.dotfiles/+cvim/cvim_styles.css=
 Custom CSS rules for my cvim styles.
 
-*** =/+cvim/cvimrc.vim=
+*** =/.dotfiles/+cvim/cvimrc.vim=
 My .vimrc for cvim.

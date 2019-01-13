@@ -1,0 +1,12 @@
+* =/.dotfiles/+emacs/private/c++=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/c++
+/Users/armcburney/.dotfiles/+emacs/private/c++
+├── .DS_Store
+└── andrew-c++-style.el
+
+0 directories, 2 files
+
+#+END_SRC
+*** =/.dotfiles/+emacs/private/c++/andrew-c++-style.el=

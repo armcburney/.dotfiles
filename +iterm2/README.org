@@ -1,15 +1,14 @@
-* =/+iterm2=
+* =/.dotfiles/+iterm2=
 My iterm2 color configuration.
 
 ** Structure
 #+BEGIN_SRC bash
-  $ tree -a -x -L 2 -I 'README.org' --dirsfirst ~/.dotfiles/+iterm2/
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+iterm2
+/Users/armcburney/.dotfiles/+iterm2
+└── AndrewsTermTheme.itermcolors
 
-    /home/ubuntu/.dotfiles/+iterm2/
-    `-- AndrewsTermTheme.itermcolors
+0 directories, 1 file
 
-    0 directories, 1 file
 #+END_SRC
-
-*** =/+iterm2/AndrewsTermTheme.itermcolors=
+*** =/.dotfiles/+iterm2/AndrewsTermTheme.itermcolors=
 My color scheme for iterm2.

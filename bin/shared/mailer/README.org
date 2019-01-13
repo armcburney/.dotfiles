@@ -1,29 +1,15 @@
-* =bin/shared/mailer/=
-A simple mailer to send out batch emails from YAML configuration files using
-SMTP.
+* =/.dotfiles/bin/shared/mailer=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/bin/shared/mailer
+/Users/armcburney/.dotfiles/bin/shared/mailer
+├── emails.sample.yml
+├── mailer.rb
+└── sample.slim
 
-** Usage
-#+BEGIN_SRC ruby
-mailer = Mailer.new(path_to_yaml_file)
-mailer.send!
+0 directories, 3 files
+
 #+END_SRC
-
-** YAML File Format
-#+BEGIN_SRC yaml
-emails:
-  -
-    subject: 'Email Subject 1'
-    to: 'email1@gmail.com'
-    sender: 'sender.email@gmail.com'
-    template: 'sample'
-    variables:
-      foo: 'bar'
-
-  -
-    subject: 'Email Subject 2'
-    to: 'email2@gmail.com'
-    sender: 'sender.email@gmail.com'
-    template: 'sample'
-    variables:
-      foo: 'bar2'
-#+END_SRC
+*** =/.dotfiles/bin/shared/mailer/emails.sample.yml=
+*** =/.dotfiles/bin/shared/mailer/mailer.rb=
+*** =/.dotfiles/bin/shared/mailer/sample.slim=

@@ -1,0 +1,14 @@
+description: >
+  My spacemacs configuration file, YASnippet definitions, and custom elisp
+  configuration code.
+
+files:
+  private: >
+    My private emacs configuration. Includes my YASnippet templating files, and
+    custom elisp logic.
+
+  .spacemacs: >
+    My .spacemacs configuration file.
+
+  custom.el: >
+    My emacs custom-set variables file.

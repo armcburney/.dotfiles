@@ -1,0 +1,11 @@
+description: >
+  Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]] and
+  a few shell functions.
+
+files:
+  .zshenv: My shell environment variables.
+  .zshrc: My oh-my-zsh configuration file.
+  alias: Custom aliases.
+  functions: Custom bash functions.
+  loaders: Custom loading logic.
+  theme: My zsh theme.

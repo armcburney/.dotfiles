@@ -1,0 +1,5 @@
+description: >
+  Contains my global =.rubocop.yml= configuration file.
+
+files:
+  .rubocop.yml: My rubocop configuration.

@@ -1,0 +1,4 @@
+description: >
+  This repo contains my `~/.emacs.d/private/` directory, which contains custom
+  emacs lisp for my emacs configuration, and YASnippet embedded lisp snippets for
+  boilerplate templating.

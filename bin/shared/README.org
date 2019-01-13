@@ -1,0 +1,27 @@
+* =/.dotfiles/bin/shared=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/bin/shared
+/Users/armcburney/.dotfiles/bin/shared
+├── mailer
+│   ├── emails.sample.yml
+│   ├── mailer.rb
+│   └── sample.slim
+├── .DS_Store
+├── constants.rb
+├── errors.rb
+├── file_helpers.rb
+├── org.rb
+├── ui.rb
+└── xcode.rb
+
+1 directory, 10 files
+
+#+END_SRC
+*** =/.dotfiles/bin/shared/constants.rb=
+*** =/.dotfiles/bin/shared/errors.rb=
+*** =/.dotfiles/bin/shared/file_helpers.rb=
+*** =/.dotfiles/bin/shared/mailer=
+*** =/.dotfiles/bin/shared/org.rb=
+*** =/.dotfiles/bin/shared/ui.rb=
+*** =/.dotfiles/bin/shared/xcode.rb=

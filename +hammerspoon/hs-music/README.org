@@ -1,0 +1,19 @@
+* =/.dotfiles/+hammerspoon/hs-music=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+hammerspoon/hs-music
+/Users/armcburney/.dotfiles/+hammerspoon/hs-music
+├── images
+│   ├── .DS_Store
+│   ├── iTunes.png
+│   └── spotify.png
+├── .DS_Store
+├── album.applescript
+└── init.lua
+
+1 directory, 6 files
+
+#+END_SRC
+*** =/.dotfiles/+hammerspoon/hs-music/album.applescript=
+*** =/.dotfiles/+hammerspoon/hs-music/images=
+*** =/.dotfiles/+hammerspoon/hs-music/init.lua=

@@ -1,2 +1,27 @@
-* =/bin/scripts=
-Classes abstracting Ruby scripts to execute.
+* =/.dotfiles/bin/scripts=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/bin/scripts
+/Users/armcburney/.dotfiles/bin/scripts
+├── dev.rb
+├── dev_copy.rb
+├── dev_port.rb
+├── dev_ports.rb
+├── gh.rb
+├── goals.rb
+├── org_goals_report.rb
+├── script.rb
+└── xcode_add.rb
+
+0 directories, 9 files
+
+#+END_SRC
+*** =/.dotfiles/bin/scripts/dev.rb=
+*** =/.dotfiles/bin/scripts/dev_copy.rb=
+*** =/.dotfiles/bin/scripts/dev_port.rb=
+*** =/.dotfiles/bin/scripts/dev_ports.rb=
+*** =/.dotfiles/bin/scripts/gh.rb=
+*** =/.dotfiles/bin/scripts/goals.rb=
+*** =/.dotfiles/bin/scripts/org_goals_report.rb=
+*** =/.dotfiles/bin/scripts/script.rb=
+*** =/.dotfiles/bin/scripts/xcode_add.rb=

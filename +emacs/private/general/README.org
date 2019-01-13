@@ -1,0 +1,28 @@
+* =/.dotfiles/+emacs/private/general=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/general
+/Users/armcburney/.dotfiles/+emacs/private/general
+├── .DS_Store
+├── andrew-abbrevs.el
+├── andrew-company.el
+├── andrew-global.el
+├── andrew-helm.el
+├── andrew-org.el
+├── andrew-skeletor.el
+├── andrew-style.el
+├── andrew-terminal.el
+└── andrew-transparent.el
+
+0 directories, 10 files
+
+#+END_SRC
+*** =/.dotfiles/+emacs/private/general/andrew-abbrevs.el=
+*** =/.dotfiles/+emacs/private/general/andrew-company.el=
+*** =/.dotfiles/+emacs/private/general/andrew-global.el=
+*** =/.dotfiles/+emacs/private/general/andrew-helm.el=
+*** =/.dotfiles/+emacs/private/general/andrew-org.el=
+*** =/.dotfiles/+emacs/private/general/andrew-skeletor.el=
+*** =/.dotfiles/+emacs/private/general/andrew-style.el=
+*** =/.dotfiles/+emacs/private/general/andrew-terminal.el=
+*** =/.dotfiles/+emacs/private/general/andrew-transparent.el=

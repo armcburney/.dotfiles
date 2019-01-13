@@ -1,0 +1,12 @@
+* =/.dotfiles/+emacs/private/shell=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/shell
+/Users/armcburney/.dotfiles/+emacs/private/shell
+├── .DS_Store
+└── andrew-shell.el
+
+0 directories, 2 files
+
+#+END_SRC
+*** =/.dotfiles/+emacs/private/shell/andrew-shell.el=

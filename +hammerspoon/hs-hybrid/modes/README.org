@@ -1,0 +1,14 @@
+* =/.dotfiles/+hammerspoon/hs-hybrid/modes=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/modes
+/Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/modes
+├── .DS_Store
+├── emacs.lua
+└── vim.lua
+
+0 directories, 3 files
+
+#+END_SRC
+*** =/.dotfiles/+hammerspoon/hs-hybrid/modes/emacs.lua=
+*** =/.dotfiles/+hammerspoon/hs-hybrid/modes/vim.lua=

@@ -1,0 +1,65 @@
+* =/.dotfiles/+emacs/private/snippets=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/snippets
+/Users/armcburney/.dotfiles/+emacs/private/snippets
+├── c++-mode
+│   ├── .DS_Store
+│   ├── et
+│   ├── hdr
+│   └── impl
+├── c-mode
+│   ├── .DS_Store
+│   └── crtdstr
+├── crystal-mode
+│   ├── .DS_Store
+│   └── mod
+├── emacs-lisp-mode
+│   ├── .DS_Store
+│   └── pkg
+├── org-mode
+│   ├── .DS_Store
+│   ├── contact
+│   ├── goal
+│   ├── h1
+│   ├── h2
+│   ├── h3
+│   ├── h4
+│   ├── h5
+│   ├── purchase
+│   └── stance
+├── python-mode
+│   ├── .DS_Store
+│   ├── class
+│   ├── cm
+│   └── debug
+├── ruby-mode
+│   ├── .DS_Store
+│   ├── cls
+│   ├── frozen
+│   ├── init
+│   ├── log
+│   ├── pry
+│   ├── rcc
+│   ├── rdoc
+│   └── rrrc
+├── scala-mode
+│   ├── .DS_Store
+│   └── cls
+├── slim-mode
+│   ├── .DS_Store
+│   └── inc
+└── .DS_Store
+
+9 directories, 38 files
+
+#+END_SRC
+*** =/.dotfiles/+emacs/private/snippets/c++-mode=
+*** =/.dotfiles/+emacs/private/snippets/c-mode=
+*** =/.dotfiles/+emacs/private/snippets/crystal-mode=
+*** =/.dotfiles/+emacs/private/snippets/emacs-lisp-mode=
+*** =/.dotfiles/+emacs/private/snippets/org-mode=
+*** =/.dotfiles/+emacs/private/snippets/python-mode=
+*** =/.dotfiles/+emacs/private/snippets/ruby-mode=
+*** =/.dotfiles/+emacs/private/snippets/scala-mode=
+*** =/.dotfiles/+emacs/private/snippets/slim-mode=

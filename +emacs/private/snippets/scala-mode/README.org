@@ -1,0 +1,12 @@
+* =/.dotfiles/+emacs/private/snippets/scala-mode=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/snippets/scala-mode
+/Users/armcburney/.dotfiles/+emacs/private/snippets/scala-mode
+├── .DS_Store
+└── cls
+
+0 directories, 2 files
+
+#+END_SRC
+*** =/.dotfiles/+emacs/private/snippets/scala-mode/cls=

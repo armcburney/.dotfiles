@@ -1,0 +1,26 @@
+* =/.dotfiles/+emacs/private/snippets/ruby-mode=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/snippets/ruby-mode
+/Users/armcburney/.dotfiles/+emacs/private/snippets/ruby-mode
+├── .DS_Store
+├── cls
+├── frozen
+├── init
+├── log
+├── pry
+├── rcc
+├── rdoc
+└── rrrc
+
+0 directories, 9 files
+
+#+END_SRC
+*** =/.dotfiles/+emacs/private/snippets/ruby-mode/cls=
+*** =/.dotfiles/+emacs/private/snippets/ruby-mode/frozen=
+*** =/.dotfiles/+emacs/private/snippets/ruby-mode/init=
+*** =/.dotfiles/+emacs/private/snippets/ruby-mode/log=
+*** =/.dotfiles/+emacs/private/snippets/ruby-mode/pry=
+*** =/.dotfiles/+emacs/private/snippets/ruby-mode/rcc=
+*** =/.dotfiles/+emacs/private/snippets/ruby-mode/rdoc=
+*** =/.dotfiles/+emacs/private/snippets/ruby-mode/rrrc=

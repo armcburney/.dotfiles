@@ -1,0 +1,9 @@
+description: >
+  My cvim configuration file and custom styles.
+
+files:
+  cvim_styles.css: >
+    Custom CSS rules for my cvim styles.
+
+  cvimrc.vim: >
+    My .vimrc for cvim.

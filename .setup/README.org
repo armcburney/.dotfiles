@@ -1,19 +1,13 @@
-* =/.setup=
- A collection of installation scripts and settings.
-
+* =/.dotfiles/.setup=
 ** Structure
 #+BEGIN_SRC bash
-  $ tree -a -x -L 2 -I 'README.org' --dirsfirst ~/.dotfiles/.setup/
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/.setup
+/Users/armcburney/.dotfiles/.setup
+├── Brewfile
+└── Rakefile
 
-    /home/ubuntu/.dotfiles/.setup/
-    |-- Brewfile
-    `-- Rakefile
+0 directories, 2 files
 
-    0 directories, 2 files
 #+END_SRC
-
-*** =/.setup/Brewfile=
-Brew packages and cask applications I use on my macOS machines.
-
-*** =/.setup/.zshrc=
-Tasks to install my setup.
+*** =/.dotfiles/.setup/Brewfile=
+*** =/.dotfiles/.setup/Rakefile=

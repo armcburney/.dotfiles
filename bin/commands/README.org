@@ -1,2 +1,15 @@
-* =/bin/scripts=
-Classes abstracting shell commands to execute.
+* =/.dotfiles/bin/commands=
+** Structure
+#+BEGIN_SRC bash
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/bin/commands
+/Users/armcburney/.dotfiles/bin/commands
+├── command.rb
+├── scp.rb
+└── ssh.rb
+
+0 directories, 3 files
+
+#+END_SRC
+*** =/.dotfiles/bin/commands/command.rb=
+*** =/.dotfiles/bin/commands/scp.rb=
+*** =/.dotfiles/bin/commands/ssh.rb=

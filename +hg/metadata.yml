@@ -1,0 +1,5 @@
+description: >
+  My mercurial version control setup, compatible with multi-term in emacs.
+
+files:
+  .hgrc: My configuration file for mercurial version control.
