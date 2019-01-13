@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+## xcode-add
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: Adds a file or directory to an XCode group for a given project path.
+#  Usage:
+#
+#    xcode-add <project_path> <group_name> <directory_path>
+#
+#  Example:
+#
+#    xcode-add "Documents/interlude/interlude.xcodeproj" "Music" "Downloads/module_1/"
+
+require_relative "scripts/xcode_add"
+
+Scripts::XCodeAdd.execute!(project: ARGV[0], group: ARGV[1], directory: ARGV[2])

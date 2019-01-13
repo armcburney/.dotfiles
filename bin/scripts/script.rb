@@ -47,5 +47,12 @@ module Scripts
     def self.usage
       script_name
     end
+
+    # Returns `true` if the script can only be executed from a macOS machine.
+    #
+    # @return [Boolean]
+    def self.macOS_only?
+      false
+    end
   end
 end
