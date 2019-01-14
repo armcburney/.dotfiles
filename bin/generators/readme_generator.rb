@@ -17,7 +17,7 @@ class ReadmeGenerator
   # that corresponds with said directory.
   #
   # @param [File] dir
-  def self.generate_readme(dir, script: false)
+  def self.generate_readme(dir, blacklisted_dirs, script: false)
     return if File.file?(dir)
 
     metadata_file_path = File.join(dir, "metadata.yml")
@@ -42,18 +42,21 @@ class ReadmeGenerator
         if File.file?(file_path)
           readme_lines << file_desc
         else
-          dir_desc = generate_readme(file_path, script: basename == "bin")
+          dir_desc = generate_readme(
+            file_path, blacklisted_dirs, script: basename == "bin"
+          )
           readme_lines << (dir_desc ? dir_desc : file_desc)
         end
       end
 
+    # Don't write the README.org if it's a special directory.
+    return if blacklisted_dirs.include?(dir)
+
     readme_lines << metadata["footer"]
     write_readme_file(dir, readme_lines)
 
-    return metadata["description"]
+    metadata["description"]
   end
-
-  private
 
   # append_structure_lines appends lines for the structure of the current
   # directory, with output from the `tree` command.
