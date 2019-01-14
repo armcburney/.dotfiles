@@ -3,10 +3,8 @@
 require "rake"
 require "yaml"
 
-BLACKLISTED_FILES = %w[. .. .git .DS_Store README.org metadata.yml].freeze
-BLACKLISTED_DIRS  = %w[bin]
-                    .map { |dir| File.join(Dir.pwd, dir) }
-                    .push(File.join(Dir.home, ".dotfiles"))
+BLACKLISTED_FILES = %w[. .. .git .gitignore .DS_Store README.org metadata.yml]
+BLACKLISTED_DIRS  = %w[bin].map { |dir| File.join(Dir.pwd, dir) }
 
 # generate_readme takes in a directory or file and writes out the README.org
 # that corresponds with said directory.
@@ -30,18 +28,27 @@ def generate_readme(dir)
 
       file_path = File.join(dir, file)
       file_name = file_path.gsub(Dir.home, "")
+      readme_lines << "*** =#{file_name}="
+
       basename  = File.basename(file_path)
 
-      readme_lines << "*** =#{file_name}="
-      readme_lines << metadata.dig("files", basename) if metadata
+      file_desc = metadata.dig("files", basename) if metadata
 
-      generate_readme(file_path) unless File.file?(file_path)
+      if File.file?(file_path)
+        readme_lines << file_desc
+      else
+        dir_desc = generate_readme(file_path)
+        readme_lines << (dir_desc ? dir_desc : file_desc)
+      end
     end
 
   # Don't write the README.org if it's a special directory.
   return if BLACKLISTED_DIRS.include?(dir)
 
+  readme_lines << metadata["footer"] if metadata
   write_readme_file(dir, readme_lines)
+
+  return metadata["description"] if metadata
 end
 
 def append_structure_lines(readme_lines, dir)
@@ -49,6 +56,7 @@ def append_structure_lines(readme_lines, dir)
   readme_lines << "** Structure"
   readme_lines << "#+BEGIN_SRC bash"
   readme_lines << "$ #{command}"
+  readme_lines << ""
   readme_lines << `#{command}`
   readme_lines << "#+END_SRC"
 end

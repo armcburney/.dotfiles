@@ -4,6 +4,7 @@ This repo contains my `~/.emacs.d/private/` directory, which contains custom ema
 ** Structure
 #+BEGIN_SRC bash
 $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private
+
 /Users/armcburney/.dotfiles/+emacs/private
 ├── c++
 │   ├── .DS_Store
@@ -55,4 +56,3 @@ $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/
 *** =/.dotfiles/+emacs/private/scala=
 *** =/.dotfiles/+emacs/private/shell=
 *** =/.dotfiles/+emacs/private/snippets=
-*** =/.dotfiles/+emacs/private/.gitignore=

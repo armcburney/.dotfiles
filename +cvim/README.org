@@ -4,6 +4,7 @@ My cvim configuration file and custom styles.
 ** Structure
 #+BEGIN_SRC bash
 $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+cvim
+
 /Users/armcburney/.dotfiles/+cvim
 ├── cvim_styles.css
 └── cvimrc.vim

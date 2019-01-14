@@ -2,6 +2,7 @@
 ** Structure
 #+BEGIN_SRC bash
 $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/snippets/ruby-mode
+
 /Users/armcburney/.dotfiles/+emacs/private/snippets/ruby-mode
 ├── .DS_Store
 ├── cls

@@ -4,6 +4,7 @@ My spacemacs configuration file, YASnippet definitions, and custom elisp configu
 ** Structure
 #+BEGIN_SRC bash
 $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs
+
 /Users/armcburney/.dotfiles/+emacs
 ├── private
 │   ├── c++
@@ -27,4 +28,4 @@ My .spacemacs configuration file.
 My emacs custom-set variables file.
 
 *** =/.dotfiles/+emacs/private=
-My private emacs configuration. Includes my YASnippet templating files, and custom elisp logic.
+This repo contains my `~/.emacs.d/private/` directory, which contains custom emacs lisp for my emacs configuration, and YASnippet embedded lisp snippets for boilerplate templating.

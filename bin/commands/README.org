@@ -2,6 +2,7 @@
 ** Structure
 #+BEGIN_SRC bash
 $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/bin/commands
+
 /Users/armcburney/.dotfiles/bin/commands
 ├── command.rb
 ├── scp.rb

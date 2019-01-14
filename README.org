@@ -1,83 +1,82 @@
-* =armcburney/.dotfiles=
+* =/.dotfiles=
 This repository contains my personal dotfiles used in my everyday development.
 
 ** Structure
 #+BEGIN_SRC bash
-  $ tree -a -x -L 2 -I '.git*|LICENSE|README.org' --dirsfirst ~/.dotfiles
+$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles
 
-    /home/ubuntu/.dotfiles
-    |-- +cvim
-    |   |-- cvim_styles.css
-    |   `-- cvimrc.vim
-    |-- +emacs
-    |   |-- private
-    |   |-- .spacemacs
-    |   `-- custom.el
-    |-- +hammerspoon
-    |   |-- hs-hybrid
-    |   |-- hs-keys
-    |   |-- hs-music
-    |   `-- init.lua
-    |-- +hg
-    |   `-- .hgrc
-    |-- +iterm2
-    |   `-- AndrewsTermTheme.itermcolors
-    |-- +ruby
-    |   `-- .rubocop.yml
-    |-- +zsh
-    |   |-- .zshenv
-    |   |-- .zshrc
-    |   |-- alias
-    |   |-- functions
-    |   |-- loaders
-    |   `-- theme
-    |-- .setup
-    |   |-- Brewfile
-    |   `-- Rakefile
-    `-- bin
-        |-- commands
-        |-- models
-        |-- scripts
-        |-- shared
-        |-- dev
-        |-- dev-copy
-        |-- dev-port
-        |-- dev-ports
-        |-- gh
-        |-- goals
-        `-- org-goals-report
+/Users/armcburney/.dotfiles
+├── +cvim
+│   ├── cvim_styles.css
+│   └── cvimrc.vim
+├── +emacs
+│   ├── private
+│   ├── .spacemacs
+│   └── custom.el
+├── +hammerspoon
+│   ├── hs-hybrid
+│   ├── hs-keys
+│   ├── hs-music
+│   └── init.lua
+├── +hg
+│   └── .hgrc
+├── +iterm2
+│   └── AndrewsTermTheme.itermcolors
+├── +ruby
+│   └── .rubocop.yml
+├── +zsh
+│   ├── .zshenv
+│   ├── .zshrc
+│   ├── alias
+│   ├── functions
+│   ├── loaders
+│   └── theme
+├── .setup
+│   ├── Brewfile
+│   └── Rakefile
+├── bin
+│   ├── commands
+│   ├── models
+│   ├── scripts
+│   ├── shared
+│   ├── dev
+│   ├── dev-copy
+│   ├── dev-port
+│   ├── dev-ports
+│   ├── gh
+│   ├── goals
+│   ├── org-goals-report
+│   └── xcode-add
+└── Rakefile
 
-    17 directories, 23 files
+17 directories, 25 files
+
 #+END_SRC
-
-*** =/+cvim=
+*** =/.dotfiles/+cvim=
 My cvim configuration file and custom styles.
 
-*** =/+emacs=
-My spacemacs configuration file, YASnippet definitions, and custom elisp
-configuration code.
+*** =/.dotfiles/+emacs=
+My spacemacs configuration file, YASnippet definitions, and custom elisp configuration code.
 
-*** =/+hammerspoon=
-My hammerspoon OS X desktop automation configuration.
+*** =/.dotfiles/+hammerspoon=
+My hammerspoon macOS desktop automation configuration.
 
-*** =/+hg=
+*** =/.dotfiles/+hg=
 My mercurial version control setup, compatible with multi-term in emacs.
 
-*** =/+iterm2=
+*** =/.dotfiles/+iterm2=
 My iterm2 color configuration.
 
-*** =/+ruby=
+*** =/.dotfiles/+ruby=
 Contains my global =.rubocop.yml= configuration file.
 
-*** =/+zsh=
+*** =/.dotfiles/+zsh=
 Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]] and a few shell functions.
 
-*** =/.setup=
- A collection of installation scripts and settings.
-
-*** =/bin=
-A collection of scripts to be added to my =$PATH=.
-
+*** =/.dotfiles/.setup=
+*** =/.dotfiles/bin=
+*** =/.dotfiles/LICENSE=
+*** =/.dotfiles/Rakefile=
 ** Setup
 *1. Clone the repository.*
 #+BEGIN_SRC bash

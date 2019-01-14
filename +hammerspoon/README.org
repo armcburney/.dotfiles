@@ -1,9 +1,10 @@
 * =/.dotfiles/+hammerspoon=
-My hammerspoon configuration.
+My hammerspoon macOS desktop automation configuration.
 
 ** Structure
 #+BEGIN_SRC bash
 $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+hammerspoon
+
 /Users/armcburney/.dotfiles/+hammerspoon
 ├── hs-hybrid
 │   ├── images
