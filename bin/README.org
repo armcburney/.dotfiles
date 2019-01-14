@@ -10,6 +10,8 @@ $ tree /Users/armcburney/.dotfiles/bin
 │   ├── command.rb
 │   ├── scp.rb
 │   └── ssh.rb
+├── generators
+│   └── readme_generator.rb
 ├── models
 │   ├── array.rb
 │   ├── base.rb
@@ -42,7 +44,7 @@ $ tree /Users/armcburney/.dotfiles/bin
 ├── org-goals-report
 └── xcode-add
 
-5 directories, 30 files
+6 directories, 31 files
 
 #+END_SRC
 *** =/.dotfiles/bin/commands=
@@ -54,6 +56,7 @@ Copy a directory from my workstation to my local machine.
 Forwards a port from my workstation to my local machine.
 *** =/.dotfiles/bin/dev-ports=
 Forwards a number of ports from my workstation to my local machine.
+*** =/.dotfiles/bin/generators=
 *** =/.dotfiles/bin/gh=
 Opens a project in the ~/gh directory interactively.
 *** =/.dotfiles/bin/goals=

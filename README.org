@@ -36,6 +36,7 @@ $ tree /Users/armcburney/.dotfiles
 │   └── Rakefile
 ├── bin
 │   ├── commands
+│   ├── generators
 │   ├── models
 │   ├── scripts
 │   ├── shared
@@ -49,7 +50,7 @@ $ tree /Users/armcburney/.dotfiles
 │   └── xcode-add
 └── Rakefile
 
-17 directories, 25 files
+18 directories, 25 files
 
 #+END_SRC
 *** =/.dotfiles/+cvim=
