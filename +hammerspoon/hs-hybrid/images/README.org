@@ -1,15 +1,14 @@
 * =/.dotfiles/+hammerspoon/hs-hybrid/images=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/images
+$ tree /Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/images
 
 /Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/images
-├── .DS_Store
 ├── emacs.png
 ├── hybrid.png
 └── vim.png
 
-0 directories, 4 files
+0 directories, 3 files
 
 #+END_SRC
 *** =/.dotfiles/+hammerspoon/hs-hybrid/images/emacs.png=

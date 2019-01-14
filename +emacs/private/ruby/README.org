@@ -1,13 +1,12 @@
 * =/.dotfiles/+emacs/private/ruby=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/ruby
+$ tree /Users/armcburney/.dotfiles/+emacs/private/ruby
 
 /Users/armcburney/.dotfiles/+emacs/private/ruby
-├── .DS_Store
 └── andrew-ruby.el
 
-0 directories, 2 files
+0 directories, 1 file
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/ruby/andrew-ruby.el=

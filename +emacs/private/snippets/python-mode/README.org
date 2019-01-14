@@ -1,15 +1,14 @@
 * =/.dotfiles/+emacs/private/snippets/python-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/snippets/python-mode
+$ tree /Users/armcburney/.dotfiles/+emacs/private/snippets/python-mode
 
 /Users/armcburney/.dotfiles/+emacs/private/snippets/python-mode
-├── .DS_Store
 ├── class
 ├── cm
 └── debug
 
-0 directories, 4 files
+0 directories, 3 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/snippets/python-mode/class=

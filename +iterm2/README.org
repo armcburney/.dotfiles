@@ -3,7 +3,7 @@ My iterm2 color configuration.
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+iterm2
+$ tree /Users/armcburney/.dotfiles/+iterm2
 
 /Users/armcburney/.dotfiles/+iterm2
 └── AndrewsTermTheme.itermcolors

@@ -1,10 +1,9 @@
 * =/.dotfiles/+emacs/private/snippets/ruby-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/snippets/ruby-mode
+$ tree /Users/armcburney/.dotfiles/+emacs/private/snippets/ruby-mode
 
 /Users/armcburney/.dotfiles/+emacs/private/snippets/ruby-mode
-├── .DS_Store
 ├── cls
 ├── frozen
 ├── init
@@ -14,7 +13,7 @@ $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/
 ├── rdoc
 └── rrrc
 
-0 directories, 9 files
+0 directories, 8 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/snippets/ruby-mode/cls=

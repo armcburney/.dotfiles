@@ -1,7 +1,7 @@
 * =/.dotfiles/bin/shared/mailer=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/bin/shared/mailer
+$ tree /Users/armcburney/.dotfiles/bin/shared/mailer
 
 /Users/armcburney/.dotfiles/bin/shared/mailer
 ├── emails.sample.yml

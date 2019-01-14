@@ -18,7 +18,7 @@ def generate_readme(dir)
 
   readme_lines = ["* =#{dir.gsub(Dir.home, '')}="]
   readme_lines << metadata["description"] if metadata
-  readme_lines = append_structure_lines(readme_lines, dir)
+  readme_lines = append_structure_lines(dir, readme_lines)
 
   Dir
     .entries(dir)
@@ -51,18 +51,28 @@ def generate_readme(dir)
   return metadata["description"] if metadata
 end
 
-def append_structure_lines(readme_lines, dir)
-  command = tree_command(dir)
+# append_structure_lines appends lines for the structure of the current
+# directory, with output from the `tree` command.
+#
+# @param [File]          dir
+# @param [Array[String]] readme_lines
+def append_structure_lines(dir, readme_lines)
   readme_lines << "** Structure"
   readme_lines << "#+BEGIN_SRC bash"
-  readme_lines << "$ #{command}"
+  readme_lines << "$ #{tree_command(dir, with_options: false)}"
   readme_lines << ""
-  readme_lines << `#{command}`
+  readme_lines << `#{tree_command(dir)}`
   readme_lines << "#+END_SRC"
 end
 
-def tree_command(dir)
-  "tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst #{dir}"
+# tree_command is the string representation for the `tree` command executed in
+# append_structure_lines.
+#
+# @param [File]    dir
+# @param [Boolean] with_options
+def tree_command(dir, with_options: true)
+  options = "-a -x -L 2 -I '.git*|.DS_Store|LICENSE|README.org|metadata.yml' --dirsfirst"
+  with_options ? "tree #{options} #{dir}" : "tree #{dir}"
 end
 
 # write_readme_file writes a README.org file metadata for a given directory.

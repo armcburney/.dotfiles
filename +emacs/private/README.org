@@ -3,14 +3,12 @@ This repo contains my `~/.emacs.d/private/` directory, which contains custom ema
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private
+$ tree /Users/armcburney/.dotfiles/+emacs/private
 
 /Users/armcburney/.dotfiles/+emacs/private
 ├── c++
-│   ├── .DS_Store
 │   └── andrew-c++-style.el
 ├── general
-│   ├── .DS_Store
 │   ├── andrew-abbrevs.el
 │   ├── andrew-company.el
 │   ├── andrew-global.el
@@ -21,16 +19,12 @@ $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/
 │   ├── andrew-terminal.el
 │   └── andrew-transparent.el
 ├── js
-│   ├── .DS_Store
 │   └── andrew-javascript.el
 ├── ruby
-│   ├── .DS_Store
 │   └── andrew-ruby.el
 ├── scala
-│   ├── .DS_Store
 │   └── andrew-ensime.el
 ├── shell
-│   ├── .DS_Store
 │   └── andrew-shell.el
 ├── snippets
 │   ├── c++-mode
@@ -41,11 +35,10 @@ $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/
 │   ├── python-mode
 │   ├── ruby-mode
 │   ├── scala-mode
-│   ├── slim-mode
-│   └── .DS_Store
+│   └── slim-mode
 └── evil-terminal-cursor-changer.el
 
-16 directories, 22 files
+16 directories, 15 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/c++=

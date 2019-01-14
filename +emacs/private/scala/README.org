@@ -1,13 +1,12 @@
 * =/.dotfiles/+emacs/private/scala=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/scala
+$ tree /Users/armcburney/.dotfiles/+emacs/private/scala
 
 /Users/armcburney/.dotfiles/+emacs/private/scala
-├── .DS_Store
 └── andrew-ensime.el
 
-0 directories, 2 files
+0 directories, 1 file
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/scala/andrew-ensime.el=

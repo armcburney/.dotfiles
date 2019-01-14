@@ -1,10 +1,9 @@
 * =/.dotfiles/+emacs/private/snippets/org-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/snippets/org-mode
+$ tree /Users/armcburney/.dotfiles/+emacs/private/snippets/org-mode
 
 /Users/armcburney/.dotfiles/+emacs/private/snippets/org-mode
-├── .DS_Store
 ├── contact
 ├── goal
 ├── h1
@@ -15,7 +14,7 @@ $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/
 ├── purchase
 └── stance
 
-0 directories, 10 files
+0 directories, 9 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/snippets/org-mode/contact=

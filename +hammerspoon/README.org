@@ -3,26 +3,23 @@ My hammerspoon macOS desktop automation configuration.
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+hammerspoon
+$ tree /Users/armcburney/.dotfiles/+hammerspoon
 
 /Users/armcburney/.dotfiles/+hammerspoon
 ├── hs-hybrid
 │   ├── images
 │   ├── includes
 │   ├── modes
-│   ├── .DS_Store
 │   └── init.lua
 ├── hs-keys
-│   ├── .DS_Store
 │   └── init.lua
 ├── hs-music
 │   ├── images
-│   ├── .DS_Store
 │   ├── album.applescript
 │   └── init.lua
 └── init.lua
 
-7 directories, 8 files
+7 directories, 5 files
 
 #+END_SRC
 *** =/.dotfiles/+hammerspoon/hs-hybrid=

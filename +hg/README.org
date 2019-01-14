@@ -3,7 +3,7 @@ My mercurial version control setup, compatible with multi-term in emacs.
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+hg
+$ tree /Users/armcburney/.dotfiles/+hg
 
 /Users/armcburney/.dotfiles/+hg
 └── .hgrc

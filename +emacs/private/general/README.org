@@ -1,10 +1,9 @@
 * =/.dotfiles/+emacs/private/general=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/general
+$ tree /Users/armcburney/.dotfiles/+emacs/private/general
 
 /Users/armcburney/.dotfiles/+emacs/private/general
-├── .DS_Store
 ├── andrew-abbrevs.el
 ├── andrew-company.el
 ├── andrew-global.el
@@ -15,7 +14,7 @@ $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/
 ├── andrew-terminal.el
 └── andrew-transparent.el
 
-0 directories, 10 files
+0 directories, 9 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/general/andrew-abbrevs.el=

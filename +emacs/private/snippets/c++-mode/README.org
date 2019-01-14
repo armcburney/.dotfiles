@@ -1,15 +1,14 @@
 * =/.dotfiles/+emacs/private/snippets/c++-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/snippets/c++-mode
+$ tree /Users/armcburney/.dotfiles/+emacs/private/snippets/c++-mode
 
 /Users/armcburney/.dotfiles/+emacs/private/snippets/c++-mode
-├── .DS_Store
 ├── et
 ├── hdr
 └── impl
 
-0 directories, 4 files
+0 directories, 3 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/snippets/c++-mode/et=

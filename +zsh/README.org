@@ -3,7 +3,7 @@ Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]] and a
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+zsh
+$ tree /Users/armcburney/.dotfiles/+zsh
 
 /Users/armcburney/.dotfiles/+zsh
 ├── .zshenv

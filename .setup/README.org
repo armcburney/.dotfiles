@@ -1,7 +1,7 @@
 * =/.dotfiles/.setup=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/.setup
+$ tree /Users/armcburney/.dotfiles/.setup
 
 /Users/armcburney/.dotfiles/.setup
 ├── Brewfile

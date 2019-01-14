@@ -1,25 +1,20 @@
 * =/.dotfiles/+emacs/private/snippets=
 ** Structure
 #+BEGIN_SRC bash
-$ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/armcburney/.dotfiles/+emacs/private/snippets
+$ tree /Users/armcburney/.dotfiles/+emacs/private/snippets
 
 /Users/armcburney/.dotfiles/+emacs/private/snippets
 ├── c++-mode
-│   ├── .DS_Store
 │   ├── et
 │   ├── hdr
 │   └── impl
 ├── c-mode
-│   ├── .DS_Store
 │   └── crtdstr
 ├── crystal-mode
-│   ├── .DS_Store
 │   └── mod
 ├── emacs-lisp-mode
-│   ├── .DS_Store
 │   └── pkg
 ├── org-mode
-│   ├── .DS_Store
 │   ├── contact
 │   ├── goal
 │   ├── h1
@@ -30,12 +25,10 @@ $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/
 │   ├── purchase
 │   └── stance
 ├── python-mode
-│   ├── .DS_Store
 │   ├── class
 │   ├── cm
 │   └── debug
 ├── ruby-mode
-│   ├── .DS_Store
 │   ├── cls
 │   ├── frozen
 │   ├── init
@@ -45,14 +38,11 @@ $ tree -a -x -L 2 -I '.git*|LICENSE|README.org|metadata.yml' --dirsfirst /Users/
 │   ├── rdoc
 │   └── rrrc
 ├── scala-mode
-│   ├── .DS_Store
 │   └── cls
-├── slim-mode
-│   ├── .DS_Store
-│   └── inc
-└── .DS_Store
+└── slim-mode
+    └── inc
 
-9 directories, 38 files
+9 directories, 28 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/snippets/c++-mode=
