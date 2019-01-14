@@ -1,4 +1,6 @@
 * =/.dotfiles/.setup=
+A =Brewfile= containing packages I use on my macOS machines, and a Rakefile to install and setup my macOS and Linux machines.
+
 ** Structure
 #+BEGIN_SRC bash
 $ tree /Users/armcburney/.dotfiles/.setup

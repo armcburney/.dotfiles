@@ -1,64 +1,67 @@
-* =/bin=
+* =/.dotfiles/bin=
 A collection of scripts to be added to my =$PATH=.
 
 ** Structure
 #+BEGIN_SRC bash
-  $ tree -a -x -L 2 -I 'README.org' --dirsfirst ~/.dotfiles/bin/
+$ tree /Users/armcburney/.dotfiles/bin
 
-    /home/ubuntu/.dotfiles/bin/
-    |-- commands
-    |   |-- command.rb
-    |   |-- scp.rb
-    |   `-- ssh.rb
-    |-- models
-    |   |-- array.rb
-    |   |-- base.rb
-    |   |-- category.rb
-    |   `-- goal.rb
-    |-- scripts
-    |   |-- dev.rb
-    |   |-- dev_copy.rb
-    |   |-- dev_port.rb
-    |   |-- dev_ports.rb
-    |   |-- gh.rb
-    |   |-- goals.rb
-    |   |-- org_goals_report.rb
-    |   `-- script.rb
-    |-- shared
-    |   |-- mailer
-    |   |-- constants.rb
-    |   |-- errors.rb
-    |   |-- file_helpers.rb
-    |   |-- org.rb
-    |   `-- ui.rb
-    |-- dev
-    |-- dev-copy
-    |-- dev-port
-    |-- dev-ports
-    |-- gh
-    |-- goals
-    `-- org-goals-report
+/Users/armcburney/.dotfiles/bin
+├── commands
+│   ├── command.rb
+│   ├── scp.rb
+│   └── ssh.rb
+├── models
+│   ├── array.rb
+│   ├── base.rb
+│   ├── category.rb
+│   └── goal.rb
+├── scripts
+│   ├── dev.rb
+│   ├── dev_copy.rb
+│   ├── dev_port.rb
+│   ├── dev_ports.rb
+│   ├── gh.rb
+│   ├── goals.rb
+│   ├── org_goals_report.rb
+│   ├── script.rb
+│   └── xcode_add.rb
+├── shared
+│   ├── mailer
+│   ├── constants.rb
+│   ├── errors.rb
+│   ├── file_helpers.rb
+│   ├── org.rb
+│   ├── ui.rb
+│   └── xcode.rb
+├── dev
+├── dev-copy
+├── dev-port
+├── dev-ports
+├── gh
+├── goals
+├── org-goals-report
+└── xcode-add
 
-    5 directories, 27 files
+5 directories, 30 files
+
 #+END_SRC
-
-*** =/bin/dev=
+*** =/.dotfiles/bin/commands=
+*** =/.dotfiles/bin/dev=
 SSH into my workstation from my local machine.
-
-*** =/bin/dev-copy=
+*** =/.dotfiles/bin/dev-copy=
 Copy a directory from my workstation to my local machine.
-
-*** =/bin/dev-port=
+*** =/.dotfiles/bin/dev-port=
 Forwards a port from my workstation to my local machine.
-
-*** =/bin/dev-ports=
+*** =/.dotfiles/bin/dev-ports=
 Forwards a number of ports from my workstation to my local machine.
-
-*** =/bin/org-goals-report=
-Generates a new report for my goals.
-
-*** =/bin/goals=
-Opens the README.org for my goals directory.
-
-*** =/bin/gh=
+*** =/.dotfiles/bin/gh=
 Opens a project in the ~/gh directory interactively.
+*** =/.dotfiles/bin/goals=
+Opens the README.org for my goals directory.
+*** =/.dotfiles/bin/models=
+*** =/.dotfiles/bin/org-goals-report=
+Generates a new report for my goals.
+*** =/.dotfiles/bin/scripts=
+*** =/.dotfiles/bin/shared=
+*** =/.dotfiles/bin/xcode-add=
+Adds a file or directory to an XCode group for a given project path.

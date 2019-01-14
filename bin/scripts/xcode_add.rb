@@ -3,7 +3,7 @@
 require_relative "script"
 
 module Scripts
-  class XCodeAdd < Script
+  class XcodeAdd < Script
     def self.description
       "Adds a file or directory to an XCode group for a given project path."
     end

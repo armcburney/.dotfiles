@@ -74,8 +74,11 @@ Contains my global =.rubocop.yml= configuration file.
 Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]] and a few shell functions.
 
 *** =/.dotfiles/.setup=
+A =Brewfile= containing packages I use on my macOS machines, and a Rakefile to install and setup my macOS and Linux machines.
+
 *** =/.dotfiles/bin=
-*** =/.dotfiles/LICENSE=
+A collection of scripts to be added to my =$PATH=.
+
 *** =/.dotfiles/Rakefile=
 ** Setup
 *1. Clone the repository.*

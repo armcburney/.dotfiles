@@ -1,0 +1,3 @@
+description: >
+  A =Brewfile= containing packages I use on my macOS machines, and a Rakefile
+  to install and setup my macOS and Linux machines.

@@ -14,4 +14,4 @@
 
 require_relative "scripts/xcode_add"
 
-Scripts::XCodeAdd.execute!(project: ARGV[0], group: ARGV[1], directory: ARGV[2])
+Scripts::XcodeAdd.execute!(project: ARGV[0], group: ARGV[1], directory: ARGV[2])
