@@ -1,12 +1,12 @@
 * =/.dotfiles/bin/commands=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/bin/commands
+$ tree /home/ubuntu/.dotfiles/bin/commands
 
-/Users/armcburney/.dotfiles/bin/commands
-├── command.rb
-├── scp.rb
-└── ssh.rb
+/home/ubuntu/.dotfiles/bin/commands
+|-- command.rb
+|-- scp.rb
+`-- ssh.rb
 
 0 directories, 3 files
 

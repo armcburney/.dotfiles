@@ -1,18 +1,18 @@
 * =/.dotfiles/bin/scripts=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/bin/scripts
+$ tree /home/ubuntu/.dotfiles/bin/scripts
 
-/Users/armcburney/.dotfiles/bin/scripts
-├── dev.rb
-├── dev_copy.rb
-├── dev_port.rb
-├── dev_ports.rb
-├── gh.rb
-├── goals.rb
-├── org_goals_report.rb
-├── script.rb
-└── xcode_add.rb
+/home/ubuntu/.dotfiles/bin/scripts
+|-- dev.rb
+|-- dev_copy.rb
+|-- dev_port.rb
+|-- dev_ports.rb
+|-- gh.rb
+|-- goals.rb
+|-- org_goals_report.rb
+|-- script.rb
+`-- xcode_add.rb
 
 0 directories, 9 files
 

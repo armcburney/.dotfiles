@@ -3,52 +3,52 @@ This repository contains my personal dotfiles used in my everyday development.
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles
+$ tree /home/ubuntu/.dotfiles
 
-/Users/armcburney/.dotfiles
-├── +cvim
-│   ├── cvim_styles.css
-│   └── cvimrc.vim
-├── +emacs
-│   ├── private
-│   ├── .spacemacs
-│   └── custom.el
-├── +hammerspoon
-│   ├── hs-hybrid
-│   ├── hs-keys
-│   ├── hs-music
-│   └── init.lua
-├── +hg
-│   └── .hgrc
-├── +iterm2
-│   └── AndrewsTermTheme.itermcolors
-├── +ruby
-│   └── .rubocop.yml
-├── +zsh
-│   ├── .zshenv
-│   ├── .zshrc
-│   ├── alias
-│   ├── functions
-│   ├── loaders
-│   └── theme
-├── .setup
-│   ├── Brewfile
-│   └── Rakefile
-├── bin
-│   ├── commands
-│   ├── generators
-│   ├── models
-│   ├── scripts
-│   ├── shared
-│   ├── dev
-│   ├── dev-copy
-│   ├── dev-port
-│   ├── dev-ports
-│   ├── gh
-│   ├── goals
-│   ├── org-goals-report
-│   └── xcode-add
-└── Rakefile
+/home/ubuntu/.dotfiles
+|-- +cvim
+|   |-- cvim_styles.css
+|   `-- cvimrc.vim
+|-- +emacs
+|   |-- private
+|   |-- .spacemacs
+|   `-- custom.el
+|-- +hammerspoon
+|   |-- hs-hybrid
+|   |-- hs-keys
+|   |-- hs-music
+|   `-- init.lua
+|-- +hg
+|   `-- .hgrc
+|-- +iterm2
+|   `-- AndrewsTermTheme.itermcolors
+|-- +ruby
+|   `-- .rubocop.yml
+|-- +zsh
+|   |-- .zshenv
+|   |-- .zshrc
+|   |-- alias
+|   |-- functions
+|   |-- loaders
+|   `-- theme
+|-- .setup
+|   |-- Brewfile
+|   `-- Rakefile
+|-- bin
+|   |-- commands
+|   |-- generators
+|   |-- models
+|   |-- scripts
+|   |-- shared
+|   |-- dev
+|   |-- dev-copy
+|   |-- dev-port
+|   |-- dev-ports
+|   |-- gh
+|   |-- goals
+|   |-- org-goals-report
+|   `-- xcode-add
+`-- Rakefile
 
 18 directories, 25 files
 

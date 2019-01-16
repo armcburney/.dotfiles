@@ -1,13 +1,13 @@
 * =/.dotfiles/+hammerspoon/hs-hybrid/includes=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/includes
+$ tree /home/ubuntu/.dotfiles/+hammerspoon/hs-hybrid/includes
 
-/Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/includes
-├── delete.lua
-├── mode.lua
-├── move.lua
-└── other.lua
+/home/ubuntu/.dotfiles/+hammerspoon/hs-hybrid/includes
+|-- delete.lua
+|-- mode.lua
+|-- move.lua
+`-- other.lua
 
 0 directories, 4 files
 

@@ -3,22 +3,25 @@ My spacemacs configuration file, YASnippet definitions, and custom elisp configu
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+emacs
+$ tree /home/ubuntu/.dotfiles/+emacs
 
-/Users/armcburney/.dotfiles/+emacs
-├── private
-│   ├── c++
-│   ├── general
-│   ├── js
-│   ├── ruby
-│   ├── scala
-│   ├── shell
-│   ├── snippets
-│   └── evil-terminal-cursor-changer.el
-├── .spacemacs
-└── custom.el
+/home/ubuntu/.dotfiles/+emacs
+|-- private
+|   |-- c++
+|   |-- general
+|   |-- js
+|   |-- local
+|   |-- ruby
+|   |-- scala
+|   |-- shell
+|   |-- snippets
+|   |-- templates
+|   |-- README.md
+|   `-- evil-terminal-cursor-changer.el
+|-- .spacemacs
+`-- custom.el
 
-8 directories, 3 files
+10 directories, 4 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/.spacemacs=

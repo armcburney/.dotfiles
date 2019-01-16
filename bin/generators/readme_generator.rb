@@ -17,7 +17,7 @@ class ReadmeGenerator
   # that corresponds with said directory.
   #
   # @param [File] dir
-  def self.generate_readme(dir, blacklisted_dirs, script: false)
+  def self.generate_readme(dir, blacklisted_dirs = [], script: false)
     return if File.file?(dir)
 
     metadata_file_path = File.join(dir, "metadata.yml")

@@ -1,10 +1,10 @@
 * =/.dotfiles/+emacs/private/ruby=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+emacs/private/ruby
+$ tree /home/ubuntu/.dotfiles/+emacs/private/ruby
 
-/Users/armcburney/.dotfiles/+emacs/private/ruby
-└── andrew-ruby.el
+/home/ubuntu/.dotfiles/+emacs/private/ruby
+`-- andrew-ruby.el
 
 0 directories, 1 file
 

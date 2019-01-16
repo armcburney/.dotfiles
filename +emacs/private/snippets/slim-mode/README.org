@@ -1,10 +1,10 @@
 * =/.dotfiles/+emacs/private/snippets/slim-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+emacs/private/snippets/slim-mode
+$ tree /home/ubuntu/.dotfiles/+emacs/private/snippets/slim-mode
 
-/Users/armcburney/.dotfiles/+emacs/private/snippets/slim-mode
-└── inc
+/home/ubuntu/.dotfiles/+emacs/private/snippets/slim-mode
+`-- inc
 
 0 directories, 1 file
 

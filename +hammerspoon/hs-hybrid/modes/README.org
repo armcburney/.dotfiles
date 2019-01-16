@@ -1,11 +1,11 @@
 * =/.dotfiles/+hammerspoon/hs-hybrid/modes=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/modes
+$ tree /home/ubuntu/.dotfiles/+hammerspoon/hs-hybrid/modes
 
-/Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/modes
-├── emacs.lua
-└── vim.lua
+/home/ubuntu/.dotfiles/+hammerspoon/hs-hybrid/modes
+|-- emacs.lua
+`-- vim.lua
 
 0 directories, 2 files
 

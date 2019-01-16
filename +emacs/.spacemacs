@@ -1,3 +1,5 @@
+;; -*- mode: emacs-lisp; lexical-binding: t -*-
+
 ;;; .spacemacs --- Configuration file for Spacemacs
 ;;
 ;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
@@ -19,7 +21,8 @@
 ;;; Code:
 
 (defun dotspacemacs/layers ()
-  "Spacemacs configuration layers."
+  "Layer configuration:
+This function should only modify configuration layer settings."
   (setq-default
    dotspacemacs-distribution 'spacemacs
    dotspacemacs-enable-lazy-installation 'unused
@@ -105,12 +108,17 @@
       ibuffer-group-buffers-by 'projects)
      (mu4e :variables
            mu4e-installation-path "/usr/share/emacs/site-lisp")
+     (multiple-cursors)
+     (neotree)
      (org
       :variables
+      org-ellipsis " ⤵"
+      org-hide-leading-stars t
       org-enable-github-support t
       org-enable-bootstrap-support t
       org-enable-org-journal-support t
-      org-journal-dir "~/me/journal/")
+      org-journal-dir "~/me/journal/"
+      )
      (osx)
      (search-engine)
      (slack)
@@ -139,21 +147,42 @@
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only))
 
-
 (defun dotspacemacs/init ()
-  "Initialization for spacemacs defaults."
+  "Initialization:
+This function is called at the very beginning of Spacemacs startup,
+before layer configuration.
+It should only modify the values of Spacemacs settings."
   (setq-default
+   dotspacemacs-enable-emacs-pdumper nil
+   dotspacemacs-emacs-pdumper-executable-file "emacs-27.0.50"
+   dotspacemacs-emacs-dumper-dump-file "spacemacs.pdmp"
    dotspacemacs-elpa-https t
    dotspacemacs-elpa-timeout 5
+   dotspacemacs-gc-cons '(100000000 0.1)
+   dotspacemacs-use-spacelpa nil
+   dotspacemacs-verify-spacelpa-archives nil
    dotspacemacs-check-for-update t
-   dotspacemacs-elpa-subdirectory nil
+   dotspacemacs-elpa-subdirectory 'emacs-version
    dotspacemacs-editing-style 'vim
-   dotspacemacs-verbose-loading nil
+   dotspacemacs-verbose-loading t
    dotspacemacs-startup-banner 'official
-   dotspacemacs-startup-lists '((todos . 5) (projects . 7))
+   dotspacemacs-startup-lists '((recents . 5)
+                                (agenda . 5)
+                                (todos . 5)
+                                (projects . 5))
    dotspacemacs-startup-buffer-responsive t
-   dotspacemacs-scratch-mode 'emacs-lisp-mode
+   dotspacemacs-scratch-mode 'org-mode
+   dotspacemacs-initial-scratch-message nil
    dotspacemacs-themes '(zerodark atom-one-dark)
+
+   ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
+   ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
+   ;; first three are spaceline themes. `doom' is the doom-emacs mode-line.
+   ;; `vanilla' is default Emacs mode-line. `custom' is a user defined themes,
+   ;; refer to the DOCUMENTATION.org for more info on how to create your own
+   ;; spaceline theme. Value can be a symbol or list with additional properties.
+   ;; (default '(spacemacs :separator wave :separator-scale 1.5))
+   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("SourceCodePro+Powerline+Awesome Regular"
                                :size 10
@@ -167,19 +196,17 @@
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    dotspacemacs-distinguish-gui-tab nil
-   dotspacemacs-remap-Y-to-y$ nil
-   dotspacemacs-retain-visual-state-on-shift t
-   dotspacemacs-visual-line-move-text nil
-   dotspacemacs-ex-substitute-global nil
    dotspacemacs-default-layout-name "Default"
    dotspacemacs-display-default-layout nil
    dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-generate-layout-names nil
    dotspacemacs-large-file-size 1
    dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-max-rollback-slots 5
    dotspacemacs-enable-paste-transient-state nil
    dotspacemacs-which-key-delay 0.4
    dotspacemacs-which-key-position 'bottom
+   dotspacemacs-switch-to-buffer-prefers-purpose nil
    dotspacemacs-loading-progress-bar t
    dotspacemacs-fullscreen-at-startup t
    dotspacemacs-fullscreen-use-non-native nil
@@ -195,36 +222,78 @@
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-highlight-delimiters 'all
+   dotspacemacs-enable-server t
+   dotspacemacs-server-socket-dir nil
    dotspacemacs-persistent-server nil
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
-   dotspacemacs-default-package-repository nil
-   dotspacemacs-whitespace-cleanup 'all))
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
 
+   ;; Format specification for setting the frame title.
+   ;; %a - the `abbreviated-file-name', or `buffer-name'
+   ;; %t - `projectile-project-name'
+   ;; %I - `invocation-name'
+   ;; %S - `system-name'
+   ;; %U - contents of $USER
+   ;; %b - buffer name
+   ;; %f - visited file name
+   ;; %F - frame name
+   ;; %s - process status
+   ;; %p - percent of buffer above top of window, or Top, Bot or All
+   ;; %P - percent of buffer above bottom of window, perhaps plus Top, or Bot or All
+   ;; %m - mode name
+   ;; %n - Narrow if appropriate
+   ;; %z - mnemonics of buffer, terminal, and keyboard coding systems
+   ;; %Z - like %z, but including the end-of-line format
+   ;; (default "%I@%S")
+   dotspacemacs-frame-title-format "%I@%S"
+   dotspacemacs-icon-title-format nil
+   dotspacemacs-whitespace-cleanup 'all
+   dotspacemacs-zone-out-when-idle nil
+   dotspacemacs-pretty-docs t))
+
+(defun dotspacemacs/user-env ()
+  "Environment variables setup.
+This function defines the environment variables for your Emacs session. By
+default it calls `spacemacs/load-spacemacs-env' which loads the environment
+variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
+See the header of this file for more information."
+  (spacemacs/load-spacemacs-env))
 
 (defun dotspacemacs/user-init ()
-  "Initialization function for user code."
+  "Initialization for user code:
+This function is called immediately after `dotspacemacs/init', before layer
+configuration.
+It is mostly for variables that should be set before packages are loaded.
+If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; Move custom-set-variables to a separate file.
   (setq custom-file
         (file-truename
          (concat "~/.dotfiles/+emacs/" "custom.el")))
   (load custom-file)
+  )
 
-  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-  (setq exec-path (append exec-path '("/usr/local/bin"))))
-
+(defun dotspacemacs/user-load ()
+  "Library to load while dumping.
+This function is called only while dumping Spacemacs configuration. You can
+`require' or `load' the libraries of your choice that will be included in the
+dump."
+  )
 
 (defun dotspacemacs/user-config ()
-  "User configuration code."
-  ;; Don't use normal startup buffer.
-  (kill-buffer "*spacemacs*")
-
-  ;; Load all code from the `/private` directory.
-  (let ((default-directory "~/.emacs.d/private/"))
-    (normal-top-level-add-subdirs-to-load-path))
+  "Configuration for user code:
+This function is called at the very end of Spacemacs startup, after layer
+configuration.
+Put your configuration code here, except for variables that should be set
+before packages are loaded."
+  ;; Fix: https://github.com/syl20bnr/spacemacs/issues/11640#issuecomment-441538099.
+  (ido-mode -1)
 
   ;; Fix: https://github.com/syl20bnr/spacemacs/issues/10316.
   (setq yas-snippet-dirs
         '("~/.emacs.d/private/snippets/"))
+
+  ;; Load all code from the `/private` directory.
+  (let ((default-directory "~/.emacs.d/private/"))
+    (normal-top-level-add-subdirs-to-load-path))
 
   (require 'andrew-company)
   (require 'andrew-global)
@@ -239,8 +308,4 @@
   (require 'andrew-ruby)
   (require 'andrew-ensime)
   (require 'andrew-shell)
-
-  ;; Run emacs as a server.
-  (server-start))
-
-;;; .spacemacs ends here.
+  )

@@ -3,10 +3,10 @@ Contains my global =.rubocop.yml= configuration file.
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+ruby
+$ tree /home/ubuntu/.dotfiles/+ruby
 
-/Users/armcburney/.dotfiles/+ruby
-└── .rubocop.yml
+/home/ubuntu/.dotfiles/+ruby
+`-- .rubocop.yml
 
 0 directories, 1 file
 

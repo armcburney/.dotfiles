@@ -1,10 +1,10 @@
 * =/.dotfiles/bin/generators=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/bin/generators
+$ tree /home/ubuntu/.dotfiles/bin/generators
 
-/Users/armcburney/.dotfiles/bin/generators
-└── readme_generator.rb
+/home/ubuntu/.dotfiles/bin/generators
+`-- readme_generator.rb
 
 0 directories, 1 file
 

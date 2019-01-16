@@ -3,49 +3,58 @@ This repo contains my `~/.emacs.d/private/` directory, which contains custom ema
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+emacs/private
+$ tree /home/ubuntu/.dotfiles/+emacs/private
 
-/Users/armcburney/.dotfiles/+emacs/private
-├── c++
-│   └── andrew-c++-style.el
-├── general
-│   ├── andrew-abbrevs.el
-│   ├── andrew-company.el
-│   ├── andrew-global.el
-│   ├── andrew-helm.el
-│   ├── andrew-org.el
-│   ├── andrew-skeletor.el
-│   ├── andrew-style.el
-│   ├── andrew-terminal.el
-│   └── andrew-transparent.el
-├── js
-│   └── andrew-javascript.el
-├── ruby
-│   └── andrew-ruby.el
-├── scala
-│   └── andrew-ensime.el
-├── shell
-│   └── andrew-shell.el
-├── snippets
-│   ├── c++-mode
-│   ├── c-mode
-│   ├── crystal-mode
-│   ├── emacs-lisp-mode
-│   ├── org-mode
-│   ├── python-mode
-│   ├── ruby-mode
-│   ├── scala-mode
-│   └── slim-mode
-└── evil-terminal-cursor-changer.el
+/home/ubuntu/.dotfiles/+emacs/private
+|-- c++
+|   `-- andrew-c++-style.el
+|-- general
+|   |-- andrew-abbrevs.el
+|   |-- andrew-company.el
+|   |-- andrew-global.el
+|   |-- andrew-helm.el
+|   |-- andrew-org.el
+|   |-- andrew-skeletor.el
+|   |-- andrew-style.el
+|   |-- andrew-terminal.el
+|   `-- andrew-transparent.el
+|-- js
+|   `-- andrew-javascript.el
+|-- local
+|   `-- README.md
+|-- ruby
+|   `-- andrew-ruby.el
+|-- scala
+|   `-- andrew-ensime.el
+|-- shell
+|   `-- andrew-shell.el
+|-- snippets
+|   |-- c++-mode
+|   |-- c-mode
+|   |-- crystal-mode
+|   |-- emacs-lisp-mode
+|   |-- org-mode
+|   |-- python-mode
+|   |-- ruby-mode
+|   |-- scala-mode
+|   |-- slim-mode
+|   `-- README.md
+|-- templates
+|   `-- README.md
+|-- README.md
+`-- evil-terminal-cursor-changer.el
 
-16 directories, 15 files
+18 directories, 19 files
 
 #+END_SRC
+*** =/.dotfiles/+emacs/private/README.md=
 *** =/.dotfiles/+emacs/private/c++=
 *** =/.dotfiles/+emacs/private/evil-terminal-cursor-changer.el=
 *** =/.dotfiles/+emacs/private/general=
 *** =/.dotfiles/+emacs/private/js=
+*** =/.dotfiles/+emacs/private/local=
 *** =/.dotfiles/+emacs/private/ruby=
 *** =/.dotfiles/+emacs/private/scala=
 *** =/.dotfiles/+emacs/private/shell=
 *** =/.dotfiles/+emacs/private/snippets=
+*** =/.dotfiles/+emacs/private/templates=

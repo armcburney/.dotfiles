@@ -1,10 +1,10 @@
 * =/.dotfiles/+emacs/private/shell=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+emacs/private/shell
+$ tree /home/ubuntu/.dotfiles/+emacs/private/shell
 
-/Users/armcburney/.dotfiles/+emacs/private/shell
-└── andrew-shell.el
+/home/ubuntu/.dotfiles/+emacs/private/shell
+`-- andrew-shell.el
 
 0 directories, 1 file
 

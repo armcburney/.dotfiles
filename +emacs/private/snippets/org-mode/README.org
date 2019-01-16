@@ -1,18 +1,18 @@
 * =/.dotfiles/+emacs/private/snippets/org-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+emacs/private/snippets/org-mode
+$ tree /home/ubuntu/.dotfiles/+emacs/private/snippets/org-mode
 
-/Users/armcburney/.dotfiles/+emacs/private/snippets/org-mode
-├── contact
-├── goal
-├── h1
-├── h2
-├── h3
-├── h4
-├── h5
-├── purchase
-└── stance
+/home/ubuntu/.dotfiles/+emacs/private/snippets/org-mode
+|-- contact
+|-- goal
+|-- h1
+|-- h2
+|-- h3
+|-- h4
+|-- h5
+|-- purchase
+`-- stance
 
 0 directories, 9 files
 

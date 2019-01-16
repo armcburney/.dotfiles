@@ -1,0 +1,12 @@
+* =/.dotfiles/+emacs/private/local=
+** Structure
+#+BEGIN_SRC bash
+$ tree /home/ubuntu/.dotfiles/+emacs/private/local
+
+/home/ubuntu/.dotfiles/+emacs/private/local
+`-- README.md
+
+0 directories, 1 file
+
+#+END_SRC
+*** =/.dotfiles/+emacs/private/local/README.md=

@@ -1,12 +1,12 @@
 * =/.dotfiles/+hammerspoon/hs-hybrid/images=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/images
+$ tree /home/ubuntu/.dotfiles/+hammerspoon/hs-hybrid/images
 
-/Users/armcburney/.dotfiles/+hammerspoon/hs-hybrid/images
-├── emacs.png
-├── hybrid.png
-└── vim.png
+/home/ubuntu/.dotfiles/+hammerspoon/hs-hybrid/images
+|-- emacs.png
+|-- hybrid.png
+`-- vim.png
 
 0 directories, 3 files
 

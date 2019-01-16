@@ -1,11 +1,11 @@
 * =/.dotfiles/+hammerspoon/hs-music/images=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+hammerspoon/hs-music/images
+$ tree /home/ubuntu/.dotfiles/+hammerspoon/hs-music/images
 
-/Users/armcburney/.dotfiles/+hammerspoon/hs-music/images
-├── iTunes.png
-└── spotify.png
+/home/ubuntu/.dotfiles/+hammerspoon/hs-music/images
+|-- iTunes.png
+`-- spotify.png
 
 0 directories, 2 files
 

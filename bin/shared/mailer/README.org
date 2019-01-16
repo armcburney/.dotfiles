@@ -1,12 +1,12 @@
 * =/.dotfiles/bin/shared/mailer=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/bin/shared/mailer
+$ tree /home/ubuntu/.dotfiles/bin/shared/mailer
 
-/Users/armcburney/.dotfiles/bin/shared/mailer
-├── emails.sample.yml
-├── mailer.rb
-└── sample.slim
+/home/ubuntu/.dotfiles/bin/shared/mailer
+|-- emails.sample.yml
+|-- mailer.rb
+`-- sample.slim
 
 0 directories, 3 files
 

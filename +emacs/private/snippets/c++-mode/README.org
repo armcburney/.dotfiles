@@ -1,12 +1,12 @@
 * =/.dotfiles/+emacs/private/snippets/c++-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+emacs/private/snippets/c++-mode
+$ tree /home/ubuntu/.dotfiles/+emacs/private/snippets/c++-mode
 
-/Users/armcburney/.dotfiles/+emacs/private/snippets/c++-mode
-├── et
-├── hdr
-└── impl
+/home/ubuntu/.dotfiles/+emacs/private/snippets/c++-mode
+|-- et
+|-- hdr
+`-- impl
 
 0 directories, 3 files
 

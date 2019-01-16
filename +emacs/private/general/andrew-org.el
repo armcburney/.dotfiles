@@ -46,13 +46,12 @@
   :after org
   :custom
   (org-agenda-dim-blocked-tasks t)
-  (org-agenda-files '("~/me/"))
+  (org-agenda-files (directory-files-recursively "~/me/" "\.org$"))
   (org-agenda-inhibit-startup t)
   (org-agenda-show-log t)
   (org-agenda-skip-deadline-if-done t)
   (org-agenda-skip-deadline-prewarning-if-scheduled 'pre-scheduled)
   (org-agenda-skip-scheduled-if-done t)
-  (org-agenda-span 2)
   (org-agenda-start-on-weekday 6)
   (org-agenda-sticky nil)
   (org-agenda-tags-column -100)
@@ -73,6 +72,7 @@
   :after org
   :custom
   (org-journal-file-format "%Y/%m/%d.org")
+  (org-journal-enable-encryption t)
   (org-journal-time-format ""))
 
 ;; Wrap lines at 80 characters in org-mode.

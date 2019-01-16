@@ -1,10 +1,10 @@
 * =/.dotfiles/+emacs/private/c++=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /Users/armcburney/.dotfiles/+emacs/private/c++
+$ tree /home/ubuntu/.dotfiles/+emacs/private/c++
 
-/Users/armcburney/.dotfiles/+emacs/private/c++
-└── andrew-c++-style.el
+/home/ubuntu/.dotfiles/+emacs/private/c++
+`-- andrew-c++-style.el
 
 0 directories, 1 file
 
