@@ -11,10 +11,11 @@ $ tree /home/ubuntu/.dotfiles/bin/scripts
 |-- gh.rb
 |-- goals.rb
 |-- org_goals_report.rb
+|-- quiz.rb
 |-- script.rb
 `-- xcode_add.rb
 
-0 directories, 9 files
+0 directories, 10 files
 
 #+END_SRC
 *** =/.dotfiles/bin/scripts/dev.rb=
@@ -24,5 +25,6 @@ $ tree /home/ubuntu/.dotfiles/bin/scripts
 *** =/.dotfiles/bin/scripts/gh.rb=
 *** =/.dotfiles/bin/scripts/goals.rb=
 *** =/.dotfiles/bin/scripts/org_goals_report.rb=
+*** =/.dotfiles/bin/scripts/quiz.rb=
 *** =/.dotfiles/bin/scripts/script.rb=
 *** =/.dotfiles/bin/scripts/xcode_add.rb=

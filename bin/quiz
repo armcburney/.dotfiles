@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+## quiz
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: Runs a quiz given a YAML file of KVPs (Question => Answer).
+#  Usage:
+#
+#    quiz </path/to/quiz.yml>
+
+require_relative "scripts/quiz"
+
+Scripts::Quiz.execute!(path: ARGV[0])

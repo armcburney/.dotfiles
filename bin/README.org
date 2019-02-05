@@ -25,6 +25,7 @@ $ tree /home/ubuntu/.dotfiles/bin
 |   |-- gh.rb
 |   |-- goals.rb
 |   |-- org_goals_report.rb
+|   |-- quiz.rb
 |   |-- script.rb
 |   `-- xcode_add.rb
 |-- shared
@@ -42,9 +43,10 @@ $ tree /home/ubuntu/.dotfiles/bin
 |-- gh
 |-- goals
 |-- org-goals-report
+|-- quiz
 `-- xcode-add
 
-6 directories, 31 files
+6 directories, 33 files
 
 #+END_SRC
 *** =/.dotfiles/bin/commands=
@@ -64,6 +66,8 @@ Opens the README.org for my goals directory.
 *** =/.dotfiles/bin/models=
 *** =/.dotfiles/bin/org-goals-report=
 Generates a new report for my goals.
+*** =/.dotfiles/bin/quiz=
+Runs a quiz given a YAML file of KVPs (Question => Answer).
 *** =/.dotfiles/bin/scripts=
 *** =/.dotfiles/bin/shared=
 *** =/.dotfiles/bin/xcode-add=

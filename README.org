@@ -47,10 +47,11 @@ $ tree /home/ubuntu/.dotfiles
 |   |-- gh
 |   |-- goals
 |   |-- org-goals-report
+|   |-- quiz
 |   `-- xcode-add
 `-- Rakefile
 
-18 directories, 25 files
+18 directories, 26 files
 
 #+END_SRC
 *** =/.dotfiles/+cvim=

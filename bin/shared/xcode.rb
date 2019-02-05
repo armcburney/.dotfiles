@@ -66,7 +66,7 @@ module XCode
       return project.targets.first if name.nil?
 
       # Find the target corresponding to the target name.
-      return project.targets.find { |t| t.name == name }
+      project.targets.find { |t| t.name == name }
     end
 
     private
