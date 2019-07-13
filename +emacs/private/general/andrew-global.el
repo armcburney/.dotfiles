@@ -25,7 +25,6 @@
 (global-company-mode t)
 (global-auto-complete-mode t)
 (global-prettify-symbols-mode t)
-(global-linum-mode t)
 (spacemacs/toggle-camel-case-motion-globally)
 (global-prettify-symbols-mode)
 

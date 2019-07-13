@@ -11,6 +11,8 @@ brew "heroku"
 brew "imagemagick"
 brew "ispell"
 brew "emacs-plus"
+brew "the_silver_searcher"
+brew "fzf"
 
 cask "dash"
 cask "google-chrome"
