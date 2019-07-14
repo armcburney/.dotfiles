@@ -42,7 +42,7 @@ namespace :dotfiles do
   desc "copies dotfiles to their appropriate locations"
   task :copy do
     system("cp #{Const::Dotfiles::Emacs::SPACEMACS_PATH} ~/")
-    system("rsync -r #{Const::Dotfiles::Emacs::PRIVATE_PATH} ~/.emacs.d/private/")
+    system("rsync -r #{Const::Dotfiles::Emacs::PRIVATE_PATH} ~/.emacs.d/")
     system("cp #{Const::Dotfiles::Zsh::RC_PATH} ~/")
     system("cp #{Const::Dotfiles::Zsh::ENV_PATH} ~/")
     system("cp #{Const::Dotfiles::Ruby::RUBOCOP_PATH} ~/")
