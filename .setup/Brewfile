@@ -13,6 +13,7 @@ brew "ispell"
 brew "emacs-plus"
 brew "the_silver_searcher"
 brew "fzf"
+brew "zsh"
 
 cask "dash"
 cask "google-chrome"

@@ -16,7 +16,13 @@ namespace :masOS do
     system("brew bundle")
   end
 
-  task all: %w[devtools brew]
+  desc "installs global gems"
+  task :gems do
+    system("gem install bundler")
+    system("bundle install --system --gemfile #{Const::Dotfiles::Setup::GLOBAL_GEMFILE_PATH}")
+  end
+
+  task all: %w[devtools brew gems]
 end
 
 namespace :install do

@@ -10,6 +10,11 @@ module Const
   module Dotfiles
     PATH = File.join(Dir.home, ".dotfiles")
 
+    module Setup
+      PATH = File.join(Dotfiles::PATH, ".setup")
+      GLOBAL_GEMFILE_PATH = File.join(PATH, "Gemfile")
+    end
+
     module Emacs
       PATH = File.join(Dotfiles::PATH, "+emacs")
       PRIVATE_PATH = File.join(PATH, "private")
