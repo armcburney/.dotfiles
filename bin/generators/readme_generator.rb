@@ -66,9 +66,9 @@ class ReadmeGenerator
   def self.append_structure_lines(dir, readme_lines)
     readme_lines << "** Structure"
     readme_lines << "#+BEGIN_SRC bash"
-    readme_lines << "$ #{tree_command(dir, with_options: false)}"
+    readme_lines << "$ #{tree_command(normalize_home_path(dir), with_options: false)}"
     readme_lines << ""
-    readme_lines << `#{tree_command(dir)}`
+    readme_lines << normalize_home_path(`#{tree_command(dir)}`)
     readme_lines << "#+END_SRC"
   end
 
@@ -105,5 +105,13 @@ class ReadmeGenerator
     readme_file_path = File.join(dir, "README.org")
     readme_content   = readme_lines.compact.join("\n")
     File.write(readme_file_path, readme_content)
+  end
+
+  # normalize_home_path substitutes any home path occurrences in text with the string "~".
+  #
+  # @param [File]          dir
+  # @param [Array[String]] readme_lines
+  def self.normalize_home_path(text)
+    text.gsub(Dir.home, "~")
   end
 end
