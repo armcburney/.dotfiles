@@ -1,10 +1,10 @@
 * =/.dotfiles/+emacs/private/snippets/crystal-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/snippets/crystal-mode
+$ tree ~/.dotfiles/+emacs/private/snippets/crystal-mode
 
-/home/ubuntu/.dotfiles/+emacs/private/snippets/crystal-mode
-`-- mod
+~/.dotfiles/+emacs/private/snippets/crystal-mode
+└── mod
 
 0 directories, 1 file
 

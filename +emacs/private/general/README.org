@@ -1,18 +1,18 @@
 * =/.dotfiles/+emacs/private/general=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/general
+$ tree ~/.dotfiles/+emacs/private/general
 
-/home/ubuntu/.dotfiles/+emacs/private/general
-|-- andrew-abbrevs.el
-|-- andrew-company.el
-|-- andrew-global.el
-|-- andrew-helm.el
-|-- andrew-org.el
-|-- andrew-skeletor.el
-|-- andrew-style.el
-|-- andrew-terminal.el
-`-- andrew-transparent.el
+~/.dotfiles/+emacs/private/general
+├── andrew-abbrevs.el
+├── andrew-company.el
+├── andrew-global.el
+├── andrew-helm.el
+├── andrew-org.el
+├── andrew-skeletor.el
+├── andrew-style.el
+├── andrew-terminal.el
+└── andrew-transparent.el
 
 0 directories, 9 files
 

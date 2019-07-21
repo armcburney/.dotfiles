@@ -1,10 +1,10 @@
 * =/.dotfiles/+hammerspoon/hs-keys=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+hammerspoon/hs-keys
+$ tree ~/.dotfiles/+hammerspoon/hs-keys
 
-/home/ubuntu/.dotfiles/+hammerspoon/hs-keys
-`-- init.lua
+~/.dotfiles/+hammerspoon/hs-keys
+└── init.lua
 
 0 directories, 1 file
 

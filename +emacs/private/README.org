@@ -3,48 +3,45 @@ This repo contains my `~/.emacs.d/private/` directory, which contains custom ema
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private
+$ tree ~/.dotfiles/+emacs/private
 
-/home/ubuntu/.dotfiles/+emacs/private
-|-- c++
-|   `-- andrew-c++-style.el
-|-- general
-|   |-- andrew-abbrevs.el
-|   |-- andrew-company.el
-|   |-- andrew-global.el
-|   |-- andrew-helm.el
-|   |-- andrew-org.el
-|   |-- andrew-skeletor.el
-|   |-- andrew-style.el
-|   |-- andrew-terminal.el
-|   `-- andrew-transparent.el
-|-- js
-|   `-- andrew-javascript.el
-|-- local
-|   `-- README.md
-|-- ruby
-|   `-- andrew-ruby.el
-|-- scala
-|   `-- andrew-ensime.el
-|-- shell
-|   `-- andrew-shell.el
-|-- snippets
-|   |-- c++-mode
-|   |-- c-mode
-|   |-- crystal-mode
-|   |-- emacs-lisp-mode
-|   |-- org-mode
-|   |-- python-mode
-|   |-- ruby-mode
-|   |-- scala-mode
-|   |-- slim-mode
-|   `-- README.md
-|-- templates
-|   `-- README.md
-|-- README.md
-`-- evil-terminal-cursor-changer.el
+~/.dotfiles/+emacs/private
+├── c++
+│   └── andrew-c++-style.el
+├── general
+│   ├── andrew-abbrevs.el
+│   ├── andrew-company.el
+│   ├── andrew-global.el
+│   ├── andrew-helm.el
+│   ├── andrew-org.el
+│   ├── andrew-skeletor.el
+│   ├── andrew-style.el
+│   ├── andrew-terminal.el
+│   └── andrew-transparent.el
+├── js
+│   └── andrew-javascript.el
+├── local
+├── ruby
+│   └── andrew-ruby.el
+├── scala
+│   └── andrew-ensime.el
+├── shell
+│   └── andrew-shell.el
+├── snippets
+│   ├── c++-mode
+│   ├── c-mode
+│   ├── crystal-mode
+│   ├── emacs-lisp-mode
+│   ├── org-mode
+│   ├── python-mode
+│   ├── ruby-mode
+│   ├── scala-mode
+│   └── slim-mode
+├── templates
+├── README.md
+└── evil-terminal-cursor-changer.el
 
-18 directories, 19 files
+18 directories, 16 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/README.md=

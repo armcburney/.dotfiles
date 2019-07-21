@@ -1,52 +1,51 @@
 * =/.dotfiles/+emacs/private/snippets=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/snippets
+$ tree ~/.dotfiles/+emacs/private/snippets
 
-/home/ubuntu/.dotfiles/+emacs/private/snippets
-|-- c++-mode
-|   |-- et
-|   |-- hdr
-|   `-- impl
-|-- c-mode
-|   `-- crtdstr
-|-- crystal-mode
-|   `-- mod
-|-- emacs-lisp-mode
-|   `-- pkg
-|-- org-mode
-|   |-- contact
-|   |-- goal
-|   |-- h1
-|   |-- h2
-|   |-- h3
-|   |-- h4
-|   |-- h5
-|   |-- purchase
-|   `-- stance
-|-- python-mode
-|   |-- class
-|   |-- cm
-|   `-- debug
-|-- ruby-mode
-|   |-- cls
-|   |-- frozen
-|   |-- init
-|   |-- log
-|   |-- pry
-|   |-- rcc
-|   |-- rdoc
-|   `-- rrrc
-|-- scala-mode
-|   `-- cls
-|-- slim-mode
-|   `-- inc
-`-- README.md
+~/.dotfiles/+emacs/private/snippets
+├── c++-mode
+│   ├── et
+│   ├── hdr
+│   └── impl
+├── c-mode
+│   └── crtdstr
+├── crystal-mode
+│   └── mod
+├── emacs-lisp-mode
+│   └── pkg
+├── org-mode
+│   ├── 1:1
+│   ├── contact
+│   ├── goal
+│   ├── h1
+│   ├── h2
+│   ├── h3
+│   ├── h4
+│   ├── h5
+│   ├── purchase
+│   └── stance
+├── python-mode
+│   ├── class
+│   ├── cm
+│   └── debug
+├── ruby-mode
+│   ├── cls
+│   ├── frozen
+│   ├── init
+│   ├── log
+│   ├── pry
+│   ├── rcc
+│   ├── rdoc
+│   └── rrrc
+├── scala-mode
+│   └── cls
+└── slim-mode
+    └── inc
 
 9 directories, 29 files
 
 #+END_SRC
-*** =/.dotfiles/+emacs/private/snippets/README.md=
 *** =/.dotfiles/+emacs/private/snippets/c++-mode=
 *** =/.dotfiles/+emacs/private/snippets/c-mode=
 *** =/.dotfiles/+emacs/private/snippets/crystal-mode=

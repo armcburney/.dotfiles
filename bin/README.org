@@ -3,48 +3,48 @@ A collection of scripts to be added to my =$PATH=.
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/bin
+$ tree ~/.dotfiles/bin
 
-/home/ubuntu/.dotfiles/bin
-|-- commands
-|   |-- command.rb
-|   |-- scp.rb
-|   `-- ssh.rb
-|-- generators
-|   `-- readme_generator.rb
-|-- models
-|   |-- array.rb
-|   |-- base.rb
-|   |-- category.rb
-|   `-- goal.rb
-|-- scripts
-|   |-- dev.rb
-|   |-- dev_copy.rb
-|   |-- dev_port.rb
-|   |-- dev_ports.rb
-|   |-- gh.rb
-|   |-- goals.rb
-|   |-- org_goals_report.rb
-|   |-- quiz.rb
-|   |-- script.rb
-|   `-- xcode_add.rb
-|-- shared
-|   |-- mailer
-|   |-- constants.rb
-|   |-- errors.rb
-|   |-- file_helpers.rb
-|   |-- org.rb
-|   |-- ui.rb
-|   `-- xcode.rb
-|-- dev
-|-- dev-copy
-|-- dev-port
-|-- dev-ports
-|-- gh
-|-- goals
-|-- org-goals-report
-|-- quiz
-`-- xcode-add
+~/.dotfiles/bin
+├── commands
+│   ├── command.rb
+│   ├── scp.rb
+│   └── ssh.rb
+├── generators
+│   └── readme_generator.rb
+├── models
+│   ├── array.rb
+│   ├── base.rb
+│   ├── category.rb
+│   └── goal.rb
+├── scripts
+│   ├── dev.rb
+│   ├── dev_copy.rb
+│   ├── dev_port.rb
+│   ├── dev_ports.rb
+│   ├── gh.rb
+│   ├── goals.rb
+│   ├── org_goals_report.rb
+│   ├── quiz.rb
+│   ├── script.rb
+│   └── xcode_add.rb
+├── shared
+│   ├── mailer
+│   ├── constants.rb
+│   ├── errors.rb
+│   ├── file_helpers.rb
+│   ├── org.rb
+│   ├── ui.rb
+│   └── xcode.rb
+├── dev
+├── dev-copy
+├── dev-port
+├── dev-ports
+├── gh
+├── goals
+├── org-goals-report
+├── quiz
+└── xcode-add
 
 6 directories, 33 files
 

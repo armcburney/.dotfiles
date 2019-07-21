@@ -1,12 +1,12 @@
 * =/.dotfiles/+emacs/private/snippets/python-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/snippets/python-mode
+$ tree ~/.dotfiles/+emacs/private/snippets/python-mode
 
-/home/ubuntu/.dotfiles/+emacs/private/snippets/python-mode
-|-- class
-|-- cm
-`-- debug
+~/.dotfiles/+emacs/private/snippets/python-mode
+├── class
+├── cm
+└── debug
 
 0 directories, 3 files
 

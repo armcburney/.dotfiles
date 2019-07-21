@@ -3,14 +3,18 @@ A =Brewfile= containing packages I use on my macOS machines, and a Rakefile to i
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/.setup
+$ tree ~/.dotfiles/.setup
 
-/home/ubuntu/.dotfiles/.setup
-|-- Brewfile
-`-- Rakefile
+~/.dotfiles/.setup
+├── Brewfile
+├── Gemfile
+├── Gemfile.lock
+└── Rakefile
 
-0 directories, 2 files
+0 directories, 4 files
 
 #+END_SRC
 *** =/.dotfiles/.setup/Brewfile=
+*** =/.dotfiles/.setup/Gemfile=
+*** =/.dotfiles/.setup/Gemfile.lock=
 *** =/.dotfiles/.setup/Rakefile=

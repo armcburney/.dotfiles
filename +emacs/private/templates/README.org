@@ -1,12 +1,10 @@
 * =/.dotfiles/+emacs/private/templates=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/templates
+$ tree ~/.dotfiles/+emacs/private/templates
 
-/home/ubuntu/.dotfiles/+emacs/private/templates
-`-- README.md
+~/.dotfiles/+emacs/private/templates
 
-0 directories, 1 file
+0 directories, 0 files
 
 #+END_SRC
-*** =/.dotfiles/+emacs/private/templates/README.md=

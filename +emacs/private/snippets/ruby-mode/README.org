@@ -1,17 +1,17 @@
 * =/.dotfiles/+emacs/private/snippets/ruby-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/snippets/ruby-mode
+$ tree ~/.dotfiles/+emacs/private/snippets/ruby-mode
 
-/home/ubuntu/.dotfiles/+emacs/private/snippets/ruby-mode
-|-- cls
-|-- frozen
-|-- init
-|-- log
-|-- pry
-|-- rcc
-|-- rdoc
-`-- rrrc
+~/.dotfiles/+emacs/private/snippets/ruby-mode
+├── cls
+├── frozen
+├── init
+├── log
+├── pry
+├── rcc
+├── rdoc
+└── rrrc
 
 0 directories, 8 files
 

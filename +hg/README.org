@@ -3,10 +3,10 @@ My mercurial version control setup, compatible with multi-term in emacs.
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+hg
+$ tree ~/.dotfiles/+hg
 
-/home/ubuntu/.dotfiles/+hg
-`-- .hgrc
+~/.dotfiles/+hg
+└── .hgrc
 
 0 directories, 1 file
 

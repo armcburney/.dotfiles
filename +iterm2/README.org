@@ -3,10 +3,10 @@ My iterm2 color configuration.
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+iterm2
+$ tree ~/.dotfiles/+iterm2
 
-/home/ubuntu/.dotfiles/+iterm2
-`-- AndrewsTermTheme.itermcolors
+~/.dotfiles/+iterm2
+└── AndrewsTermTheme.itermcolors
 
 0 directories, 1 file
 

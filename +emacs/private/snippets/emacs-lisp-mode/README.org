@@ -1,10 +1,10 @@
 * =/.dotfiles/+emacs/private/snippets/emacs-lisp-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/snippets/emacs-lisp-mode
+$ tree ~/.dotfiles/+emacs/private/snippets/emacs-lisp-mode
 
-/home/ubuntu/.dotfiles/+emacs/private/snippets/emacs-lisp-mode
-`-- pkg
+~/.dotfiles/+emacs/private/snippets/emacs-lisp-mode
+└── pkg
 
 0 directories, 1 file
 

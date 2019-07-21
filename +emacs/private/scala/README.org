@@ -1,10 +1,10 @@
 * =/.dotfiles/+emacs/private/scala=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/scala
+$ tree ~/.dotfiles/+emacs/private/scala
 
-/home/ubuntu/.dotfiles/+emacs/private/scala
-`-- andrew-ensime.el
+~/.dotfiles/+emacs/private/scala
+└── andrew-ensime.el
 
 0 directories, 1 file
 

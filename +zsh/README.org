@@ -3,15 +3,15 @@ Configuration for [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]] and a
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+zsh
+$ tree ~/.dotfiles/+zsh
 
-/home/ubuntu/.dotfiles/+zsh
-|-- .zshenv
-|-- .zshrc
-|-- alias
-|-- functions
-|-- loaders
-`-- theme
+~/.dotfiles/+zsh
+├── .zshenv
+├── .zshrc
+├── alias
+├── functions
+├── loaders
+└── theme
 
 0 directories, 6 files
 

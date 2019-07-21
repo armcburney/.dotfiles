@@ -1,22 +1,22 @@
 * =/.dotfiles/+hammerspoon/hs-hybrid=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+hammerspoon/hs-hybrid
+$ tree ~/.dotfiles/+hammerspoon/hs-hybrid
 
-/home/ubuntu/.dotfiles/+hammerspoon/hs-hybrid
-|-- images
-|   |-- emacs.png
-|   |-- hybrid.png
-|   `-- vim.png
-|-- includes
-|   |-- delete.lua
-|   |-- mode.lua
-|   |-- move.lua
-|   `-- other.lua
-|-- modes
-|   |-- emacs.lua
-|   `-- vim.lua
-`-- init.lua
+~/.dotfiles/+hammerspoon/hs-hybrid
+├── images
+│   ├── emacs.png
+│   ├── hybrid.png
+│   └── vim.png
+├── includes
+│   ├── delete.lua
+│   ├── mode.lua
+│   ├── move.lua
+│   └── other.lua
+├── modes
+│   ├── emacs.lua
+│   └── vim.lua
+└── init.lua
 
 3 directories, 10 files
 

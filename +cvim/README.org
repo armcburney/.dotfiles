@@ -3,11 +3,11 @@ My cvim configuration file and custom styles.
 
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+cvim
+$ tree ~/.dotfiles/+cvim
 
-/home/ubuntu/.dotfiles/+cvim
-|-- cvim_styles.css
-`-- cvimrc.vim
+~/.dotfiles/+cvim
+├── cvim_styles.css
+└── cvimrc.vim
 
 0 directories, 2 files
 

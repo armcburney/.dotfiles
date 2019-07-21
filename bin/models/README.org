@@ -1,13 +1,13 @@
 * =/.dotfiles/bin/models=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/bin/models
+$ tree ~/.dotfiles/bin/models
 
-/home/ubuntu/.dotfiles/bin/models
-|-- array.rb
-|-- base.rb
-|-- category.rb
-`-- goal.rb
+~/.dotfiles/bin/models
+├── array.rb
+├── base.rb
+├── category.rb
+└── goal.rb
 
 0 directories, 4 files
 

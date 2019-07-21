@@ -1,20 +1,18 @@
 * =/.dotfiles/+hammerspoon/hs-music=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+hammerspoon/hs-music
+$ tree ~/.dotfiles/+hammerspoon/hs-music
 
-/home/ubuntu/.dotfiles/+hammerspoon/hs-music
-|-- images
-|   |-- iTunes.png
-|   `-- spotify.png
-|-- README.md
-|-- album.applescript
-`-- init.lua
+~/.dotfiles/+hammerspoon/hs-music
+├── images
+│   ├── iTunes.png
+│   └── spotify.png
+├── album.applescript
+└── init.lua
 
-1 directory, 5 files
+1 directory, 4 files
 
 #+END_SRC
-*** =/.dotfiles/+hammerspoon/hs-music/README.md=
 *** =/.dotfiles/+hammerspoon/hs-music/album.applescript=
 *** =/.dotfiles/+hammerspoon/hs-music/images=
 *** =/.dotfiles/+hammerspoon/hs-music/init.lua=

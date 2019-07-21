@@ -1,19 +1,19 @@
 * =/.dotfiles/bin/shared=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/bin/shared
+$ tree ~/.dotfiles/bin/shared
 
-/home/ubuntu/.dotfiles/bin/shared
-|-- mailer
-|   |-- emails.sample.yml
-|   |-- mailer.rb
-|   `-- sample.slim
-|-- constants.rb
-|-- errors.rb
-|-- file_helpers.rb
-|-- org.rb
-|-- ui.rb
-`-- xcode.rb
+~/.dotfiles/bin/shared
+├── mailer
+│   ├── emails.sample.yml
+│   ├── mailer.rb
+│   └── sample.slim
+├── constants.rb
+├── errors.rb
+├── file_helpers.rb
+├── org.rb
+├── ui.rb
+└── xcode.rb
 
 1 directory, 9 files
 

@@ -1,10 +1,10 @@
 * =/.dotfiles/+emacs/private/snippets/scala-mode=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/snippets/scala-mode
+$ tree ~/.dotfiles/+emacs/private/snippets/scala-mode
 
-/home/ubuntu/.dotfiles/+emacs/private/snippets/scala-mode
-`-- cls
+~/.dotfiles/+emacs/private/snippets/scala-mode
+└── cls
 
 0 directories, 1 file
 

@@ -1,10 +1,10 @@
 * =/.dotfiles/+emacs/private/js=
 ** Structure
 #+BEGIN_SRC bash
-$ tree /home/ubuntu/.dotfiles/+emacs/private/js
+$ tree ~/.dotfiles/+emacs/private/js
 
-/home/ubuntu/.dotfiles/+emacs/private/js
-`-- andrew-javascript.el
+~/.dotfiles/+emacs/private/js
+└── andrew-javascript.el
 
 0 directories, 1 file
 
