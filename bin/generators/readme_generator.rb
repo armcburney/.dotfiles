@@ -109,8 +109,8 @@ class ReadmeGenerator
 
   # normalize_home_path substitutes any home path occurrences in text with the string "~".
   #
-  # @param [File]          dir
-  # @param [Array[String]] readme_lines
+  # @param  [String] text
+  # @return [String]
   def self.normalize_home_path(text)
     text.gsub(Dir.home, "~")
   end
