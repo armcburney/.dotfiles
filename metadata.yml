@@ -10,5 +10,5 @@ footer: |
 
   *2. Run the setup script.*
   #+BEGIN_SRC bash
-  cd ~/.dotfiles/.setup && rake
+  rake -f ~/.dotfiles/.setup/Rakefile
   #+END_SRC
