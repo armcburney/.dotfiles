@@ -78,6 +78,14 @@
 ;; Wrap lines at 80 characters in org-mode.
 (add-hook 'org-mode-hook #'auto-fill-mode)
 
+;; Special keys for org-mode
+(spacemacs/declare-prefix-for-mode 'org-mode "o" "custom")
+(spacemacs/set-leader-keys-for-major-mode 'org-mode "ot" 'org-insert-heading-respect-content)
+
+;; Make sure it works in journal too
+(spacemacs/declare-prefix-for-mode 'org-journal-mode "o" "custom")
+(spacemacs/set-leader-keys-for-major-mode 'org-journal-mode "ot" 'org-insert-heading-respect-content)
+
 (provide 'andrew-org)
 
 ;;; andrew-org.el ends here
