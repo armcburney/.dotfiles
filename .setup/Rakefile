@@ -3,17 +3,25 @@
 require "rake"
 require_relative "../bin/shared/constants"
 
-namespace :masOS do
+namespace :macOS do
   desc "installs macOS devtools"
   task :devtools do
     system("xcode-select --install")
   end
 
-  desc "installs brew packages"
-  task :brew do
-    system("/usr/bin/ruby -e \"$(curl -fsSL #{Const::URL::GitHub::HOMEBREW})\"")
-    system("brew tap Homebrew/bundle")
-    system("brew bundle")
+  namespace :brew do
+    desc "installs homebrew"
+    task :install do
+      system("/usr/bin/ruby -e \"$(curl -fsSL #{Const::URL::GitHub::HOMEBREW})\"")
+      system("brew tap Homebrew/bundle")
+    end
+
+    desc "installs brew packages"
+    task :bundle do
+      system("brew bundle --file=#{Const::Dotfiles::Setup::BREWFILE_PATH}")
+    end
+
+    task all: %w[install bundle]
   end
 
   desc "installs global gems"
@@ -56,3 +64,5 @@ namespace :dotfiles do
 
   task all: %w[clone copy]
 end
+
+task default: %i(macOS:all install:all dotfiles:copy)

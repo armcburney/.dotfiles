@@ -13,6 +13,7 @@ module Const
     module Setup
       PATH = File.join(Dotfiles::PATH, ".setup")
       GLOBAL_GEMFILE_PATH = File.join(PATH, "Gemfile")
+      BREWFILE_PATH = File.join(PATH, "Brewfile")
     end
 
     module Emacs
