@@ -53,16 +53,16 @@ namespace :dotfiles do
     system("git clone #{Const::URL::GitHub::DOTFILES} ~/")
   end
 
-  desc "copies dotfiles to their appropriate locations"
-  task :copy do
-    system("cp #{Const::Dotfiles::Emacs::SPACEMACS_PATH} ~/")
-    system("rsync -r #{Const::Dotfiles::Emacs::PRIVATE_PATH} ~/.emacs.d/")
-    system("cp #{Const::Dotfiles::Zsh::RC_PATH} ~/")
-    system("cp #{Const::Dotfiles::Zsh::ENV_PATH} ~/")
-    system("cp #{Const::Dotfiles::Ruby::RUBOCOP_PATH} ~/")
+  desc "links dotfiles to their appropriate locations"
+  task :links do
+    system("ln -sf #{Const::Dotfiles::Emacs::SPACEMACS_PATH} ~/.spacemacs")
+    system("ln -sfn #{Const::Dotfiles::Emacs::PRIVATE_PATH} ~/.emacs.d/")
+    system("ln -sf #{Const::Dotfiles::Zsh::RC_PATH} ~/.zshrc")
+    system("ln -sf #{Const::Dotfiles::Zsh::ENV_PATH} ~/.zshenv")
+    system("ln -sf #{Const::Dotfiles::Ruby::RUBOCOP_PATH} ~/.rubocop.yml")
   end
 
-  task all: %w[clone copy]
+  task all: %w[clone link]
 end
 
-task default: %i(macOS:all install:all dotfiles:copy)
+task default: %i(macOS:all install:all dotfiles:link)
