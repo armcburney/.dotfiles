@@ -53,6 +53,7 @@ This function should only modify configuration layer settings."
      (markdown
       :variables
       markdown-live-preview-engine 'vmd)
+     (protobuf)
      (python
       :variables
       python-enable-yapf-format-on-save t)
@@ -126,18 +127,22 @@ This function should only modify configuration layer settings."
      (spell-checking)
      (syntax-checking)
      (treemacs)
+     (vagrant)
      (version-control)
      )
 
    dotspacemacs-additional-packages
    '(ag
      flycheck-package
-     (atom-one-dark-theme
-      :location
-      (recipe :fetcher github :repo "jonathanchu/atom-one-dark-theme"))
      (zerodark-theme
       :location
       (recipe :fetcher github :repo "NicolasPetton/zerodark-theme"))
+     (atom-one-dark-theme
+      :location
+      (recipe :fetcher github :repo "jonathanchu/atom-one-dark-theme"))
+     (atom-one-light-theme
+      :location
+      (recipe :fetcher github :repo "jonathanchu/atom-one-light-theme"))
      (flycheck-ledger
       :location
       (recipe :fetcher github :repo "purcell/flycheck-ledger"))
@@ -173,7 +178,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'org-mode
    dotspacemacs-initial-scratch-message nil
-   dotspacemacs-themes '(zerodark atom-one-dark)
+   dotspacemacs-themes '(zerodark atom-one-dark atom-one-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
