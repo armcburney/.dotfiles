@@ -8,6 +8,7 @@ source ~/.dotfiles/+zsh/alias
 source ~/.dotfiles/+zsh/functions
 source ~/.dotfiles/+zsh/loaders
 source ~/.dotfiles/+zsh/theme
+source ~/.dotfiles/+zsh/private_env
 
 unsetopt nomatch
 
