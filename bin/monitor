@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+## monitor
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: A simple CLI for managing monitors using the datadog API.
+#  Usage:
+#
+#    monitor
+
+require_relative "scripts/monitor"
+
+Scripts::Monitor.execute!(command: ARGV[0])
