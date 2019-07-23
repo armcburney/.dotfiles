@@ -2,6 +2,8 @@
 # Exports
 # ******************************************************************************
 
+source ~/.dotfiles/+zsh/private_env
+
 if [ -n "$INSIDE_EMACS" ]; then
     # Use the current emacs session as the editor.
     export EDITOR="emacsclient"
@@ -30,3 +32,5 @@ export GOPATH="/Users/$(whoami)/go"
 
 # Add GOPATH binaries to PATH.
 export PATH=$PATH:$GOPATH/bin
+
+export NVM_DIR="$HOME/.nvm"
