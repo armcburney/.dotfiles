@@ -95,6 +95,7 @@ This function should only modify configuration layer settings."
       auto-completion-complete-with-key-sequence-delay 0.01
       auto-completion-private-snippets-directory t)
      (chrome)
+     (cscope)
      (dash)
      (docker)
      (emoji)
@@ -294,7 +295,9 @@ before packages are loaded."
 
   ;; Fix: https://github.com/syl20bnr/spacemacs/issues/10316.
   (setq yas-snippet-dirs
-        '("~/.emacs.d/private/snippets/"))
+        '(
+          "~/.emacs.d/private/snippets/"
+          "~/.emacs.d/private/snippets/private/"))
 
   ;; Load all code from the `/private` directory.
   (let ((default-directory "~/.emacs.d/private/"))
@@ -313,4 +316,5 @@ before packages are loaded."
   (require 'andrew-ruby)
   (require 'andrew-ensime)
   (require 'andrew-shell)
+  (require 'andrew-web)
   )
