@@ -1,10 +1,12 @@
 source "https://rubygems.org"
 
 gem "colored"
+gem "dogapi"
 gem "highline"
 gem "mail"
 gem "org-ruby"
 gem "pry"
+gem "rubocop"
 gem "slim"
 gem "tty-screen"
 gem "xcodeproj"
