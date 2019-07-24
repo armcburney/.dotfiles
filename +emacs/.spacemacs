@@ -303,6 +303,11 @@ before packages are loaded."
   (let ((default-directory "~/.emacs.d/private/"))
     (normal-top-level-add-subdirs-to-load-path))
 
+  ;; Make _ a word character for languages that use snake_case.
+  (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
   (require 'andrew-company)
   (require 'andrew-global)
   (require 'andrew-helm)
