@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "dogapi"
+require "pp"
 
 module Datadog
   class Monitor
@@ -42,7 +43,7 @@ module Datadog
     # Returns all monitors from the APi.
     def get_all
       m = dog.get_all_monitors
-      p m
+      pp m
       m
     end
   end
