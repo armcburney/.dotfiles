@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+## vc
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: Run a command on a vagrant machine.
+#  Usage:
+#
+#    vc <command>
+
+require_relative "scripts/vc"
+
+Scripts::VC.execute!(command: ARGV[0])
