@@ -7,3 +7,7 @@
 
 # Reverse image search with fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Pyenv and virtualenv.
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
