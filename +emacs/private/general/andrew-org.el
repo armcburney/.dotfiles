@@ -72,7 +72,6 @@
   :after org
   :custom
   (org-journal-file-format "%Y/%m/%d.org")
-  (org-journal-enable-encryption t)
   (org-journal-time-format ""))
 
 ;; Wrap lines at 80 characters in org-mode.
