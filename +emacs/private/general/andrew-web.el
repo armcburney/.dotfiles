@@ -24,10 +24,12 @@
 
 ;; GitHub
 
-(defun arm/github ()
+(defun arm/github (&optional repo)
   "Opens a new tab on my browser with all my pull requests for a given repo."
   (interactive)
-  (browse-url (format "https://github.com/DataDog/%s/pulls/armcburney" (read-string "Repository name: "))))
+  (if (not (equal repo nil))
+      (browse-url (format "https://github.com/DataDog/%s/pulls/armcburney" repo))
+    (browse-url (format "https://github.com/DataDog/%s/pulls/armcburney" (read-string "Repository name: ")))))
 
 ;; Product Management
 
