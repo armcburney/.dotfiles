@@ -46,7 +46,7 @@
   :after org
   :custom
   (org-agenda-dim-blocked-tasks t)
-  (org-agenda-files (directory-files-recursively "~/me/" "\.org$"))
+  (org-agenda-files (directory-files-recursively "~/me/journal/" "\.org$"))
   (org-agenda-inhibit-startup t)
   (org-agenda-show-log t)
   (org-agenda-skip-deadline-if-done t)
