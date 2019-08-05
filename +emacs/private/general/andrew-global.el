@@ -41,6 +41,14 @@
   (add-to-list 'projectile-globally-ignored-directories "__pycache__")
   )
 
+;; Runs auto-fill mode on all of the paragraphs.
+(defun fill-buffer ()
+  (interactive)
+  (save-excursion
+    (save-restriction
+      (widen)
+      (fill-region (point-min) (point-max)))))
+
 (provide 'andrew-global)
 
 ;;; andrew-global.el ends here
