@@ -33,3 +33,8 @@ alias k9='kill -9'
 alias port='lsof -i -P -n | grep'
 alias net='netstat -vanp tcp | grep'
 alias fs='foreman start'
+
+# kubernetes
+alias k='kubectl'
+alias kaa='k -n alerting-app'
+alias kci='k cluster-info'
