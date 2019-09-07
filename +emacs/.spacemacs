@@ -29,7 +29,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
-   '(
+   '(rust
      ;;; Language layers.
      (c-c++
       :variables
@@ -39,7 +39,12 @@ This function should only modify configuration layer settings."
      (emacs-lisp)
      (go
       :variables
-      go-tab-width 2)
+      go-tab-width 2
+      ;; go-backend 'lsp
+      go-format-before-save t
+      go-use-gometalinter t
+      go-use-gocheck-for-testing t
+      godoc-at-point-function 'godoc-gogetdoc)
      (html
       :variables
       set-fill-column 100)
@@ -108,6 +113,7 @@ This function should only modify configuration layer settings."
      (ibuffer
       :variables
       ibuffer-group-buffers-by 'projects)
+     (lsp)
      (mu4e :variables
            mu4e-installation-path "/usr/share/emacs/site-lisp")
      (multiple-cursors)
@@ -322,4 +328,5 @@ before packages are loaded."
   (require 'andrew-ensime)
   (require 'andrew-shell)
   (require 'andrew-web)
+  (require 'andrew-private)
   )

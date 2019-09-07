@@ -31,12 +31,10 @@
       (browse-url (format "https://github.com/DataDog/%s/pulls/armcburney" repo))
     (browse-url (format "https://github.com/DataDog/%s/pulls/armcburney" (read-string "Repository name: ")))))
 
-;; Product Management
-
-(defun arm/trello ()
-  "Opens a new tab on my browser with my trello."
+(defun arm/my-pulls ()
+  "My pull requests."
   (interactive)
-  (browse-url (getenv "WORK_TRELLO_BOARD")))
+  (browse-url "https://github.com/pulls"))
 
 ;; G Suite
 
@@ -63,13 +61,11 @@
   (browse-url "https://docs.datadoghq.com/api/?lang=ruby#overview"))
 
 ;; Create a new custom prefix for shortcuts to my important websites.
-(spacemacs/declare-prefix "o" "websites")
+(spacemacs/declare-prefix "o" "custom")
 
 ;; GitHub
 (spacemacs/set-leader-keys "og" 'arm/github)
-
-;; Product Management
-(spacemacs/set-leader-keys "ot" 'arm/trello)
+(spacemacs/set-leader-keys "op" 'arm/my-pulls)
 
 ;; G Suite
 (spacemacs/set-leader-keys "oc" 'arm/calendar)
