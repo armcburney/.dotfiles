@@ -8,3 +8,10 @@
 # Pyenv and virtualenv.
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# nvm
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+
+# Reverse image search with fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
