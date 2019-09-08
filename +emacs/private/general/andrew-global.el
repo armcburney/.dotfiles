@@ -49,6 +49,9 @@
       (widen)
       (fill-region (point-min) (point-max)))))
 
+;; Remap "SPC + l" to imenu-list function.
+(spacemacs/set-leader-keys "l" 'imenu-list)
+
 (provide 'andrew-global)
 
 ;;; andrew-global.el ends here
