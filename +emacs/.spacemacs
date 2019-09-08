@@ -141,6 +141,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages
    '(ag
      flycheck-package
+     eterm-256color
      (zerodark-theme
       :location
       (recipe :fetcher github :repo "NicolasPetton/zerodark-theme"))
@@ -313,6 +314,9 @@ before packages are loaded."
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+  (add-hook 'term-mode-hook #'eterm-256color-mode)
+  (add-hook 'shell-mode-hook #'eterm-256color-mode)
 
   (require 'andrew-company)
   (require 'andrew-global)
