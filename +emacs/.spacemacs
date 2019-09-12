@@ -315,8 +315,12 @@ before packages are loaded."
   (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
+  ;; Use eterm 256 color mode in shell.
   (add-hook 'term-mode-hook #'eterm-256color-mode)
   (add-hook 'shell-mode-hook #'eterm-256color-mode)
+
+  ;; Use old behavior for helm arrow keys.
+  (customize-set-variable 'helm-ff-lynx-style-map t)
 
   (require 'andrew-company)
   (require 'andrew-global)
@@ -333,4 +337,5 @@ before packages are loaded."
   (require 'andrew-shell)
   (require 'andrew-web)
   (require 'andrew-private)
+  (require 'andrew-python)
   )
