@@ -338,4 +338,5 @@ before packages are loaded."
   (require 'andrew-web)
   (require 'andrew-private)
   (require 'andrew-python)
+  (require 'andrew-go)
   )
