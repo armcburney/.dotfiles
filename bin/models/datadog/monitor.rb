@@ -27,19 +27,19 @@ module Model
 
     def initialize(
       type:,
+      query:,
       name:,
       message:,
-      tags:,
-      query:,
+      tags:
     )
       @type    = type
+      @query   = query
       @name    = name
       @message = message
 
       # Use a custom tag to ensure it's easy to batch delete the monitors you
       # created specifically with the API.
-      @tags    = tags + ["github:armcburney"]
-      @query   = query
+      @tags = tags.push("github:armcburney")
     end
   end
 end

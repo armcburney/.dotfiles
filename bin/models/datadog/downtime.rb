@@ -21,7 +21,7 @@ module Model
       scope:,
       start_ts:,
       end_ts:,
-      recurrence: nil,
+      recurrence: nil
     )
       @scope        = scope
       @start_ts     = start_ts

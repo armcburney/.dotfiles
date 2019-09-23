@@ -2,6 +2,7 @@
 
 require_relative "script"
 require_relative "../shared/datadog/monitor"
+require_relative "../models/datadog/monitor"
 
 module Scripts
   class Monitor < Script
@@ -16,7 +17,14 @@ module Scripts
 
       case params[:command]
       when "create"
-        service.create!
+        monitor = Model::Monitor.new(
+          type: "metric alert",
+          query: "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
+          name: "test monitor armcburney",
+          message: "test a monitor",
+          tags: ["env:test"]
+        )
+        service.create!([monitor])
       when "delete_all"
         service.delete_all!
       when "get_all"

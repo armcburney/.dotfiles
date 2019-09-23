@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+## monitor
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: A simple CLI for managing downtimes using the datadog API.
+#  Usage:
+#
+#    downtime
+
+require_relative "scripts/downtime"
+
+Scripts::Downtime.execute!(command: ARGV[0])
