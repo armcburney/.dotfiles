@@ -29,7 +29,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
-   '(rust
+   '(
      ;;; Language layers.
      (c-c++
       :variables
@@ -40,7 +40,7 @@ This function should only modify configuration layer settings."
      (go
       :variables
       go-tab-width 2
-      ;; go-backend 'lsp
+      go-backend 'lsp
       go-format-before-save t
       go-use-gometalinter t
       go-use-gocheck-for-testing t
@@ -62,12 +62,14 @@ This function should only modify configuration layer settings."
      (python
       :variables
       python-enable-yapf-format-on-save t)
+     (react)
      (ruby
       :variables
       ruby-version-manager 'rbenv
       ruby-enable-ruby-on-rails-support t
       ruby-test-runner 'rspec)
      (ruby-on-rails)
+     (rust)
      (scala
       :variables
       scala-indent:use-javadoc-style t
@@ -142,15 +144,9 @@ This function should only modify configuration layer settings."
    '(ag
      flycheck-package
      eterm-256color
-     (zerodark-theme
+     (emacs-doom-themes
       :location
-      (recipe :fetcher github :repo "NicolasPetton/zerodark-theme"))
-     (atom-one-dark-theme
-      :location
-      (recipe :fetcher github :repo "jonathanchu/atom-one-dark-theme"))
-     (atom-one-light-theme
-      :location
-      (recipe :fetcher github :repo "jonathanchu/atom-one-light-theme"))
+      (recipe :fetcher github :repo "hlissner/emacs-doom-themes"))
      (flycheck-ledger
       :location
       (recipe :fetcher github :repo "purcell/flycheck-ledger"))
@@ -186,7 +182,9 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'org-mode
    dotspacemacs-initial-scratch-message nil
-   dotspacemacs-themes '(zerodark atom-one-dark atom-one-light)
+   dotspacemacs-themes '(doom-nova
+                         doom-vibrant
+                         doom-spacegrey)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -322,6 +320,11 @@ before packages are loaded."
   ;; Use old behavior for helm arrow keys.
   (customize-set-variable 'helm-ff-lynx-style-map t)
 
+  ;; Custom lsp-ui colors.
+  (use-package lsp-ui
+    :custom-face
+    (lsp-ui-doc-background ((t (:background "#282424")))))
+
   (require 'andrew-company)
   (require 'andrew-global)
   (require 'andrew-helm)
@@ -338,5 +341,4 @@ before packages are loaded."
   (require 'andrew-web)
   (require 'andrew-private)
   (require 'andrew-python)
-  (require 'andrew-go)
   )

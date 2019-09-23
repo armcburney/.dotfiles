@@ -21,14 +21,6 @@
 ;;; Code:
 
 ;; Sets the background to transparent if emacs is being run from the terminal
-(add-hook 'after-make-frame-functions
-          '(lambda (frame)
-             (select-frame frame)
-             (if window-system
-                 nil
-               (unless (display-graphic-p (selected-frame))
-                 (set-face-background 'default "unspecified-bg" (selected-frame))))))
-
 (provide 'andrew-transparent)
 
 ;;; andrew-transparent.el ends here

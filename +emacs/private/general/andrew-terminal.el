@@ -31,7 +31,7 @@
 
 ;; Set the background to nil in terminal mode.
 (custom-set-faces (if (not window-system)
-                      '(default ((t (:background "nil"))))))
+                     '(default ((t (:background "nil"))))))
 
 ;; Terminal mode hook to limit the maximum size (for performance)
 (add-hook 'term-mode-hook
