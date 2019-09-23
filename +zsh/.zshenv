@@ -34,3 +34,5 @@ export GOPATH="/Users/$(whoami)/go"
 export PATH=$PATH:$GOPATH/bin
 
 export NVM_DIR="$HOME/.nvm"
+
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/pkgconfig/
