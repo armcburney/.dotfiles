@@ -36,5 +36,13 @@ alias fs='foreman start'
 
 # kubernetes
 alias k='kubectl'
-alias kaa='k -n alerting-app'
+alias kt='kubetail'
 alias kci='k cluster-info'
+
+# kube-fzf
+alias fp='findpod'
+alias dp='describepod'
+alias tp='tailpod'
+ep() {
+    execpod "$1" bash
+}
