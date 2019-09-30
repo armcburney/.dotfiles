@@ -13,18 +13,30 @@ module Scripts
     def self.execute!(params = {})
       Error.not_enough_arguments(2) if params[:one].nil? || params[:two].nil?
 
-      file_one_path = File.path(params[:one])
-      file_two_path = File.path(params[:two])
+      differ = Shared::JSONDiffer.new(one: params[:one], two: params[:two])
 
-      file_one = File.read(file_one_path)
-      file_two = File.read(file_two_path)
+      UI.message("Finding differences...")
+      differ.diff
+      UI.message("Found differences.")
 
-      json_one = JSON.parse(file_one)
-      json_two = JSON.parse(file_two)
+      UI.header("Summary of differences:")
+      UI.message("Additions: #{differ.additions.size}")
+      UI.message("Deletions: #{differ.deletions.size}")
+      UI.message("Similarities: #{differ.similarities.size}")
 
-      pp Hashdiff.diff(json_one, json_two)
+      return if params[:no_diff]
+
+      UI.header("Additions:")
+      pp differ.additions
+
+      UI.header("Deletions:")
+      pp differ.deletions
+
+      UI.header("Similarities:")
+      pp differ.similarities
     rescue Errno::ENOENT => e
       UI.error("Error executing command due to: #{e}")
+    rescue SystemExit, Interrupt
     end
   end
 end
