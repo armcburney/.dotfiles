@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+## diff_json
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: Diff two JSON files.
+#  Usage:
+#
+#    diff_json file_path_one.json file_path_two.json
+
+require_relative "scripts/diff_json"
+
+Scripts::DiffJSON.execute!(one: ARGV[0], two: ARGV[1])
