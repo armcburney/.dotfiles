@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+## dt
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: Converts a timestamp to date.
+#  Usage:
+#
+#    dt <timestamp>
+
+require_relative "scripts/dt"
+
+Scripts::Dt.execute!(timestamp: ARGV[0])
