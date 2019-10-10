@@ -180,7 +180,7 @@ It should only modify the values of Spacemacs settings."
                                 (todos . 5)
                                 (projects . 5))
    dotspacemacs-startup-buffer-responsive t
-   dotspacemacs-scratch-mode 'org-mode
+   dotspacemacs-scratch-mode 'markdown-mode
    dotspacemacs-initial-scratch-message nil
    dotspacemacs-themes '(doom-nova
                          doom-vibrant
