@@ -13,6 +13,22 @@ module Datadog
       @dog = Dogapi::Client.new(api_key, application_key)
     end
 
+    # Generates Downtimes using the Datadog API.
+    #
+    # @param [Integer] number: The number of downtimes to generate.
+    def generate!(number:)
+      number.times do
+        downtime = generate_downtime!
+        dog.schedule_downtime(
+          downtime.scope,
+          start: downtime.start_ts,
+          monitor_tags: downtime.monitor_tags,
+          end: downtime.end_ts,
+          recurrence: downtime.recurrence
+        )
+      end
+    end
+
     # Creates a number of Downtimes using the API.
     #
     # @param [Array[Model::Downtime]] downtimes
@@ -21,6 +37,7 @@ module Datadog
         dog.schedule_downtime(
           downtime.scope,
           start: downtime.start_ts,
+          monitor_tags: downtime.monitor_tags,
           end: downtime.end_ts,
           recurrence: downtime.recurrence
         )
@@ -28,9 +45,9 @@ module Datadog
     end
 
     # Cancels all downtimes for a particular scope using the API.
-    def delete_all!(monitor_id:)
+    def delete_all!
       downtimes = get_all[1]
-      downtime_names = downtimes.map.with_index { |m, i| "#{i + 1}: " + m["name"] }.join("\n")
+      downtime_names = downtimes.map.with_index { |m, i| "#{i + 1}: scope:#{m['scope']} | id:#{m['id']}" }.join("\n")
 
       UI.success("Warning! This will delete the following downtimes: ")
       UI.message(downtime_names)
@@ -54,6 +71,20 @@ module Datadog
       downtimes = dog.get_all_downtimes(options: options)
       pp downtimes
       downtimes
+    end
+
+    private
+
+    def generate_downtime!
+      start_ts = Time.now.to_i
+      end_ts = start_ts + (rand(1..3) * 60 * 60)
+
+      Model::Downtime.new(
+        scope: "*",
+        monitor_tags: ["github:armcburney"],
+        start_ts: start_ts,
+        end_ts: end_ts
+      )
     end
   end
 end

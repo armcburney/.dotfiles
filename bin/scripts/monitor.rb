@@ -16,6 +16,10 @@ module Scripts
       service = Datadog::Monitor.new
 
       case params[:command]
+      when "generate"
+        n = params[:n].to_i
+        Error.not_enough_arguments(2) if n.nil?
+        service.generate!(number: n)
       when "create"
         monitor = Model::Monitor.new(
           type: "metric alert",
@@ -24,7 +28,7 @@ module Scripts
           message: "test a monitor",
           tags: ["env:test"]
         )
-        service.create!([monitor])
+        service.create!(monitors: [monitor])
       when "delete_all"
         service.delete_all!
       when "get_all"

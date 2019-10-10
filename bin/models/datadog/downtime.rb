@@ -5,8 +5,11 @@ require_relative "../base"
 module Model
   # A representation of a Datadog Downtime in Ruby, for my own scripting purposes.
   class Downtime < Model::Base
-    # @return [Array[String]]
+    # @return [String]
     attr_reader :scope
+
+    # @return [Array[String]]
+    attr_reader :monitor_tags
 
     # @return [DateTime]
     attr_reader :start_ts
@@ -19,11 +22,13 @@ module Model
 
     def initialize(
       scope:,
+      monitor_tags:,
       start_ts:,
       end_ts:,
       recurrence: nil
     )
       @scope        = scope
+      @monitor_tags = monitor_tags
       @start_ts     = start_ts
       @end_ts       = end_ts
       @recurrence   = recurrence || default_recurrence

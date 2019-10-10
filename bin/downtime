@@ -10,4 +10,7 @@
 
 require_relative "scripts/downtime"
 
-Scripts::Downtime.execute!(command: ARGV[0])
+Scripts::Downtime.execute!(
+  command: ARGV[0],
+  n: ARGV[1]
+)

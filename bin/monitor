@@ -10,4 +10,7 @@
 
 require_relative "scripts/monitor"
 
-Scripts::Monitor.execute!(command: ARGV[0])
+Scripts::Monitor.execute!(
+  command: ARGV[0],
+  n: ARGV[1]
+)

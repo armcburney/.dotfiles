@@ -16,6 +16,10 @@ module Scripts
       service = Datadog::Downtime.new
 
       case params[:command]
+      when "generate"
+        n = params[:n].to_i
+        Error.not_enough_arguments(2) if n.nil?
+        service.generate!(number: n)
       when "create"
         start_ts = Time.now.to_i
         end_ts = start_ts + (3 * 60 * 60)
