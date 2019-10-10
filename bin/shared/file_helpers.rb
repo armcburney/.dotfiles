@@ -1,11 +1,27 @@
 # coding: utf-8
 # frozen_string_literal: true
 
+require "json"
 require_relative "ui"
 
 # File utility functions for my scripts.
 module FileHelpers
   module_function
+
+  # Reads a file and prints an error message if has a problem opening it.
+  #
+  # @param [String] file_path
+  # @param [Boolean] json
+  def read_file(file_path, json: false)
+    file_contents = File.read(file_path)
+    return JSON.parse(file_contents) if json
+
+    file_contents
+  rescue JSON::ParserError => e
+    UI.error("Error parsing JSON file #{file_path}! 😳\n\t#{e}")
+  rescue Errno::ENOENT => e
+    UI.error("Error reading file #{file_path}! 😳\n\t#{e}")
+  end
 
   # Opens a file with the currently running emacs instance or creates a new
   # emacs instance and opens the file if one does not exist.
