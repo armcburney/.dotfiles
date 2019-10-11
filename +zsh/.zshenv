@@ -21,6 +21,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Add helper functions to PATH.
 export PATH="$HOME/.dotfiles/bin:$PATH"
 
+# Add private helper functions to PATH.
+export PATH="$HOME/.dotfiles/bin/private:$PATH"
+
 # Added by the Heroku Toolbelt.
 export PATH="/usr/local/heroku/bin:$PATH"
 
