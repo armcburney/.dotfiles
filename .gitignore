@@ -5,7 +5,8 @@
 .DS_Store
 .vagrant/
 +zsh/private_env
-bin/scripts/private
+bin/private/
+bin/scripts/private/
 bin/shared/private/
 README.md
 
