@@ -41,6 +41,7 @@ $ tree ~/.dotfiles
 │   ├── commands
 │   ├── generators
 │   ├── models
+│   ├── private
 │   ├── scripts
 │   ├── shared
 │   ├── dev
@@ -59,7 +60,7 @@ $ tree ~/.dotfiles
 │   └── xcode-add
 └── Rakefile
 
-18 directories, 34 files
+19 directories, 34 files
 
 #+END_SRC
 *** =/.dotfiles/+cvim=
@@ -93,7 +94,7 @@ A collection of scripts to be added to my =$PATH=.
 ** Setup
 *1. Clone the repository.*
 #+BEGIN_SRC bash
-git clone https://github.com/AndrewMcBurney/.dotfiles.git
+git clone https://github.com/armcburney/.dotfiles.git ~/
 #+END_SRC
 
 *2. Run the setup script.*
