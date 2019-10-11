@@ -48,11 +48,6 @@ namespace :install do
 end
 
 namespace :dotfiles do
-  desc "clones my dotfiles repository"
-  task :clone do
-    system("git clone #{Const::URL::GitHub::DOTFILES} ~/")
-  end
-
   desc "links dotfiles to their appropriate locations"
   task :links do
     system("ln -sf #{Const::Dotfiles::Emacs::SPACEMACS_PATH} ~/.spacemacs")
@@ -62,7 +57,7 @@ namespace :dotfiles do
     system("ln -sf #{Const::Dotfiles::Ruby::RUBOCOP_PATH} ~/.rubocop.yml")
   end
 
-  task all: %w[clone link]
+  task all: %w[links]
 end
 
 task default: %i(macOS:all install:all dotfiles:link)
