@@ -5,7 +5,7 @@ require "hashdiff"
 require_relative "script"
 
 module Scripts
-  class DiffJSON < Script
+  class Diff_json < Script
     def self.description
       "Diff two JSON files."
     end

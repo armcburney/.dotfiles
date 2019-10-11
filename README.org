@@ -30,6 +30,7 @@ $ tree ~/.dotfiles
 │   ├── alias
 │   ├── functions
 │   ├── loaders
+│   ├── private_env
 │   └── theme
 ├── .setup
 │   ├── Brewfile
@@ -46,14 +47,19 @@ $ tree ~/.dotfiles
 │   ├── dev-copy
 │   ├── dev-port
 │   ├── dev-ports
+│   ├── diff_json
+│   ├── downtime
+│   ├── dt
 │   ├── gh
 │   ├── goals
+│   ├── monitor
 │   ├── org-goals-report
 │   ├── quiz
+│   ├── vc
 │   └── xcode-add
 └── Rakefile
 
-18 directories, 28 files
+18 directories, 34 files
 
 #+END_SRC
 *** =/.dotfiles/+cvim=
@@ -87,10 +93,10 @@ A collection of scripts to be added to my =$PATH=.
 ** Setup
 *1. Clone the repository.*
 #+BEGIN_SRC bash
-git clone https://github.com/armcburney/.dotfiles.git
+git clone https://github.com/AndrewMcBurney/.dotfiles.git
 #+END_SRC
 
 *2. Run the setup script.*
 #+BEGIN_SRC bash
-cd ~/.dotfiles/.setup && rake
+rake -f ~/.dotfiles/.setup/Rakefile
 #+END_SRC

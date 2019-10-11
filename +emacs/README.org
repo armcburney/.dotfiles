@@ -9,8 +9,10 @@ $ tree ~/.dotfiles/+emacs
 ├── private
 │   ├── c++
 │   ├── general
+│   ├── golang
 │   ├── js
 │   ├── local
+│   ├── python
 │   ├── ruby
 │   ├── scala
 │   ├── shell
@@ -21,7 +23,7 @@ $ tree ~/.dotfiles/+emacs
 ├── .spacemacs
 └── custom.el
 
-10 directories, 4 files
+12 directories, 4 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/.spacemacs=

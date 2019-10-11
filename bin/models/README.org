@@ -4,15 +4,19 @@
 $ tree ~/.dotfiles/bin/models
 
 ~/.dotfiles/bin/models
+├── datadog
+│   ├── downtime.rb
+│   └── monitor.rb
 ├── array.rb
 ├── base.rb
 ├── category.rb
 └── goal.rb
 
-0 directories, 4 files
+1 directory, 6 files
 
 #+END_SRC
 *** =/.dotfiles/bin/models/array.rb=
 *** =/.dotfiles/bin/models/base.rb=
 *** =/.dotfiles/bin/models/category.rb=
+*** =/.dotfiles/bin/models/datadog=
 *** =/.dotfiles/bin/models/goal.rb=

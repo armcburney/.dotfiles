@@ -4,7 +4,6 @@
 $ tree ~/.dotfiles/+emacs/private/snippets/org-mode
 
 ~/.dotfiles/+emacs/private/snippets/org-mode
-├── 1:1
 ├── contact
 ├── goal
 ├── h1
@@ -15,10 +14,9 @@ $ tree ~/.dotfiles/+emacs/private/snippets/org-mode
 ├── purchase
 └── stance
 
-0 directories, 10 files
+0 directories, 9 files
 
 #+END_SRC
-*** =/.dotfiles/+emacs/private/snippets/org-mode/1:1=
 *** =/.dotfiles/+emacs/private/snippets/org-mode/contact=
 *** =/.dotfiles/+emacs/private/snippets/org-mode/goal=
 *** =/.dotfiles/+emacs/private/snippets/org-mode/h1=

@@ -4,24 +4,33 @@
 $ tree ~/.dotfiles/bin/shared
 
 ~/.dotfiles/bin/shared
+├── datadog
+│   ├── downtime.rb
+│   └── monitor.rb
 ├── mailer
 │   ├── emails.sample.yml
 │   ├── mailer.rb
 │   └── sample.slim
+├── private
+│   └── datadog
 ├── constants.rb
 ├── errors.rb
 ├── file_helpers.rb
+├── json_differ.rb
 ├── org.rb
 ├── ui.rb
 └── xcode.rb
 
-1 directory, 9 files
+4 directories, 12 files
 
 #+END_SRC
 *** =/.dotfiles/bin/shared/constants.rb=
+*** =/.dotfiles/bin/shared/datadog=
 *** =/.dotfiles/bin/shared/errors.rb=
 *** =/.dotfiles/bin/shared/file_helpers.rb=
+*** =/.dotfiles/bin/shared/json_differ.rb=
 *** =/.dotfiles/bin/shared/mailer=
 *** =/.dotfiles/bin/shared/org.rb=
+*** =/.dotfiles/bin/shared/private=
 *** =/.dotfiles/bin/shared/ui.rb=
 *** =/.dotfiles/bin/shared/xcode.rb=

@@ -10,4 +10,4 @@
 
 require_relative "scripts/diff_json"
 
-Scripts::DiffJSON.execute!(one: ARGV[0], two: ARGV[1], no_diff: ARGV[2])
+Scripts::Diff_json.execute!(one: ARGV[0], two: ARGV[1], no_diff: ARGV[2])

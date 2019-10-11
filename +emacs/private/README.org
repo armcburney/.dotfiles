@@ -14,13 +14,18 @@ $ tree ~/.dotfiles/+emacs/private
 │   ├── andrew-global.el
 │   ├── andrew-helm.el
 │   ├── andrew-org.el
+│   ├── andrew-private.el
 │   ├── andrew-skeletor.el
 │   ├── andrew-style.el
 │   ├── andrew-terminal.el
-│   └── andrew-transparent.el
+│   ├── andrew-transparent.el
+│   └── andrew-web.el
+├── golang
 ├── js
 │   └── andrew-javascript.el
 ├── local
+├── python
+│   └── andrew-python.el
 ├── ruby
 │   └── andrew-ruby.el
 ├── scala
@@ -33,6 +38,7 @@ $ tree ~/.dotfiles/+emacs/private
 │   ├── crystal-mode
 │   ├── emacs-lisp-mode
 │   ├── org-mode
+│   ├── private
 │   ├── python-mode
 │   ├── ruby-mode
 │   ├── scala-mode
@@ -41,15 +47,17 @@ $ tree ~/.dotfiles/+emacs/private
 ├── README.md
 └── evil-terminal-cursor-changer.el
 
-18 directories, 16 files
+21 directories, 19 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/README.md=
 *** =/.dotfiles/+emacs/private/c++=
 *** =/.dotfiles/+emacs/private/evil-terminal-cursor-changer.el=
 *** =/.dotfiles/+emacs/private/general=
+*** =/.dotfiles/+emacs/private/golang=
 *** =/.dotfiles/+emacs/private/js=
 *** =/.dotfiles/+emacs/private/local=
+*** =/.dotfiles/+emacs/private/python=
 *** =/.dotfiles/+emacs/private/ruby=
 *** =/.dotfiles/+emacs/private/scala=
 *** =/.dotfiles/+emacs/private/shell=

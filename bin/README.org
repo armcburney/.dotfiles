@@ -9,30 +9,41 @@ $ tree ~/.dotfiles/bin
 ├── commands
 │   ├── command.rb
 │   ├── scp.rb
-│   └── ssh.rb
+│   ├── ssh.rb
+│   └── vagrant_ssh.rb
 ├── generators
 │   └── readme_generator.rb
 ├── models
+│   ├── datadog
 │   ├── array.rb
 │   ├── base.rb
 │   ├── category.rb
 │   └── goal.rb
 ├── scripts
+│   ├── private
 │   ├── dev.rb
 │   ├── dev_copy.rb
 │   ├── dev_port.rb
 │   ├── dev_ports.rb
+│   ├── diff_json.rb
+│   ├── downtime.rb
+│   ├── dt.rb
 │   ├── gh.rb
 │   ├── goals.rb
+│   ├── monitor.rb
 │   ├── org_goals_report.rb
 │   ├── quiz.rb
 │   ├── script.rb
+│   ├── vc.rb
 │   └── xcode_add.rb
 ├── shared
+│   ├── datadog
 │   ├── mailer
+│   ├── private
 │   ├── constants.rb
 │   ├── errors.rb
 │   ├── file_helpers.rb
+│   ├── json_differ.rb
 │   ├── org.rb
 │   ├── ui.rb
 │   └── xcode.rb
@@ -40,13 +51,18 @@ $ tree ~/.dotfiles/bin
 ├── dev-copy
 ├── dev-port
 ├── dev-ports
+├── diff_json
+├── downtime
+├── dt
 ├── gh
 ├── goals
+├── monitor
 ├── org-goals-report
 ├── quiz
+├── vc
 └── xcode-add
 
-6 directories, 33 files
+10 directories, 45 files
 
 #+END_SRC
 *** =/.dotfiles/bin/commands=
@@ -58,17 +74,27 @@ Copy a directory from my workstation to my local machine.
 Forwards a port from my workstation to my local machine.
 *** =/.dotfiles/bin/dev-ports=
 Forwards a number of ports from my workstation to my local machine.
+*** =/.dotfiles/bin/diff_json=
+Diff two JSON files.
+*** =/.dotfiles/bin/downtime=
+A simple CLI for managing downtimes using the datadog API.
+*** =/.dotfiles/bin/dt=
+Converts a timestamp to date.
 *** =/.dotfiles/bin/generators=
 *** =/.dotfiles/bin/gh=
 Opens a project in the ~/gh directory interactively.
 *** =/.dotfiles/bin/goals=
 Opens the README.org for my goals directory.
 *** =/.dotfiles/bin/models=
+*** =/.dotfiles/bin/monitor=
+A simple CLI for managing monitors using the datadog API.
 *** =/.dotfiles/bin/org-goals-report=
 Generates a new report for my goals.
 *** =/.dotfiles/bin/quiz=
 Runs a quiz given a YAML file of KVPs (Question => Answer).
 *** =/.dotfiles/bin/scripts=
 *** =/.dotfiles/bin/shared=
+*** =/.dotfiles/bin/vc=
+Run a command on a vagrant machine.
 *** =/.dotfiles/bin/xcode-add=
 Adds a file or directory to an XCode group for a given project path.

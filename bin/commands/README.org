@@ -6,11 +6,13 @@ $ tree ~/.dotfiles/bin/commands
 ~/.dotfiles/bin/commands
 ├── command.rb
 ├── scp.rb
-└── ssh.rb
+├── ssh.rb
+└── vagrant_ssh.rb
 
-0 directories, 3 files
+0 directories, 4 files
 
 #+END_SRC
 *** =/.dotfiles/bin/commands/command.rb=
 *** =/.dotfiles/bin/commands/scp.rb=
 *** =/.dotfiles/bin/commands/ssh.rb=
+*** =/.dotfiles/bin/commands/vagrant_ssh.rb=

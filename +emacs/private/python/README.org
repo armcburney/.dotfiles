@@ -1,0 +1,12 @@
+* =/.dotfiles/+emacs/private/python=
+** Structure
+#+BEGIN_SRC bash
+$ tree ~/.dotfiles/+emacs/private/python
+
+~/.dotfiles/+emacs/private/python
+└── andrew-python.el
+
+0 directories, 1 file
+
+#+END_SRC
+*** =/.dotfiles/+emacs/private/python/andrew-python.el=

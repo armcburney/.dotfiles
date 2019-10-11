@@ -3,7 +3,7 @@
 require_relative "script"
 
 module Scripts
-  class VC < Script
+  class Vc < Script
     def self.description
       "Run a command on a vagrant machine."
     end

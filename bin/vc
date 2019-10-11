@@ -10,4 +10,4 @@
 
 require_relative "scripts/vc"
 
-Scripts::VC.execute!(command: ARGV[0])
+Scripts::Vc.execute!(command: ARGV[0])
