@@ -5,7 +5,7 @@ footer: |
   ** Setup
   *1. Clone the repository.*
   #+BEGIN_SRC bash
-  git clone https://github.com/armcburney/.dotfiles.git
+  git clone https://github.com/armcburney/.dotfiles.git ~/
   #+END_SRC
 
   *2. Run the setup script.*
