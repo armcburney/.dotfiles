@@ -60,4 +60,8 @@ namespace :dotfiles do
   task all: %w[links]
 end
 
-task default: %i(macOS:all install:all dotfiles:link)
+if ENV["MAC_OS"]
+  task default: %i(macOS:all install:all dotfiles:all)
+else
+  task default: %i(install:all dotfiles:all)
+end
