@@ -8,6 +8,7 @@
 bin/private/
 bin/scripts/private/
 bin/shared/private/
+bin/models/private/
 README.md
 
 andrew-private.el
