@@ -9,7 +9,6 @@ $ tree ~/.dotfiles/+emacs
 ├── private
 │   ├── c++
 │   ├── general
-│   ├── golang
 │   ├── js
 │   ├── local
 │   ├── python
@@ -23,7 +22,7 @@ $ tree ~/.dotfiles/+emacs
 ├── .spacemacs
 └── custom.el
 
-12 directories, 4 files
+11 directories, 4 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/.spacemacs=
@@ -33,4 +32,4 @@ My .spacemacs configuration file.
 My emacs custom-set variables file.
 
 *** =/.dotfiles/+emacs/private=
-This repo contains my `~/.emacs.d/private/` directory, which contains custom emacs lisp for my emacs configuration, and YASnippet embedded lisp snippets for boilerplate templating.
+This repo contains my =~/.emacs.d/private/= directory, which contains custom emacs lisp for my emacs configuration, and YASnippet embedded lisp snippets for boilerplate templating.

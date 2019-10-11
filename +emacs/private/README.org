@@ -1,5 +1,5 @@
 * =/.dotfiles/+emacs/private=
-This repo contains my `~/.emacs.d/private/` directory, which contains custom emacs lisp for my emacs configuration, and YASnippet embedded lisp snippets for boilerplate templating.
+This repo contains my =~/.emacs.d/private/= directory, which contains custom emacs lisp for my emacs configuration, and YASnippet embedded lisp snippets for boilerplate templating.
 
 ** Structure
 #+BEGIN_SRC bash
@@ -20,7 +20,6 @@ $ tree ~/.dotfiles/+emacs/private
 │   ├── andrew-terminal.el
 │   ├── andrew-transparent.el
 │   └── andrew-web.el
-├── golang
 ├── js
 │   └── andrew-javascript.el
 ├── local
@@ -47,14 +46,13 @@ $ tree ~/.dotfiles/+emacs/private
 ├── README.md
 └── evil-terminal-cursor-changer.el
 
-21 directories, 19 files
+20 directories, 19 files
 
 #+END_SRC
 *** =/.dotfiles/+emacs/private/README.md=
 *** =/.dotfiles/+emacs/private/c++=
 *** =/.dotfiles/+emacs/private/evil-terminal-cursor-changer.el=
 *** =/.dotfiles/+emacs/private/general=
-*** =/.dotfiles/+emacs/private/golang=
 *** =/.dotfiles/+emacs/private/js=
 *** =/.dotfiles/+emacs/private/local=
 *** =/.dotfiles/+emacs/private/python=

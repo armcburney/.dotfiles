@@ -102,4 +102,6 @@ git clone https://github.com/armcburney/.dotfiles.git ~/
 MAC_OS=true rake -f ~/.dotfiles/.setup/Rakefile
 #+END_SRC
 
-> NOTE: This will install ZSH, Spacemacs, Homebrew, Bundler. If you have dotfiles currently in the =~/.zshrc=, =~/.spacemacs=, =~/.emacs.d/= paths, *they will be overwritten by running this script.*
+#+BEGIN_QUOTE
+NOTE: This will install ZSH, Spacemacs, Homebrew, Bundler. If you have dotfiles currently in the =~/.zshrc=, =~/.spacemacs=, =~/.emacs.d/= paths, *they will be overwritten by running this script.*
+#+END_QUOTE
