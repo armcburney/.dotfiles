@@ -41,6 +41,13 @@
   (add-to-list 'projectile-globally-ignored-directories "__pycache__")
   )
 
+;; Hack for weird evil state bug I don't wanna solve.
+(defun bruh-moment ()
+  "bruh moment"
+  (interactive)
+  (turn-off-evil-mode)
+  (turn-on-evil-mode))
+
 ;; Runs auto-fill mode on all of the paragraphs.
 (defun fill-buffer ()
   (interactive)
