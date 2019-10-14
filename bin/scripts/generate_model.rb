@@ -13,7 +13,11 @@ module Scripts
       Error.not_enough_arguments(1) if params[:name].nil?
 
       generator = Generators::ModelGenerator.new
-      generator.generate!(params[:name], params[:parameters] || [])
+      generator.generate!(
+        params[:name],
+        params[:private_model],
+        params[:parameters] || []
+      )
     end
   end
 end

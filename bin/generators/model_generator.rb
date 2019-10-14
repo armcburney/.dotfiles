@@ -4,14 +4,19 @@ require_relative "base"
 
 module Generators
   class ModelGenerator < Generators::BaseGenerator
-    def generate!(file_name, parameters)
+    def generate!(file_name, private_model, parameters)
       class_name = file_name.split("_").map(&:capitalize).join
       file_contents = file_template(class_name, parameters)
-      file_path = File.join(Dir.home, ".dotfiles/bin/models", "#{file_name}.rb")
-      FileHelpers.write_file(file_path, file_contents)
+      FileHelpers.write_file(file_path(file_name, private_model), file_contents)
     end
 
     private
+
+    def file_path(file_name, private_model)
+      return File.join(Dir.home, ".dotfiles/bin/models", "#{file_name}.rb") unless private_model
+
+      File.join(Dir.home, ".dotfiles/bin/models/private", "#{file_name}.rb")
+    end
 
     def file_template(class_name, parameters)
       attr_readers = parameters

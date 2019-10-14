@@ -6,8 +6,12 @@
 #  Description: Generates a new model.
 #  Usage:
 #
-#    generate_model
+#    generate_model name_of_model <true|false> ...
 
 require_relative "scripts/generate_model"
 
-Scripts::Generate_model.execute!(name: ARGV[0], parameters: ARGV[1..-1]&.map(&:to_s))
+Scripts::Generate_model.execute!(
+  name: ARGV[0],
+  private_model: ARGV[1] == "true",
+  parameters: ARGV[2..-1]&.map(&:to_s)
+)
