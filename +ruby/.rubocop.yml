@@ -1,6 +1,9 @@
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
 Metrics/BlockLength:
   CountComments: false
   Max: 25
