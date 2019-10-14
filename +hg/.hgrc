@@ -1,6 +1,0 @@
-[ui]
-username = armcburney
-merge = emacs
-
-[merge-tools]
-emacsclient.args = -q --eval "(ediff-merge-with-ancestor \""$local"\" \""$other"\" \""$base"\" nil \""$output"\")"
