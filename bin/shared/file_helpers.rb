@@ -8,6 +8,16 @@ require_relative "ui"
 module FileHelpers
   module_function
 
+  # Writes a file to a path and prints an error message if has a problem writing it.
+  #
+  # @param [String] file_path
+  # @param [String] file_content
+  def write_file(file_path, file_contents)
+    File.write(file_path, file_contents)
+  rescue Errno::ENOENT => e
+    UI.error("Error writing file #{file_path}! 😳\n\t#{e}")
+  end
+
   # Reads a file and prints an error message if has a problem opening it.
   #
   # @param [String] file_path

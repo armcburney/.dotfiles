@@ -12,13 +12,18 @@ $ tree ~/.dotfiles/bin
 │   ├── ssh.rb
 │   └── vagrant_ssh.rb
 ├── generators
+│   ├── base.rb
+│   ├── model_generator.rb
 │   └── readme_generator.rb
 ├── models
 │   ├── datadog
+│   ├── private
 │   ├── array.rb
 │   ├── base.rb
 │   ├── category.rb
 │   └── goal.rb
+├── private
+│   └── es_transitions
 ├── scripts
 │   ├── private
 │   ├── dev.rb
@@ -28,6 +33,7 @@ $ tree ~/.dotfiles/bin
 │   ├── diff_json.rb
 │   ├── downtime.rb
 │   ├── dt.rb
+│   ├── generate_model.rb
 │   ├── gh.rb
 │   ├── goals.rb
 │   ├── monitor.rb
@@ -54,6 +60,7 @@ $ tree ~/.dotfiles/bin
 ├── diff_json
 ├── downtime
 ├── dt
+├── generate_model
 ├── gh
 ├── goals
 ├── monitor
@@ -62,7 +69,7 @@ $ tree ~/.dotfiles/bin
 ├── vc
 └── xcode-add
 
-10 directories, 45 files
+12 directories, 50 files
 
 #+END_SRC
 *** =/.dotfiles/bin/commands=
@@ -80,6 +87,8 @@ Diff two JSON files.
 A simple CLI for managing downtimes using the datadog API.
 *** =/.dotfiles/bin/dt=
 Converts a timestamp to date.
+*** =/.dotfiles/bin/generate_model=
+Generates a new model.
 *** =/.dotfiles/bin/generators=
 *** =/.dotfiles/bin/gh=
 Opens a project in the ~/gh directory interactively.
@@ -90,6 +99,7 @@ Opens the README.org for my goals directory.
 A simple CLI for managing monitors using the datadog API.
 *** =/.dotfiles/bin/org-goals-report=
 Generates a new report for my goals.
+*** =/.dotfiles/bin/private=
 *** =/.dotfiles/bin/quiz=
 Runs a quiz given a YAML file of KVPs (Question => Answer).
 *** =/.dotfiles/bin/scripts=

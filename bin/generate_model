@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+## generate_model
+#
+#  Author: Andrew Robert McBurney <andrewrobertmcburney@gmail.com>
+#  Description: Generates a new model.
+#  Usage:
+#
+#    generate_model
+
+require_relative "scripts/generate_model"
+
+Scripts::Generate_model.execute!(name: ARGV[0], parameters: ARGV[1..-1]&.map(&:to_s))

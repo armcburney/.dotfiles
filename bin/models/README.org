@@ -7,12 +7,15 @@ $ tree ~/.dotfiles/bin/models
 ├── datadog
 │   ├── downtime.rb
 │   └── monitor.rb
+├── private
+│   ├── elasticsearch_document.rb
+│   └── elasticsearch_uptime_document.rb
 ├── array.rb
 ├── base.rb
 ├── category.rb
 └── goal.rb
 
-1 directory, 6 files
+2 directories, 8 files
 
 #+END_SRC
 *** =/.dotfiles/bin/models/array.rb=
@@ -20,3 +23,4 @@ $ tree ~/.dotfiles/bin/models
 *** =/.dotfiles/bin/models/category.rb=
 *** =/.dotfiles/bin/models/datadog=
 *** =/.dotfiles/bin/models/goal.rb=
+*** =/.dotfiles/bin/models/private=

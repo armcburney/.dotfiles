@@ -4,9 +4,13 @@
 $ tree ~/.dotfiles/bin/generators
 
 ~/.dotfiles/bin/generators
+├── base.rb
+├── model_generator.rb
 └── readme_generator.rb
 
-0 directories, 1 file
+0 directories, 3 files
 
 #+END_SRC
+*** =/.dotfiles/bin/generators/base.rb=
+*** =/.dotfiles/bin/generators/model_generator.rb=
 *** =/.dotfiles/bin/generators/readme_generator.rb=

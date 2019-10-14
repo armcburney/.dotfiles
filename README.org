@@ -51,6 +51,7 @@ $ tree ~/.dotfiles
 │   ├── diff_json
 │   ├── downtime
 │   ├── dt
+│   ├── generate_model
 │   ├── gh
 │   ├── goals
 │   ├── monitor
@@ -60,7 +61,7 @@ $ tree ~/.dotfiles
 │   └── xcode-add
 └── Rakefile
 
-19 directories, 34 files
+19 directories, 35 files
 
 #+END_SRC
 *** =/.dotfiles/+cvim=

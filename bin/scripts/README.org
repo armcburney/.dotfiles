@@ -13,6 +13,7 @@ $ tree ~/.dotfiles/bin/scripts
 ├── diff_json.rb
 ├── downtime.rb
 ├── dt.rb
+├── generate_model.rb
 ├── gh.rb
 ├── goals.rb
 ├── monitor.rb
@@ -22,7 +23,7 @@ $ tree ~/.dotfiles/bin/scripts
 ├── vc.rb
 └── xcode_add.rb
 
-1 directory, 16 files
+1 directory, 17 files
 
 #+END_SRC
 *** =/.dotfiles/bin/scripts/dev.rb=
@@ -32,6 +33,7 @@ $ tree ~/.dotfiles/bin/scripts
 *** =/.dotfiles/bin/scripts/diff_json.rb=
 *** =/.dotfiles/bin/scripts/downtime.rb=
 *** =/.dotfiles/bin/scripts/dt.rb=
+*** =/.dotfiles/bin/scripts/generate_model.rb=
 *** =/.dotfiles/bin/scripts/gh.rb=
 *** =/.dotfiles/bin/scripts/goals.rb=
 *** =/.dotfiles/bin/scripts/monitor.rb=
