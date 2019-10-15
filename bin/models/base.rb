@@ -19,12 +19,15 @@ module Model
     #
     # @param [String]
     # @return [Model]
-    def self.deserialize!(json)
-      params = JSON.parse(json).reduce({}) do |hash, (var, val)|
-        hash.merge(var.to_sym => deserialize_ival!(val))
+    def self.deserialize!(json, parsed: false)
+      json = JSON.parse(json) unless parsed
+      params = json.reduce({}) do |hash, (var, val)|
+        hash.merge(var.to_sym => deserialize_ival!(val, parsed: parsed))
       end
 
       type = params[:type]
+      return new(**params) if type.nil?
+
       params.delete(:type)
       Object.const_get(type).new(**params)
     end
@@ -46,14 +49,14 @@ module Model
 
     # @param [String]
     # @return [Object]
-    def self.deserialize_ival!(val)
+    def self.deserialize_ival!(val, parsed: false)
       return nil if val.nil?
 
       case val
       when Array
-        val.map { |v| deserialize!(v) }
+        val.map { |v| deserialize_ival!(v, parsed: parsed) }
       when Hash
-        deserialize!(val)
+        val
       else
         val
       end
