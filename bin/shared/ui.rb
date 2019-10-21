@@ -19,8 +19,8 @@ module UI
     $stdout.sync = true
     @log ||= Logger.new($stdout)
 
-    @log.formatter = proc do |_, datetime, _, msg|
-      "#{format_string(datetime)}#{msg}\n"
+    @log.formatter = proc do |_, _, _, msg|
+      "#{msg}\n"
     end
 
     @log
