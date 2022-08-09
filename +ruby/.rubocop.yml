@@ -1,21 +1,61 @@
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
-
-Style/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Metrics/BlockLength:
-  CountComments: false
-  Max: 25
-  ExcludedMethods: []
-
-Metrics/BlockNesting:
-  CountBlocks: false
-  Max: 3
-
-Metrics/ClassLength:
-  CountComments: false
-  Max: 100
+AllCops:
+  TargetRubyVersion: 2.6
+  Include:
+    - 'lib/**/*.rb'
+    - 'test/**/*.rb'
+    - 'spec/**/*.rb'
+    - 'Gemfile'
+    - 'Rakefile'
+  Exclude:
+    - 'Appraisals'
+    - '*.gemspec'
+    - 'lib/ddtrace/vendor/**/*.rb'
 
 Metrics/LineLength:
-  Max: 120
+  Max: 80
+
+Metrics/AbcSize:
+  Max: 50
+
+Metrics/MethodLength:
+  Max: 36
+
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: never
+
+Metrics/ClassLength:
+  Max: 140
+
+Metrics/BlockLength:
+  Max: 42
+  Exclude:
+    - test/**/*
+    - spec/**/*
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false

@@ -56,6 +56,15 @@
       (widen)
       (fill-region (point-min) (point-max)))))
 
+(defun save-buffer-without-black ()
+  (interactive)
+  (let ((b (current-buffer)))   ; memorize the buffer
+    (with-temp-buffer ; new temp buffer to bind the global value of before-save-hook
+      (let ((before-save-hook (remove 'blacken-buffer before-save-hook)))
+        (with-current-buffer b  ; go back to the current buffer, before-save-hook is now buffer-local
+          (let ((before-save-hook (remove 'blacken-buffer before-save-hook)))
+            (save-buffer)))))))
+
 ;; Remap "SPC + l" to imenu-list function.
 (spacemacs/set-leader-keys "l" 'imenu-list)
 
