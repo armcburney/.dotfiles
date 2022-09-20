@@ -33,6 +33,17 @@ namespace :macOS do
   task all: %w[devtools brew:all gems]
 end
 
+namespace :linux do
+  task :packages do
+    system("sudo apt remove --autoremove emacs emacs-common")
+    system("sudo add-apt-repository ppa:kelleyk/emacs")
+    system("sudo apt update")
+    system("sudo apt install emacs28")
+  end
+
+  task all: %w[packages]
+end
+
 namespace :install do
   desc "install zsh"
   task :zsh do
@@ -41,7 +52,9 @@ namespace :install do
 
   desc "clone spacemacs"
   task :spacemacs do
+    system("rm -rf ~/.emacs.d/")
     system("git clone #{Const::URL::GitHub::SPACEMACS} ~/.emacs.d")
+    system("rm -rf ~/.emacs.d/private/")
   end
 
   task all: %w[zsh spacemacs]
@@ -63,5 +76,5 @@ end
 if ENV["MAC_OS"]
   task default: %i(macOS:all install:all dotfiles:all)
 else
-  task default: %i(install:all dotfiles:all)
+  task default: %i(linux:all install:all dotfiles:all)
 end
